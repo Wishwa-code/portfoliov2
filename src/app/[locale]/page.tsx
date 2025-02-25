@@ -6,7 +6,7 @@ import { Projects } from '@/components/work/Projects';
 import { baseURL, routes, renderContent } from '@/app/resources'; 
 import { Mailchimp } from '@/components';
 import { Posts } from '@/components/blog/Posts';
-import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 
 export async function generateMetadata(
@@ -45,7 +45,7 @@ export async function generateMetadata(
 export default function Home(
 	{ params: {locale}}: { params: { locale: string }}
 ) {
-	unstable_setRequestLocale(locale);
+	setRequestLocale(locale);
 	const t = useTranslations();
 	const { home, about, person, newsletter } = renderContent(t);
 	return (
@@ -83,6 +83,7 @@ export default function Home(
 						fillWidth maxWidth="s" gap="m">
 						<RevealFx translateY="4">
 							<Heading
+								style={{ height: '140px' }} 
 								wrap="balance"
 								variant="display-strong-l">
 								{home.headline}
@@ -127,7 +128,7 @@ export default function Home(
 					<Posts range={[1,2]} columns="2" locale={locale}/>
 				</Flex>
 			)}
-			<Projects range={[2]} locale={locale}/>
+			{/* <Projects range={[2]} locale={locale}/> */}
 			{ newsletter.display &&
 				<Mailchimp newsletter={newsletter} />
 			}
