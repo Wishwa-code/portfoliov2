@@ -12,6 +12,8 @@
 		"@floating-ui/react-dom": "^2.1.1",
 		"@mdx-js/loader": "^3.0.1",
 		"@next/mdx": "^14.2.5",
+		"@once-ui-system/magic-portfolio": "link:",
+		"@react-spring/web": "^9.7.5",
 		"classnames": "^2.5.1",
 		"cookie": "^0.6.0",
 		"gray-matter": "^4.0.3",

@@ -66,11 +66,11 @@ export const Mailchimp = (
             fillWidth padding="l"  radius="l" marginBottom="m"
             direction="column" alignItems="center" align="center"
             background="surface" border="neutral-medium" borderStyle="solid-1">
-            <Background
+            {/* <Background
                 position="absolute"
                 gradient={mailchimp.effects.gradient}
                 dots={mailchimp.effects.dots}
-                lines={mailchimp.effects.lines}/>
+                lines={mailchimp.effects.lines}/> */}
             <Heading style={{position: 'relative'}}
                 marginBottom="s"
                 variant="display-strong-xs">

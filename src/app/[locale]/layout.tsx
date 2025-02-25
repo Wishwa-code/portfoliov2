@@ -4,8 +4,8 @@ import "@/once-ui/tokens/index.scss";
 import classNames from 'classnames';
 
 import { Flex, Background } from '@/once-ui/components'
-import { Background as NewBackground } from '@/once-ui/components/NewBackground/NewBackground'
-
+import { Background as NewBackground} from '@/once-ui/components/NewBackground/NewBackground'
+import { Column as NewColumn} from '@/once-ui/components/NewBackground/Column'
 import { Footer, Header, RouteGuard } from "@/components";
 import { baseURL, effects, style, neweffects } from '@/app/resources'
 
@@ -112,57 +112,37 @@ export default async function RootLayout({
 					as="body"
 					fillWidth margin="0" padding="0"
 					direction="column">
-					<NewBackground
+					<Background
 						mask={{
-						cursor: neweffects.mask.cursor,
-						x: neweffects.mask.x,
-						y: neweffects.mask.y,
-						radius: neweffects.mask.radius,
-						}}
-						gradient={{
-						display: neweffects.gradient.display,
-						x: neweffects.gradient.x,
-						y: neweffects.gradient.y,
-						width: neweffects.gradient.width,
-						height: neweffects.gradient.height,
-						tilt: neweffects.gradient.tilt,
-						colorStart: neweffects.gradient.colorStart,
-						colorEnd: neweffects.gradient.colorEnd,
-						opacity:neweffects.gradient.opacity as
-							| 0
-							| 10
-							| 20
-							| 30
-							| 40
-							| 50
-							| 60
-							| 70
-							| 80
-							| 90
-							| 100,
-						}}
-						dots={{
-						display: neweffects.dots.display,
-						color: neweffects.dots.color,
-						size: neweffects.dots.size as any,
-						opacity: neweffects.dots.opacity as any,
-						}}
-						grid={{
-						display: neweffects.grid.display,
-						color: neweffects.grid.color,
-						width: '100px',
-						height: '100px',
-						opacity: neweffects.grid.opacity as any,
-						}}
-						lines={{
-						display: neweffects.lines.display,
-						opacity: neweffects.lines.opacity as any,
-						}}
-					/>
-					{/* <Background
-						gradient={effects.gradient}
-						dots={effects.dots}
-						lines={effects.lines}/> */}
+							cursor: neweffects.mask.cursor,
+							x: neweffects.mask.x,
+							y: neweffects.mask.y,
+							radius: neweffects.mask.radius,
+						  }}
+						  gradient={{
+							display: neweffects.gradient.display,
+							x: neweffects.gradient.x,
+							y: neweffects.gradient.y,
+							width: neweffects.gradient.width,
+							height: neweffects.gradient.height,
+							tilt: neweffects.gradient.tilt,
+							colorStart: neweffects.gradient.colorStart,
+							colorEnd: neweffects.gradient.colorEnd,
+							opacity: neweffects.gradient.opacity as
+							  | 0
+							  | 10
+							  | 20
+							  | 30
+							  | 40
+							  | 50
+							  | 60
+							  | 70
+							  | 80
+							  | 90
+							  | 100,
+						  }}
+						  
+						  />
 					<Flex
 						fillWidth
 						minHeight="16">
@@ -186,3 +166,11 @@ export default async function RootLayout({
 		</NextIntlClientProvider>
 	);
 }
+
+
+
+					{/*  */}
+					{/* <Background
+						gradient={effects.gradient}
+						dots={effects.dots}
+						lines={effects.lines}/> */}

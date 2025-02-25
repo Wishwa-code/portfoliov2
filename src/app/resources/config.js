@@ -55,7 +55,7 @@ const neweffects = {
     },
     lines: {
       display: false,
-      color: "neutral-alpha-weak",
+      color: "red",
       opacity: 100,
     },
     grid: {
