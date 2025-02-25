@@ -29,6 +29,42 @@ const effects = {
     lines:    false,
 }
 
+const neweffects = {
+    mask: {
+      cursor: true,
+      x: 0,
+      y: 0,
+      radius: 75,
+    },
+    gradient: {
+      display: true,
+      x: 50,
+      y: 0,
+      width: 100,
+      height: 100,
+      tilt: 0,
+      colorStart: "brand-background-strong",
+      colorEnd: "static-transparent",
+      opacity: 50,
+    },
+    dots: {
+      display: true,
+      size: 2,
+      color: "brand-on-background-weak",
+      opacity: 20,
+    },
+    lines: {
+      display: false,
+      color: "neutral-alpha-weak",
+      opacity: 100,
+    },
+    grid: {
+      display: false,
+      color: "neutral-alpha-weak",
+      opacity: 100,
+    },
+  };
+
 const style = {
     theme:       'dark',         // dark | light
     neutral:     'gray',         // sand | gray | slate
@@ -55,4 +91,4 @@ const mailchimp = {
     }
 }
 
-export { routes, protectedRoutes, effects, style, display, mailchimp, baseURL, i18n, i18nOptions };
+export { routes, protectedRoutes, effects, style, display, mailchimp, baseURL, i18n, i18nOptions, neweffects };

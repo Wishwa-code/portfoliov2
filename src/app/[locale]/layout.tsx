@@ -4,8 +4,10 @@ import "@/once-ui/tokens/index.scss";
 import classNames from 'classnames';
 
 import { Flex, Background } from '@/once-ui/components'
+import { Background as NewBackground } from '@/once-ui/components/NewBackground/NewBackground'
+
 import { Footer, Header, RouteGuard } from "@/components";
-import { baseURL, effects, style } from '@/app/resources'
+import { baseURL, effects, style, neweffects } from '@/app/resources'
 
 import { Inter } from 'next/font/google'
 import { Source_Code_Pro } from 'next/font/google';
@@ -110,10 +112,57 @@ export default async function RootLayout({
 					as="body"
 					fillWidth margin="0" padding="0"
 					direction="column">
-					<Background
+					<NewBackground
+						mask={{
+						cursor: neweffects.mask.cursor,
+						x: neweffects.mask.x,
+						y: neweffects.mask.y,
+						radius: neweffects.mask.radius,
+						}}
+						gradient={{
+						display: neweffects.gradient.display,
+						x: neweffects.gradient.x,
+						y: neweffects.gradient.y,
+						width: neweffects.gradient.width,
+						height: neweffects.gradient.height,
+						tilt: neweffects.gradient.tilt,
+						colorStart: neweffects.gradient.colorStart,
+						colorEnd: neweffects.gradient.colorEnd,
+						opacity:neweffects.gradient.opacity as
+							| 0
+							| 10
+							| 20
+							| 30
+							| 40
+							| 50
+							| 60
+							| 70
+							| 80
+							| 90
+							| 100,
+						}}
+						dots={{
+						display: neweffects.dots.display,
+						color: neweffects.dots.color,
+						size: neweffects.dots.size as any,
+						opacity: neweffects.dots.opacity as any,
+						}}
+						grid={{
+						display: neweffects.grid.display,
+						color: neweffects.grid.color,
+						width: '100px',
+						height: '100px',
+						opacity: neweffects.grid.opacity as any,
+						}}
+						lines={{
+						display: neweffects.lines.display,
+						opacity: neweffects.lines.opacity as any,
+						}}
+					/>
+					{/* <Background
 						gradient={effects.gradient}
 						dots={effects.dots}
-						lines={effects.lines}/>
+						lines={effects.lines}/> */}
 					<Flex
 						fillWidth
 						minHeight="16">
