@@ -150,8 +150,8 @@ export const Header = () => {
                                 selected={params?.locale === locale}
                                 onClick={() => handleLanguageChange(locale)}
                                 className={isPending && 'pointer-events-none opacity-60' || ''}
-                                >
-                                {locale.toUpperCase()}
+                            >
+                                {index === 1 ? 'සිං' : locale.toUpperCase()}
                             </ToggleButton>
                         ))}
                     </Flex>

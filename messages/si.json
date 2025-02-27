@@ -3,20 +3,20 @@
         "role": "Design Engineer"
     },
     "newsletter": {
-        "title": "Subscribe to {firstName}'s Newsletter",
-        "description": "I occasionally write about design, technology, and share thoughts on the intersection of creativity and engineering",
-        "button": "Sign up"
+        "title": "විශ්වගේ පුවත් පත්‍රිකාවට දායක වන්න",
+        "description": "මම ඉඳහිට නිර්මාණ, තාක්‍ෂණය ගැන ලියන අතර නිර්මාණශීලීත්වය සහ ඉංජිනේරු විද්‍යාවේ ඡේදනය පිළිබඳ සිතුවිලි බෙදා ගනිමි.",
+        "button": "ලියාපදිංචි වන්න"
     },
     "home": {
         "label": "Home",
         "title": "{name}'s Portfolio",
         "description": "Portfolio website showcasing my work as a {role}",
-        "headline": "නිර්මාණ ඉංජිනේරු සහ ඉදිකිරීම්කරු",
-        "subline": "I'm Selene, a design engineer at FLY, where I craft intuitive user experiences. After hours, I build my own projects."
+        "headline": "නිර්මාණ ඉංජිනේරු සහ මෘදුකාංග ඉදිකිරීම්කරු",
+        "subline": "මම විශ්ව, නිර්මාණයේ නිර්මාණශීලීත්වය සමඟ ඉංජිනේරු විද්‍යාවේ නිරවද්‍යතාවය ඒකාබද්ධ කරමින් තිරසාර සහ ඵලදායී විසඳුම් ගොඩනඟන මෘදුකාංග ඉංජිනේරුවෙක්."
     },
     "about": {
         "label": "About",
-        "title": "About me",
+        "title": "මම පිලිබඳව",
         "description": "Meet {name}, {role} from {location}",
         "intro": {
             "title": "Introduction",
@@ -76,6 +76,6 @@
         "description": "A photo collection by {name}"
     },
     "projectCard": {
-        "label": "Read Case Study"
+        "label": "සිද්ධි අධ්‍යයනය කියවන්න"
     }
 }
