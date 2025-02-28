@@ -19,26 +19,32 @@ team:
 
 ## Overview
 
-In this project, I developed a flexible and scalable design system using Next.js for front-end development and Figma for design collaboration. The goal was to create a reusable component library that not only adheres to consistent design principles but is also easily extendable for future needs. The design system was aimed at improving the overall developer experience while maintaining visual consistency across multiple projects.
+In this project, I developed a export market prediction system using quantile convulutional neural network model(similar technology as amazon Q service) for multi step prediction of sri lankan export products. The goal was to create a platform to empower Sri Lankan Agri-SME owners to discover lucrative export markets and navigate the exportation journey.
 
 ## Key Features
 
-- **Component Library**: Built a set of modular, reusable UI components using React and styled-components in Next.js, focusing on accessibility and responsiveness.
-- **Theming and Customization**: Integrated a theming system that allows easy switching and customization of color palettes, typography, and layout styles using CSS variables and Figma tokens.
-- **Figma Integration**: Collaborated closely with designers by setting up a shared design library in Figma. This library was synchronized with the codebase, ensuring design handoffs were seamless and that design tokens remained consistent across both platforms.
-- **Documentation and Usage Guidelines**: Developed comprehensive documentation with Storybook to showcase components, usage patterns, and best practices, ensuring the design system is easy to adopt by other teams.
+- **ML-based forecasting system**: Implemented an ML-based forecasting system that processes heterogeneous export datasets (product-specific monthly quantities across global markets). Features include automated retraining via incremental learning and delivering stored predictions for upcoming 5 months on user request.
+- **Personalized market news**: Users can subscribe to specific products, markets, or product-market combinations to receive automated alerts when new prediction reports are generated with new data or global news is published.
+- **Tutorial Library**: Curated video library of step-by-step tutorials to help newcomers master export processes.
+- **Intuitive tracking dashboard**: Users can easily keep track of their interest and explore information about new markets.
 
 ## Technologies Used
 
-- **Next.js**: For fast, server-rendered React applications.
-- **Figma**: For creating and managing design assets and prototypes.
-- **Styled-Components**: For styling React components with a modular, themable approach.
-- **Storybook**: For building an interactive, documented component library.
-
+- **Convolutional Neural Network Model**: CNNs outperform ARIMA/XGBoost for multi-market export forecasts by capturing nonlinear multivariate time series patterns and automatically learning cross-market spatiotemporal relationships.
+- **Flask**: Flask’s simplicity enables streamlined development and testing of machine learning models with frameworks such as TensorFlow.
+- **React**: For building the front-end codebase with clean, reusable components.
+- **MongoDB**: MongoDB offers a single platform for machine learning workflows with greater adaptability and scalability.
 ## Challenges and Learnings
 
-One key challenge was balancing the need for flexibility with the desire to maintain design consistency. The solution involved creating well-defined design tokens and establishing clear guidelines for when and how components could be customized. Additionally, setting up effective collaboration workflows between designers and developers using Figma and Git was a learning experience that greatly improved the process.
-
+One key challenge was finding the best machine learning model which is capable of taking multiple monthly datasets in the same domain within three years and generating the most accurate results while having the ability to work with the nature of export data. Convolutional Neural Network models have found their footing in most real-world e-commerce use cases and have proved to be very effective with multi-market forecasting dut to its ability to learn the patterns in temporal data.
 ## Outcome
 
-The design system is now actively used across multiple projects, leading to faster development cycles, fewer design inconsistencies, and improved collaboration between design and development teams. It has become a foundation for scaling our products efficiently while ensuring a cohesive user experience.
+The pure implementation of CNN model achieved above 70% baseline accuracy just using hand collected 3 years of monthly data for 65 products from UN Comtrade Database[https://comtradeplus.un.org/] and International Trade Administration[https://www.trade.gov/]. At the moment application serves as a minimum viable product which supports limited set of products and markets. With funding and leveraging tools provided by service like Amazon Q service, application has the potential to revolutionizing South Asian Trade Infrastructure with technologies such as blockchain smart contracts and generative AI. Thank you for engaging with this research—your time and attention are deeply appreciated. As my final-year research project, this work represents both academic rigor and a passion for practical innovation. I enthusiastically welcome discussions with researchers, industry partners, or implementers interested in:
+
+🔹 Prototyping commercial applications
+
+🔹 Expanding the model’s domain adaptability
+
+🔹 Exploring grant opportunities for real-world deployment
+
+Here’s to building solutions that bridge theoretical AI and global economic impact—one algorithm at a time.

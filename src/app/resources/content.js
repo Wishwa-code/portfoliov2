@@ -85,7 +85,7 @@ const about = {
                 ],
                 images: [ // optional: leave the array empty if you don't want to display images
                     {
-                        src: '/images/projects/project-01/cover-01.jpg',
+                        src: '/images/projects/project-01/cover-01.png',
                         alt: 'Once UI Project',
                         width: 16,
                         height: 9
@@ -127,13 +127,13 @@ const about = {
                 description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
                 images: [
                     {
-                        src: '/images/projects/project-01/cover-02.jpg',
+                        src: '/images/projects/project-01/cover-02.png',
                         alt: 'Project image',
                         width: 16,
                         height: 9
                     },
                     {
-                        src: '/images/projects/project-01/cover-03.jpg',
+                        src: '/images/projects/project-01/cover-03.png',
                         alt: 'Project image',
                         width: 16,
                         height: 9
@@ -145,7 +145,7 @@ const about = {
                 description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
                 images: [
                     {
-                        src: '/images/projects/project-01/cover-04.jpg',
+                        src: '/images/projects/project-01/cover-04.png',
                         alt: 'Project image',
                         width: 16,
                         height: 9

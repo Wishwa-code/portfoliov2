@@ -1,10 +1,11 @@
 ---
-title: "ශ්‍රී ලංකාවේ කුඩා හා මධ්‍ය පරිමාණ ව්‍යවසායකයින් සඳහා අපනයන වෙළෙඳපොළ අනාවැකි පද්ධතියක් ගොඩනැගීම"
+title: "Building an export market prediction system for Sri Lankan SMEs"
 publishedAt: "2024-04-08"
-summary: "මෙම ව්‍යාපෘතියේ දී, ශ්‍රී ලංකා අපනයන නිෂ්පාදන පිළිබඳ බහු-පියවර පුරෝකථනය කිරීම සඳහා ප්‍රමාණාත්මක සංකෝචන ස්නායුක ජාල ආකෘතිය (amazon Q සේවාව වැනි තාක්ෂණය) භාවිතා කරමින් මම අපනයන වෙළෙඳපොළ පුරෝකථන පද්ධතියක් සකස් කළෙමි."
+summary: "In this project, I developed a export market prediction system using quantile convulutional neural network model(similar technology as amazon Q service) for multi step prediction of sri lankan export products."
 images:
   - "/images/projects/project-01/cover-01.png"
   - "/images/projects/project-01/cover-02.png"
+
 team:
   - name: "Selene Yu"
     role: "Software Engineer"
@@ -16,28 +17,34 @@ team:
     linkedIn: "https://www.linkedin.com/in/janesmith"
 ---
 
-## Ikhtisar
+## Overview
 
-Dalam proyek ini, saya mengembangkan sistem desain yang fleksibel dan skalabel menggunakan Next.js untuk pengembangan front-end dan Figma untuk kolaborasi desain. Tujuannya adalah untuk membuat perpustakaan komponen yang dapat digunakan kembali yang tidak hanya mematuhi prinsip desain yang konsisten tetapi juga mudah diperluas untuk kebutuhan di masa depan. Sistem desain ini bertujuan untuk meningkatkan pengalaman pengembang secara keseluruhan sambil menjaga konsistensi visual di berbagai proyek.
+In this project, I developed a export market prediction system using quantile convulutional neural network model(similar technology as amazon Q service) for multi step prediction of sri lankan export products. The goal was to create a platform to empower Sri Lankan Agri-SME owners to discover lucrative export markets and navigate the exportation journey.
 
-## Fitur Utama
+## Key Features
 
-- **Perpustakaan Komponen**: Membangun serangkaian komponen UI modular dan dapat digunakan kembali menggunakan React dan styled-components di Next.js, dengan fokus pada aksesibilitas dan responsivitas.
-- **Pengaturan Tema dan Kustomisasi**: Mengintegrasikan sistem pengaturan tema yang memungkinkan pergantian dan kustomisasi palet warna, tipografi, dan gaya tata letak dengan mudah menggunakan variabel CSS dan token Figma.
-- **Integrasi Figma**: Bekerja sama dengan desainer dengan menyiapkan perpustakaan desain bersama di Figma. Perpustakaan ini disinkronkan dengan kode, memastikan proses penyerahan desain berjalan mulus dan token desain tetap konsisten di kedua platform.
-- **Dokumentasi dan Panduan Penggunaan**: Mengembangkan dokumentasi lengkap dengan Storybook untuk menampilkan komponen, pola penggunaan, dan praktik terbaik, memastikan sistem desain mudah diadopsi oleh tim lain.
+- **ML-based forecasting system**: Implemented an ML-based forecasting system that processes heterogeneous export datasets (product-specific monthly quantities across global markets). Features include automated retraining via incremental learning and delivering stored predictions for upcoming 5 months on user request.
+- **Personalized market news**: Users can subscribe to specific products, markets, or product-market combinations to receive automated alerts when new prediction reports are generated with new data or global news is published.
+- **Tutorial Library**: Curated video library of step-by-step tutorials to help newcomers master export processes.
+- **Intuitive tracking dashboard**: Users can easily keep track of their interest and explore information about new markets.
 
-## Teknologi yang Digunakan
+## Technologies Used
 
-- **Next.js**: Untuk aplikasi React yang cepat dan dirender di server.
-- **Figma**: Untuk membuat dan mengelola aset desain dan prototipe.
-- **Styled-Components**: Untuk menata komponen React dengan pendekatan modular dan tematis.
-- **Storybook**: Untuk membangun perpustakaan komponen interaktif dan terdokumentasi.
+- **Convolutional Neural Network Model**: CNNs outperform ARIMA/XGBoost for multi-market export forecasts by capturing nonlinear multivariate time series patterns and automatically learning cross-market spatiotemporal relationships.
+- **Flask**: Flask’s simplicity enables streamlined development and testing of machine learning models with frameworks such as TensorFlow.
+- **React**: For building the front-end codebase with clean, reusable components.
+- **MongoDB**: MongoDB offers a single platform for machine learning workflows with greater adaptability and scalability.
+## Challenges and Learnings
 
-## Tantangan dan Pembelajaran
+One key challenge was finding the best machine learning model which is capable of taking multiple monthly datasets in the same domain within three years and generating the most accurate results while having the ability to work with the nature of export data. Convolutional Neural Network models have found their footing in most real-world e-commerce use cases and have proved to be very effective with multi-market forecasting dut to its ability to learn the patterns in temporal data.
+## Outcome
 
-Salah satu tantangan utama adalah menyeimbangkan kebutuhan akan fleksibilitas dengan keinginan untuk menjaga konsistensi desain. Solusinya melibatkan pembuatan token desain yang terdefinisi dengan baik dan menetapkan pedoman yang jelas untuk kapan dan bagaimana komponen dapat disesuaikan. Selain itu, menyiapkan alur kerja kolaborasi yang efektif antara desainer dan pengembang menggunakan Figma dan Git adalah pengalaman belajar yang sangat meningkatkan prosesnya.
+The pure implementation of CNN model achieved above 70% baseline accuracy just using hand collected 3 years of monthly data for 65 products from UN Comtrade Database[https://comtradeplus.un.org/] and International Trade Administration[https://www.trade.gov/]. At the moment application serves as a minimum viable product which supports limited set of products and markets. With funding and leveraging tools provided by service like Amazon Q service, application has the potential to revolutionizing South Asian Trade Infrastructure with technologies such as blockchain smart contracts and generative AI. Thank you for engaging with this research—your time and attention are deeply appreciated. As my final-year research project, this work represents both academic rigor and a passion for practical innovation. I enthusiastically welcome discussions with researchers, industry partners, or implementers interested in:
 
-## Hasil
+🔹 Prototyping commercial applications
 
-Sistem desain ini sekarang aktif digunakan di berbagai proyek, yang mengarah pada siklus pengembangan yang lebih cepat, lebih sedikit inkonsistensi desain, dan peningkatan kolaborasi antara tim desain dan pengembangan. Sistem ini telah menjadi fondasi untuk mengembangkan produk kami secara efisien sambil memastikan pengalaman pengguna yang kohesif.
+🔹 Expanding the model’s domain adaptability
+
+🔹 Exploring grant opportunities for real-world deployment
+
+Here’s to building solutions that bridge theoretical AI and global economic impact—one algorithm at a time.

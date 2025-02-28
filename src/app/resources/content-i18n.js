@@ -119,13 +119,13 @@ const createI18nContent = (t) => {
                     description: <>{t("about.technical.skills.Figma.description")}</>,
                     images: [
                         {
-                            src: '/images/projects/project-01/cover-02.jpg',
+                            src: '/images/projects/project-01/cover-02.png',
                             alt: 'Project image',
                             width: 16,
                             height: 9
                         },
                         {
-                            src: '/images/projects/project-01/cover-03.jpg',
+                            src: '/images/projects/project-01/cover-03.png',
                             alt: 'Project image',
                             width: 16,
                             height: 9
@@ -137,7 +137,7 @@ const createI18nContent = (t) => {
                     description: <>{t("about.technical.skills.Nextjs.description")}</>, // "." not accepted in next-intl namespace
                     images: [
                         {
-                            src: '/images/projects/project-01/cover-04.jpg',
+                            src: '/images/projects/project-01/cover-04.png',
                             alt: 'Project image',
                             width: 16,
                             height: 9
@@ -149,7 +149,7 @@ const createI18nContent = (t) => {
                     description: <>{t("about.technical.skills.Flutter.description")}</>, // "." not accepted in next-intl namespace
                     images: [
                         {
-                            src: '/images/projects/project-01/cover-04.jpg',
+                            src: '/images/projects/project-01/cover-04.png',
                             alt: 'Project image',
                             width: 16,
                             height: 9
@@ -161,7 +161,7 @@ const createI18nContent = (t) => {
                     description: <>{t("about.technical.skills.Gin.description")}</>, // "." not accepted in next-intl namespace
                     images: [
                         {
-                            src: '/images/projects/project-01/cover-04.jpg',
+                            src: '/images/projects/project-01/cover-04.png',
                             alt: 'Project image',
                             width: 16,
                             height: 9
