@@ -1,6 +1,8 @@
 {
     "person": {
-        "role": "Design Engineer"
+        "role": "Software Engineer",
+        "firstName": "Wishwa",
+        "lastName":  "Kankanamage"
     },
     "newsletter": {
         "title": "Subscribe to {firstName}'s Newsletter",
@@ -20,31 +22,31 @@
         "description": "Meet {name}, {role} from {location}",
         "intro": {
             "title": "Introduction",
-            "description": "Selene is a Jakarta-based design engineer with a passion for transforming complex challenges into simple, elegant design solutions. Her work spans digital interfaces, interactive experiences, and the convergence of design and technology."
+            "description": "Wishwa is a colombo based software engineer with a passion for developing elegant and efficient complex, multithreaded backend applications. His work spans digital strategy, digital interfaces, distributed business information system architecture, and the convergence of design and technology."
         },
         "work": {
             "title": "Work Experience",
             "experiences": {
                 "FLY": {
-                    "timeframe": "2022 - Present",
-                    "role": "Senior Design Engineer",
-                    "achievements": "Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user engagement and 30% faster load times.;Spearheaded the integration of AI tools into design workflows, enabling designers to iterate 50% faster."
+                    "name": "Webs R Us",
+                    "timeframe": "Aug 2024 - Present",
+                    "role": "Full Stack Developer",
+                    "achievements": "Designed and developed travel application which enables users to create iternaries and book hotels through booking.com API.;Developed application in offline first approach to ensure users are capable of utilizing all the features provided by the application in low coverage areas.;Developed functionality to share iternaries and view live changes made by other users using supabase realtime features.;Developed backend web service using GIN(go) framework to ensure all the write operations are sent through backend RESTful web service including necessary api calls to provide route optimization and budget calculations features."
                 },
-                "Creativ3": {
-                    "timeframe": "2018 - 2022",
-                    "role": "Lead Designer",
-                    "achievements": "Developed a design system that unified the brand across multiple platforms, improving design consistency by 40%.;Led a cross-functional team to launch a new product line, contributing to a 15% increase in overall company revenue."
+                "WAD": {
+                    "name": "We are designers",
+                    "timeframe": "Jul 2022 - Jun 2023",
+                    "role": "Quality Assurance Intern",
+                    "achievements": "Worked for both mobile and web development teams.;Wrote automated tests using Selenium, performed UI testing and crossbrowser compatibility testing, and performance testing throughout theSDLC for 2 wordpress and laravel websites of well established Sri Lankan organizations and 4 single-page websites.;Designed and wrote test cases for mobile and tablet version of booking and reservation application which currently has 200 clients and a 'buy one, get one free' entertainment app for a well-known Sri Lankan trade-partnership which currently has 10,000 downloads and an average 4.5 rating.;Used JMeter to perform load testing on laravel applications.;Collaborated with team members and project stakeholders to ensure timely and accurate delivery of software products.;Managed bug fixing process using Mantis bug tracker software."
                 }
             }
         },
         "studies": {
             "title": "Studies",
             "institutions": {
-                "University of Jakarta": {
-                    "description": "Studied software engineering."
-                },
-                "Build the Future": {
-                    "description": "Studied online marketing and personal branding."
+                "University of Westminster": {
+                    "name": "University of Westminster",
+                    "description": "Studied Business Information Systems."
                 }
             }
         },
@@ -55,7 +57,13 @@
                     "description": "Able to prototype in Figma with Once UI with unnatural speed."
                 },
                 "Nextjs": {
-                    "description": "Building next gen apps with Next.js + Once UI + Supabase."
+                    "description": "Building next gen applications with Next.js + Once UI + Supabase."
+                },
+                "Flutter": {
+                    "description": "Building beautiful, natively compiled, multi-platform applications with flutter."
+                },
+                "Gin": {
+                    "description": "Building simple, secure, and scalable backend services with Go."
                 }
             }
         }

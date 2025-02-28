@@ -3,15 +3,15 @@ import { InlineCode } from "@/once-ui/components";
 
 const createI18nContent = (t) => {
     const person = {
-        firstName: 'Wishwa',
-        lastName:  'Kankanamage',
+        firstName: t("person.firstName"),
+        lastName:  t("person.lastName"),
         get name() {
             return `${this.firstName} ${this.lastName}`;
         },
         role:      t("person.role"),
         avatar:    '/images/avatar.jpg',
         location:  'Asia/Colombo',        // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-        languages: ['English', 'Bahasa']  // optional: Leave the array empty if you don't want to display languages
+        languages: ['English', 'Sinhala']  // optional: Leave the array empty if you don't want to display languages
     }
 
     const newsletter = {
@@ -26,12 +26,12 @@ const createI18nContent = (t) => {
         {
             name: 'GitHub',
             icon: 'github',
-            link: 'https://github.com/once-ui-system/nextjs-starter',
+            link: 'https://github.com/Wishwa-code',
         },
         {
             name: 'LinkedIn',
             icon: 'linkedin',
-            link: 'https://www.linkedin.com/company/once-ui/',
+            link: 'https://www.linkedin.com/in/wishwa-kankanamge/',
         },
         {
             name: 'X',
@@ -41,7 +41,7 @@ const createI18nContent = (t) => {
         {
             name: 'Email',
             icon: 'email',
-            link: 'mailto:example@gmail.com',
+            link: 'mailto:wishwakankanamage129@gmail.com',
         },
     ]
 
@@ -78,40 +78,36 @@ const createI18nContent = (t) => {
             title: t("about.work.title"),
             experiences: [
                 {
-                    company: 'FLY',
+                    company: t("about.work.experiences.FLY.name"),
                     timeframe: t("about.work.experiences.FLY.timeframe"),
                     role: t("about.work.experiences.FLY.role"),
                     achievements: t("about.work.experiences.FLY.achievements").split(";"),
                     images: [ // optional: leave the array empty if you don't want to display images
-                        {
-                            src: '/images/projects/project-01/cover-01.jpg',
-                            alt: 'Once UI Project',
-                            width: 16,
-                            height: 9
-                        }
+                        // {
+                        //     src: '/images/projects/project-01/cover-01.jpg',
+                        //     alt: 'Once UI Project',
+                        //     width: 16,
+                        //     height: 9
+                        // }
                     ]
                 },
                 {
-                    company: 'Creativ3',
-                    timeframe: t("about.work.experiences.Creativ3.timeframe"),
-                    role: t("about.work.experiences.Creativ3.role"),
-                    achievements: t("about.work.experiences.Creativ3.achievements").split(";"),
+                    company: t("about.work.experiences.WAD.name"),
+                    timeframe: t("about.work.experiences.WAD.timeframe"),
+                    role: t("about.work.experiences.WAD.role"),
+                    achievements: t("about.work.experiences.WAD.achievements").split(";"),
                     images: [ ]
                 }
             ]
         },
         studies: {
             display: true, // set to false to hide this section
-            title: 'Studies',
+            title: t("about.studies.title"),
             institutions: [
                 {
-                    name: 'University of Jakarta',
-                    description: <>{t(`about.studies.institutions.University of Jakarta.description`)}</>,
+                    name: <>{t(`about.studies.institutions.University of Westminster.name`)}</>,
+                    description: <>{t(`about.studies.institutions.University of Westminster.description`)}</>,
                 },
-                {
-                    name: 'Build the Future',
-                    description: <>{t("about.studies.institutions.Build the Future.description")}</>,
-                }
             ]
         },
         technical: {
@@ -139,6 +135,30 @@ const createI18nContent = (t) => {
                 {
                     title: 'Next.js',
                     description: <>{t("about.technical.skills.Nextjs.description")}</>, // "." not accepted in next-intl namespace
+                    images: [
+                        {
+                            src: '/images/projects/project-01/cover-04.jpg',
+                            alt: 'Project image',
+                            width: 16,
+                            height: 9
+                        },
+                    ]
+                },
+                {
+                    title: 'Flutter',
+                    description: <>{t("about.technical.skills.Flutter.description")}</>, // "." not accepted in next-intl namespace
+                    images: [
+                        {
+                            src: '/images/projects/project-01/cover-04.jpg',
+                            alt: 'Project image',
+                            width: 16,
+                            height: 9
+                        },
+                    ]
+                },
+                {
+                    title: 'Gin',
+                    description: <>{t("about.technical.skills.Gin.description")}</>, // "." not accepted in next-intl namespace
                     images: [
                         {
                             src: '/images/projects/project-01/cover-04.jpg',

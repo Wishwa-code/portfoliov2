@@ -308,6 +308,7 @@ export default function About(
                                         fillWidth gap="4"
                                         direction="column">
                                         <Text
+                                            //@ts-ignore
                                             id={institution.name}
                                             variant="heading-strong-l">
                                             {institution.name}

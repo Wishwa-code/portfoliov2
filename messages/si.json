@@ -1,6 +1,8 @@
 {
     "person": {
-        "role": "Design Engineer"
+        "role": "මෘදුකාංග ඉංජිනේරු",
+        "firstName": "විශ්ව",
+        "lastName":  "කංකානම්ගේ"
     },
     "newsletter": {
         "title": "විශ්වගේ පුවත් පත්‍රිකාවට දායක වන්න",
@@ -19,43 +21,49 @@
         "title": "මම පිලිබඳව",
         "description": "Meet {name}, {role} from {location}",
         "intro": {
-            "title": "Introduction",
-            "description": "Selene is a Jakarta-based design engineer with a passion for transforming complex challenges into simple, elegant design solutions. Her work spans digital interfaces, interactive experiences, and the convergence of design and technology."
+            "title": "හැඳින්වීම",
+            "description": "විශ්ව කොළඹ ප්‍රදේශය පදනම් වූ මෘදුකාංග ඉංජිනේරුවෙකි. ඔහු ඩිජිටල් උපාය මාර්ග, ඩිජිටල් අතුරුමුහුණත්, බෙදා හරින ලද ව්‍යාපාරික තොරතුරු පද්ධති මෙන්ම නිර්මාණශීලිත්වය සහ තාක්‍ෂණය අභිසාරී කරවීම ආදී ක්ෂේත්‍රයන්හි නව නිරමාණයන්හි නියලෙයි."
         },
         "work": {
-            "title": "Work Experience",
+            "title": "වෘත්තීය සාරංශය",
             "experiences": {
                 "FLY": {
-                    "timeframe": "2022 - Present",
-                    "role": "Senior Design Engineer",
-                    "achievements": "Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user engagement and 30% faster load times.;Spearheaded the integration of AI tools into design workflows, enabling designers to iterate 50% faster."
+                    "name": "Webs R Us",
+                    "timeframe": "අගෝස්තුතු 2024 - වත්මන්",
+                    "role": "Full Stack මෘදුකාංග ඉංජිනේරු",
+                    "achievements": "සංචාරකයින්ට චාරිකා සැලසුම් කරන අතරතුර booking.com API හරහ‌ා හොටෙල් වෙන්කරවා ගැනීමට පහසුකම් දියුණු කරන ලදී.;අඩු ආවරණ ප්‍රදේශවල යෙදුම මඟින් සපයනු ලබන සියලුම විශේෂාංග භාවිතා කිරීමට පරිශීලකයින්ට හැකියාව ඇති බව සහතික කිරීම සඳහා නොබැඳි පළමු ප්‍රවේශය මූලික කර ‌යෙදුම නිරමාණය කරන ලදී.;supabase තත්‍ය කාලීන විශේෂාංග භාවිතයෙන් වෙනත් පරිශීලකයින් විසින් සිදු කරන ලද සජීවී චාරිකා සැලසුම් වෙනස්කම් බැලීමට සහ නැවත බෙදා ගැනීමට පහසුකම් දියුණු කරන ලදී.; මාර්ග ප්‍රශස්තිකරණය සහ අයවැය ගණනය කිරීම් විශේෂාංග සැපයීම සඳහා අවශ්‍ය api ඇමතුම් ඇතුළුව සියලුම දත්ත ගබඩා ලිවීමේ මෙහෙයුම් පසුබිම් RESTful වෙබ් සේවාව හරහා යැවීම සහතික කිරීම සඳහා GIN(go) රාමුව භාවිතයෙන් පසුබිම් වෙබ් සේවාව සංවර්ධනය කරන ලදී."
                 },
-                "Creativ3": {
-                    "timeframe": "2018 - 2022",
-                    "role": "Lead Designer",
-                    "achievements": "Developed a design system that unified the brand across multiple platforms, improving design consistency by 40%.;Led a cross-functional team to launch a new product line, contributing to a 15% increase in overall company revenue."
+                "WAD": {
+                    "name": "We are designers",
+                    "timeframe": "ජූලි 2022 - ජූනි 2023",
+                    "role": "තත්ත්ව සහතික පුහුණු",
+                    "achievements": "ජංගම සහ වෙබ් සංවර්ධන කණ්ඩායම් දෙකේම සේවයය කරන ලදි.;ප්‍රසිද්ධ ශ්‍රී ලාංකේය ව්‍යාපාර ආයතන කිහිපයක වර්ඩ්ප්‍රෙස් සහ ලාරාවල් වෙබ් අඩවි 2ක් මෙන්ම තනි පිටු 4ක් සහිත වෙබ් අඩවි සඳහා සෙලේනියම් භාවිතයෙන් ස්වයංක්‍රීය පරීක්ෂණ, ඩිජිටල් අතුරුමුහුණත් පරීක්ෂණ, හරස් වෙබ් බ්‍රවුසර් අනුකූලතා පරීක්ෂණ සහසහ කාර්ය සාධන පරීක්ෂණ මෘදුකාංග සංවර්ධන ජීවන චක්රය පුරා සිදු කරන ලදී.; සුප්‍රසිද්ධ ශ්‍රී ලාංකේය වෙළඳ හවුල්කාරිත්වයක් සඳහා 'එකක් මිල දී ගන්න, එකක් නොමිලේ ලබා ගන්න' යන තේමාවව යටතේ ජංගම සහ ටැබ්ලට් අතුරැමුහුණත් ඇති වට්ටම් ලබාදීමේ යෙදුමක් සදහ‌ා පරීක්සණ සැලසුම් කිරීම සහ ක්‍රියාත්මක කරන ලදි. දැනට (2024) මෙම යෙදුමට සේවාලාභීන් 200 ක්, බාගත කිරීම් 10,000ක් මෙන්ම ගූගල් යෙදුම් ගබඩාවේ 4.5ක සාමාන්‍ය ශ්‍රේණිගත කිරීමක්‌ ඇත.;JMeter භාවිතා කරමින් ලාරවල් යෙදුම් වල ආතතිය පරික්ෂා කරන ලදි.;මෘදුකාංග නිෂ්පාදන කාලෝචිත හා නිවැරදිව බෙදා හැරීම සහතික කිරීම සඳහා කණ්ඩායම් සාමාජිකයින් සහ ව්‍යාපෘති පාර්ශවකරුවන් සමඟ සහයෝගයෙන් කටයුතු කරන ලදි.;Mantis bug tracker මෘදුකාංගය භාවිතයෙන් දෝෂ නිවැරදි කිරීමේ ක්‍රියාවලිය කළමනාකරණය කරන ලදි."
                 }
             }
         },
         "studies": {
-            "title": "Studies",
+            "title": "අධ්‍යයන",
             "institutions": {
-                "University of Jakarta": {
-                    "description": "Studied software engineering."
-                },
-                "Build the Future": {
-                    "description": "Studied online marketing and personal branding."
+                "University of Westminster": {
+                    "name": "University of Westminster",
+                    "description": "ව්‍යාපාර තොරතුරු පද්ධති අධ්‍යයනය කරන ලදි."
                 }
             }
         },
         "technical": {
-            "title": "Technical skills",
+            "title": "තාක්ෂණික කුසලතා",
             "skills": {
                 "Figma": {
-                    "description": "Able to prototype in Figma with Once UI with unnatural speed."
+                    "description": "අස්වාභාවික වේගයකින් Figma සහ Once UI භාවිතා කරමින් මූලාකෘති නිර්මාණය කිරීමේ හැකියාව ඇත."
                 },
                 "Nextjs": {
-                    "description": "Building next gen apps with Next.js + Once UI + Supabase."
+                    "description": "Next.js + Once UI + Supabase භාවිතා කරමින්න් ඊළඟ පරම්පරාවේ යෙදුම් ගොඩනැගීම."
+                },
+                "Flutter": {
+                    "description": "Flutter භාවිතා කරමින් ලස්සන, ස්වදේශිකව සම්පාදනය කරන ලද, බහු-වේදිකා යෙදුම් ගොඩනැගීම."
+                },
+                "Gin": {
+                    "description": "Go භාවිතා කරමින් සරල, ආරක්ෂිත සහ පරිමාණය කළ හැකි පසුපෙළ සේවා ගොඩනැගීම."
                 }
             }
         }
