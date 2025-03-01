@@ -1,0 +1,52 @@
+---
+title: "Online classroom system for sri lanka private class institutions"
+publishedAt: "2024-04-01"
+summary: "Simple and less resource intensive mobile first application with basic minimum requirements for sri lankan rural with only access to mobile phones"
+images:
+  - "/images/projects/project-01/cover-02.png"
+  - "/images/projects/project-01/cover-02.png"
+
+  - "/images/projects/project-01/image-03.jpg"
+team:
+  - name: "John Doe"
+    role: "Software Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/company/once-ui/"
+---
+
+## Overview
+
+As a person who grew up in rural southern sri lanka and have experienced the lack of resources in rural schools, creating free online application where student can share knowledge was a idea that was rooting in my head for a while. so when i was given the oppurtunity to build any application as the final project for the completion of CS50: web programming with python course, i decided its time for me to build my idea.
+
+## Key Features
+
+- **Online classrooms**:  Users can create classroom and shere classroom name and secret key to join the classroom.
+- **Peer-to-Peer Voice and video calls**: User can make voice call and video calls to users in their freind list.
+- **Individual and Group chat**: User can create group chat or send message to individual users.
+- **File sharing**: Users can upload files and share the links with others to get the files while keeping valuable materials in safe snf remote enivroment for future use.
+- **Mobile first**: User interface was designed to be mobile first and responsive to all devices and all the features were tested on mobile device.
+
+## Technologies Used
+
+- **Django**: For building secure and scalable backend service using RESTful architecture.
+- **Redis**: For caching of messages to reduce latency to access memory which otherwise would add additional delay to let users see messages on top of network delay.
+- **MySQL**: All the messages are are stored in database in the background eventhough messages that are distibuted through web sockets are cached in redis, users will retrieve their message history when reloading the same chat room.
+- **WebRTC**: For enabling peer to peer video and audio stream sharing.
+- **Agora**: For implementing group video and audio calls.
+- **VanillaJs**: For building client side application.
+- **Websockets**: For enabling full duplex communication between client and server to let backend server act as signaling server for peer to peer connection.
+- **Docker**: For containerizing the application since setting up redis and django ASGI server with considerable amount of dependencies takes time when changing environments.
+
+## Challenges and Learnings
+
+Forgive me if i am poorly explaining the technical details, given that i am writing this article after 8 months from last git push to this project. So my intial goal was to building chat feature for both chat groups and individual chat. Also i was allowed to use only python and vanilla javascript, i found and interesting github repository with clean code to build chat application using django ASGI server and Redis cache store. 
+Just like most of the time after few days i was able get this application working  but when that happened clean code part was almost gone but chat was working. I didnt abondened the code base entirely because all of the APIs were written using django rest framework. I managed the most of the backend code.
+Also i need to mention that i spend almost 3 days figuring out how the chat room layer thing work with django ASGI server. Finally i realised simply every client room is attached to single chat room and when server gets update or message from client, the chat group is updated and message is broadcasted every user. So not much difference between individual and group chat.
+Yet only one third of the idea was prototyped, building video chat was the next step. After some research it was evident that using WebRTC was the best option. When i made it work, it was like magic so you just sent a request to the client then client request back to first caller then automatically all set (except for the parts where you have implement everything to make it suitable for users) and ta daa you are talking over the internet. And now i know whenever i call someone actually that person is asking my device below the hood. 
+Peer to peer connection is also done, now it is time to build the main thing online classroom. Then only i realized if i use WebRTC for video chat its going to be whole another operation. So i decided to go with agora SDK given that they have generous free tier. Still using this approach wasnt some kind of blocker achieve main objective, still if i am going to setup up my own server to circulate seperate video and audio streams its going to take long time and lot of resources to setup sel-hosted server. May be it will be done some day. 
+Well agora sdk is pretty simple you just have create a video chat room and setup backend api to let client users generate token to join the room and share it with others to join the same room. simple as that. Finally we have classroom where we can set classrooms group chat, person-to-person chat and call through platform providing safe enviroment for student to use mobile device with parents guidance and video chat facility to host classes. Ading on to that S3 bucket was connected to let users upload files and share which can be dedveloped in future to allow users to collect submission and share study materials.
+
+
+## Outcome
+
+Prototype version of the application is available at [https://github.com/sachin-sachintha/online-classroom-system](https://github.com/sachin-sachintha/online-classroom-system). Currently application is  setup in docker container making it easy for users to setup redis and django server without any configuration issues make sure you use specified version of python and redis. Otherwise you wont be able to run ASGI server which is essential for most of the features. Application is licensed using MIT license and feel free to use it and build great things! Thank you.

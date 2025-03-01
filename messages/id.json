@@ -1,81 +1,89 @@
 {
     "person": {
-        "role": "Insinyur Desain"
+        "role": "මෘදුකාංග ඉංජිනේරු",
+        "firstName": "විශ්ව",
+        "lastName":  "කංකානම්ගේ"
     },
     "newsletter": {
-        "title": "Langganan Buletin {firstName}",
-        "description": "Saya sesekali menulis tentang desain, teknologi, dan berbagi pemikiran tentang persimpangan kreativitas dan rekayasa",
-        "button": "Daftar"
+        "title": "විශ්වගේ පුවත් පත්‍රිකාවට දායක වන්න",
+        "description": "මම ඉඳහිට නිර්මාණ, තාක්‍ෂණය ගැන ලියන අතර නිර්මාණශීලීත්වය සහ ඉංජිනේරු විද්‍යාවේ ඡේදනය පිළිබඳ සිතුවිලි බෙදා ගනිමි.",
+        "button": "ලියාපදිංචි වන්න"
     },
     "home": {
-        "label": "Beranda",
-        "title": "Portofolio {name}",
-        "description": "Situs web portofolio yang menampilkan karya saya sebagai {role}",
-        "headline": "Insinyur desain dan pembangun",
-        "subline": "Saya Selene, seorang insinyur desain di FLY, di mana saya membuat pengalaman pengguna yang intuitif. Setelah jam kerja, saya mengerjakan proyek-proyek pribadi."
+        "label": "Home",
+        "title": "{name}'s Portfolio",
+        "description": "Portfolio website showcasing my work as a {role}",
+        "headline": "නිර්මාණ ඉංජිනේරු සහ මෘදුකාංග ඉදිකිරීම්කරු",
+        "subline": "මම විශ්ව, නිර්මාණයේ නිර්මාණශීලීත්වය සමඟ ඉංජිනේරු විද්‍යාවේ නිරවද්‍යතාවය ඒකාබද්ධ කරමින් තිරසාර සහ ඵලදායී විසඳුම් ගොඩනඟන මෘදුකාංග ඉංජිනේරුවෙක්."
     },
     "about": {
-        "label": "Tentang",
-        "title": "Tentang Saya",
-        "description": "Kenali {name}, {role} dari {location}",
+        "label": "About",
+        "title": "මම පිලිබඳව",
+        "description": "Meet {name}, {role} from {location}",
         "intro": {
-            "title": "Pengantar",
-            "description": "Selene adalah seorang insinyur desain yang berbasis di Jakarta dengan hasrat untuk mengubah tantangan kompleks menjadi solusi desain yang sederhana dan elegan. Karyanya meliputi antarmuka digital, pengalaman interaktif, dan pertemuan antara desain dan teknologi."
+            "title": "හැඳින්වීම",
+            "description": "විශ්ව කොළඹ ප්‍රදේශය පදනම් වූ මෘදුකාංග ඉංජිනේරුවෙකි. ඔහු ඩිජිටල් උපාය මාර්ග, ඩිජිටල් අතුරුමුහුණත්, බෙදා හරින ලද ව්‍යාපාරික තොරතුරු පද්ධති මෙන්ම නිර්මාණශීලිත්වය සහ තාක්‍ෂණය අභිසාරී කරවීම ආදී ක්ෂේත්‍රයන්හි නව නිරමාණයන්හි නියලෙයි."
         },
         "work": {
-            "title": "Pengalaman Kerja",
+            "title": "වෘත්තීය සාරංශය",
             "experiences": {
                 "FLY": {
-                    "timeframe": "2022 - Sekarang",
-                    "role": "Senior Design Engineer",
-                    "achievements": "Mendesain ulang UI/UX untuk platform FLY, menghasilkan peningkatan keterlibatan pengguna sebesar 20% dan waktu muat lebih cepat sebesar 30%.;Memimpin integrasi alat AI ke dalam alur kerja desain, memungkinkan desainer untuk iterasi 50% lebih cepat."
+                    "name": "Webs R Us",
+                    "timeframe": "අගෝස්තුතු 2024 - වත්මන්",
+                    "role": "Full Stack මෘදුකාංග ඉංජිනේරු",
+                    "achievements": "සංචාරකයින්ට චාරිකා සැලසුම් කරන අතරතුර booking.com API හරහ‌ා හොටෙල් වෙන්කරවා ගැනීමට පහසුකම් දියුණු කරන ලදී.;අඩු ආවරණ ප්‍රදේශවල යෙදුම මඟින් සපයනු ලබන සියලුම විශේෂාංග භාවිතා කිරීමට පරිශීලකයින්ට හැකියාව ඇති බව සහතික කිරීම සඳහා නොබැඳි පළමු ප්‍රවේශය මූලික කර ‌යෙදුම නිරමාණය කරන ලදී.;supabase තත්‍ය කාලීන විශේෂාංග භාවිතයෙන් වෙනත් පරිශීලකයින් විසින් සිදු කරන ලද සජීවී චාරිකා සැලසුම් වෙනස්කම් බැලීමට සහ නැවත බෙදා ගැනීමට පහසුකම් දියුණු කරන ලදී.; මාර්ග ප්‍රශස්තිකරණය සහ අයවැය ගණනය කිරීම් විශේෂාංග සැපයීම සඳහා අවශ්‍ය api ඇමතුම් ඇතුළුව සියලුම දත්ත ගබඩා ලිවීමේ මෙහෙයුම් පසුබිම් RESTful වෙබ් සේවාව හරහා යැවීම සහතික කිරීම සඳහා GIN(go) රාමුව භාවිතයෙන් පසුබිම් වෙබ් සේවාව සංවර්ධනය කරන ලදී."
                 },
-                "Creativ3": {
-                    "timeframe": "2018 - 2022",
-                    "role": "Desainer Utama",
-                    "achievements": "Mengembangkan sistem desain yang menyatukan merek di berbagai platform, meningkatkan konsistensi desain sebesar 40%.;Memimpin tim lintas fungsi untuk meluncurkan lini produk baru, berkontribusi pada peningkatan pendapatan perusahaan sebesar 15%."
+                "WAD": {
+                    "name": "We are designers",
+                    "timeframe": "ජූලි 2022 - ජූනි 2023",
+                    "role": "තත්ත්ව සහතික පුහුණු",
+                    "achievements": "ජංගම සහ වෙබ් සංවර්ධන කණ්ඩායම් දෙකේම සේවයය කරන ලදි.;ප්‍රසිද්ධ ශ්‍රී ලාංකේය ව්‍යාපාර ආයතන කිහිපයක වර්ඩ්ප්‍රෙස් සහ ලාරාවල් වෙබ් අඩවි 2ක් මෙන්ම තනි පිටු 4ක් සහිත වෙබ් අඩවි සඳහා සෙලේනියම් භාවිතයෙන් ස්වයංක්‍රීය පරීක්ෂණ, ඩිජිටල් අතුරුමුහුණත් පරීක්ෂණ, හරස් වෙබ් බ්‍රවුසර් අනුකූලතා පරීක්ෂණ සහසහ කාර්ය සාධන පරීක්ෂණ මෘදුකාංග සංවර්ධන ජීවන චක්රය පුරා සිදු කරන ලදී.; සුප්‍රසිද්ධ ශ්‍රී ලාංකේය වෙළඳ හවුල්කාරිත්වයක් සඳහා 'එකක් මිල දී ගන්න, එකක් නොමිලේ ලබා ගන්න' යන තේමාවව යටතේ ජංගම සහ ටැබ්ලට් අතුරැමුහුණත් ඇති වට්ටම් ලබාදීමේ යෙදුමක් සදහ‌ා පරීක්සණ සැලසුම් කිරීම සහ ක්‍රියාත්මක කරන ලදි. දැනට (2024) මෙම යෙදුමට සේවාලාභීන් 200 ක්, බාගත කිරීම් 10,000ක් මෙන්ම ගූගල් යෙදුම් ගබඩාවේ 4.5ක සාමාන්‍ය ශ්‍රේණිගත කිරීමක්‌ ඇත.;JMeter භාවිතා කරමින් ලාරවල් යෙදුම් වල ආතතිය පරික්ෂා කරන ලදි.;මෘදුකාංග නිෂ්පාදන කාලෝචිත හා නිවැරදිව බෙදා හැරීම සහතික කිරීම සඳහා කණ්ඩායම් සාමාජිකයින් සහ ව්‍යාපෘති පාර්ශවකරුවන් සමඟ සහයෝගයෙන් කටයුතු කරන ලදි.;Mantis bug tracker මෘදුකාංගය භාවිතයෙන් දෝෂ නිවැරදි කිරීමේ ක්‍රියාවලිය කළමනාකරණය කරන ලදි."
                 }
             }
         },
         "studies": {
-            "title": "Pendidikan",
+            "title": "අධ්‍යයන",
             "institutions": {
-                "University of Jakarta": {
-                    "description": "Belajar teknik perangkat lunak."
-                },
-                "Build the Future": {
-                    "description": "Belajar pemasaran online dan personal branding."
+                "University of Westminster": {
+                    "name": "University of Westminster",
+                    "description": "ව්‍යාපාර තොරතුරු පද්ධති අධ්‍යයනය කරන ලදි."
                 }
             }
         },
         "technical": {
-            "title": "Kemampuan Teknis",
+            "title": "තාක්ෂණික කුසලතා",
             "skills": {
                 "Figma": {
-                    "description": "Mampu membuat prototipe di Figma dengan Once UI dengan kecepatan luar biasa."
+                    "description": "අස්වාභාවික වේගයකින් Figma සහ Once UI භාවිතා කරමින් මූලාකෘති නිර්මාණය කිරීමේ හැකියාව ඇත."
                 },
                 "Nextjs": {
-                    "description": "Membangun aplikasi generasi berikutnya dengan Next.js + Once UI + Supabase."
+                    "description": "Next.js + Once UI + Supabase භාවිතා කරමින්න් ඊළඟ පරම්පරාවේ යෙදුම් ගොඩනැගීම."
+                },
+                "Flutter": {
+                    "description": "Flutter භාවිතා කරමින් ලස්සන, ස්වදේශිකව සම්පාදනය කරන ලද, බහු-වේදිකා යෙදුම් ගොඩනැගීම."
+                },
+                "Gin": {
+                    "description": "Go භාවිතා කරමින් සරල, ආරක්ෂිත සහ පරිමාණය කළ හැකි පසුපෙළ සේවා ගොඩනැගීම."
                 }
             }
         }
     },
     "blog": {
         "label": "Blog",
-        "title": "Menulis tentang desain dan teknologi...",
-        "description": "Baca apa yang {name} lakukan baru-baru ini"
+        "title": "Writing about design and tech...",
+        "description": "Read what {name} has been up to recently"
     },
     "work": {
-        "label": "Karya",
-        "title": "Proyek Saya",
-        "description": "Proyek desain dan pengembangan oleh {name}"
+        "label": "Work",
+        "title": "My projects",
+        "description": "Design and dev projects by {name}"
     },
     "gallery": {
-        "label": "Galeri",
-        "title": "Galeri Foto Saya",
-        "description": "Koleksi foto oleh {name}"
+        "label": "Gallery",
+        "title": "My photo gallery",
+        "description": "A photo collection by {name}"
     },
     "projectCard": {
-        "label": "Baca Studi Kasus"
+        "label": "සිද්ධි අධ්‍යයනය කියවන්න"
     }
 }
