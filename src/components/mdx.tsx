@@ -10,7 +10,7 @@ import { SmartImageProps } from '@/once-ui/components/SmartImage';
 type TableProps = {
     data: {
         headers: string[];
-        rows: string[][];
+        rows: (string | { content: string; colSpan?: number; rowSpan?: number })[][];
     };
 };
 
@@ -20,9 +20,16 @@ function Table({ data }: TableProps) {
     ));
     const rows = data.rows.map((row, index) => (
         <tr key={index}>
-        {row.map((cell, cellIndex) => (
-            <td key={cellIndex}>{cell}</td>
-        ))}
+            {row.map((cell, cellIndex) => {
+                if (typeof cell === 'string') {
+                    return <td key={cellIndex}>{cell}</td>;
+                }
+                return (
+                    <td key={cellIndex} colSpan={cell.colSpan} rowSpan={cell.rowSpan}>
+                        {cell.content}
+                    </td>
+                );
+            })}
         </tr>
     ));
 
