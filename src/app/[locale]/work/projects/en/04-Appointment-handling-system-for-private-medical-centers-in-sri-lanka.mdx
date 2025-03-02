@@ -1,7 +1,7 @@
 ---
-title: "Building an export market prediction system for Sri Lankan SMEs"
-publishedAt: "2024-04-08"
-summary: "In this project, I developed a export market prediction system using quantile convulutional neural network model(similar technology as amazon Q service) for multi step prediction of sri lankan export products."
+title: "Building an medical apppointment time duration prediction and management system with native mobile interface"
+publishedAt: "2025-02-27"
+summary: "In this project, i tried to apply traditional machine learning algorithm to solve ongoing problem faced by most of the patients in sri lanka when trying to access medical services."
 images:
   - "/images/projects/project-01/cover-01.png"
   - "/images/projects/project-01/cover-02.png"
@@ -19,14 +19,14 @@ team:
 
 ## Overview
 
-In this project, I developed a export market prediction system using quantile convulutional neural network model(similar technology as amazon Q service) for multi step prediction of sri lankan export products. The goal was to create a platform to empower Sri Lankan Agri-SME owners to discover lucrative export markets and navigate the exportation journey.
+Sri lanka is country where medical service if offered to citizens by private institutions throught out the network prival medical centers around the island. Most of the established private medical centers already have adapted modern technology implementing information systems to handle appointments, manage patient records, manage medicine inventories yet still main problem of patient having to spend unnecessary amount of time to get to there appointment. This application propose a XG boost model trained on data from (Hangu Open Data Project)[https://github.com/fenghaolin/HanguData] to predict the time taken by patients for their oppintment based on pesonal data such BMI index, age, medical history, etc. More data about model trining process can be found in (github)[https://github.com/Wishwa-code/easychannel] repository. Due to limitaion in data only few features were able to identify given that original dataset were focus on different purposl, model achived around 55% accuaracy which is not ideal. Still it has been proved that proving the same process with real world data collected from sri lankan private institution can be used to build a application feature that would help lot of patients.
 
 ## Key Features
 
-- **ML-based forecasting system**: Implemented an ML-based forecasting system that processes heterogeneous export datasets (product-specific monthly quantities across global markets). Features include automated retraining via incremental learning and delivering stored predictions for upcoming 5 months on user request.
-- **Personalized market news**: Users can subscribe to specific products, markets, or product-market combinations to receive automated alerts when new prediction reports are generated with new data or global news is published.
-- **Tutorial Library**: Curated video library of step-by-step tutorials to help newcomers master export processes.
-- **Intuitive tracking dashboard**: Users can easily keep track of their interest and explore information about new markets.
+- **XG boost prediction model**: User will get specific time estimation for their appoinment expecting all the patient would show up for the appointment buy calculating estimated time for all patient before the user in appointment shedule list.
+- **Medical institute locator**: User can instantly find the closest medical institute using the mobile app.
+- **Remider notifications**: Users will be able to notifications when there appointments are getting changed or close.
+- **Medical record management**: Users will be able to keep their medical record in safe location to let medical staff or patients access their records at any given time in secure manner.
 
 ## Technologies Used
 
@@ -34,18 +34,11 @@ In this project, I developed a export market prediction system using quantile co
 - **Flask**: Flask’s simplicity enables streamlined development and testing of machine learning models with frameworks such as TensorFlow.
 - **React**: For building the front-end codebase with clean, reusable components.
 - **MongoDB**: MongoDB offers a single platform for machine learning workflows with greater adaptability and scalability.
+
 ## Challenges and Learnings
 
-One key challenge was finding the best machine learning model which is capable of taking multiple monthly datasets in the same domain within three years and generating the most accurate results while having the ability to work with the nature of export data. Convolutional Neural Network models have found their footing in most real-world e-commerce use cases and have proved to be very effective with multi-market forecasting dut to its ability to learn the patterns in temporal data.
+Finding datasets that is sutable for the project was the main challenge in this project. Initially i tried to contact few local institute to get data but it involved a complicated process which is not ideal for the prototyping stage. Therefore i tried to search online, eventhough i wasnt able to find open source local dataset, i came across hangu open data project which had well documented and labeled datasets suitable for the project. All the data was carefully labled according to the documentation i had to manually prepare the orientation of the data and identify the features. XGboost is capable of automatically identifying, after several iteration i found out a model which is capable of providing reasaonalbly accurate results above 60%. Then i created a flask backend service to host the model which responded to API requests from flutter application. Creating Doctor shedule and giving estimates for the patients was the next challenging part. Main focus for the project were to experiment the XGboost models capability and testing it with other users, therefore i simply stored doctors shedules in firbase table and created a separate table for queues correspoding to the each instance of shedule as in when item for shedule is added, automatically row is addedd to the queue table. When patients make a booking, that patients start time [start time for the last ptient + estimated appoinment time duration for the last patient] will be noticed to the patients while silently calling Appoinmtnent time duration estimating API with patients data to calculate appointment time duration estimate to store in the database for next user's request. From this project, most important thing i understood was appliying machine learning model and attempting to manage que included far more concerns than  just trying to achieve the best accuracy. From the business perpective, some users may value not getting any wrong estimations rather than getting most accurate estimations. Also initial plan was to panely any patient who missed their appoinment buy pushing their position by 5 positions down the queue. which gives room to announce other users in the queue about time changes. Still that topic needs a better approach which include IoT intergration to get a input from next person in the queue to make sure no time is wasted during the process. IoT approach soumd more practical rather than expecting medical service officer to confirm the next patient every time a new patient goes in. 
 
 ## Outcome
 
-The pure implementation of CNN model achieved above 70% baseline accuracy just using hand collected 3 years of monthly data for 65 products from UN Comtrade Database[https://comtradeplus.un.org/] and International Trade Administration[https://www.trade.gov/]. At the moment application serves as a minimum viable product which supports limited set of products and markets. With funding and leveraging tools provided by service like Amazon Q service, application has the potential to revolutionizing South Asian Trade Infrastructure with technologies such as blockchain smart contracts and generative AI. Thank you for engaging with this research—your time and attention are deeply appreciated. As my final-year research project, this work represents both academic rigor and a passion for practical innovation. I enthusiastically welcome discussions with researchers, industry partners, or implementers interested in:
-
-🔹 Prototyping commercial applications
-
-🔹 Expanding the model’s domain adaptability
-
-🔹 Exploring grant opportunities for real-world deployment
-
-Here’s to building solutions that bridge theoretical AI and global economic impact—one algorithm at a time.
+Required more specific data set to generate unbiased but less accurate model that can be used in practical scenerio. Also consider using IoT device to place infront of the channelling room [github](https://github.com/Wishwa-code/easychannel).
