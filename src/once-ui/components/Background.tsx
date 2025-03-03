@@ -208,7 +208,7 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
               width: "1200px", // Use pixel values for width
               height: "1200px", // Use pixel values for height
                 // Set border radius to 50% for a circular shape
-              background: `radial-gradient(circle,#09382C 0%,rgba(80, 200, 120, 0) 70%, rgba(80, 200, 120, 0) 100%)`, // Radial gradient with emerald color
+              background: `radial-gradient(circle,#000000 0%,hsla(140, 52.20%, 54.90%, 0.00) 70%, rgba(80, 200, 120, 0) 100%)`, // Radial gradient with emerald color
               transform: `rotate(${gradient.tilt != null ? gradient.tilt : 0}deg)`, // Directly set tilt
               transformOrigin: 'center', // Set transform origin to center for proper rotation
             }}

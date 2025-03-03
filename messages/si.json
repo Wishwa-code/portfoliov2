@@ -51,19 +51,22 @@
             }
         },
         "technical": {
-            "title": "තාක්ෂණික කුසලතා",
+            "title": "Technical skills",
             "skills": {
-                "Figma": {
-                    "description": "අස්වාභාවික වේගයකින් Figma සහ Once UI භාවිතා කරමින් මූලාකෘති නිර්මාණය කිරීමේ හැකියාව ඇත."
+                "Particularly interested in": {
+                    "description": "go, gin, next.Js, kotlin multi platoform, general software design, software development process, agile, performance, scalability, multithreading, distributed and cloud computing"
                 },
-                "Nextjs": {
-                    "description": "Next.js + Once UI + Supabase භාවිතා කරමින්න් ඊළඟ පරම්පරාවේ යෙදුම් ගොඩනැගීම."
+                "Libraries": {
+                    "description": "django, flask, express.Js, spring boot, flutter, next.js, react, vue, react native, typeScript, selenium, sci-kit learn, open CV, rive, framer, intl.js, three.js, PDF.js,"
                 },
-                "Flutter": {
-                    "description": "Flutter භාවිතා කරමින් ලස්සන, ස්වදේශිකව සම්පාදනය කරන ලද, බහු-වේදිකා යෙදුම් ගොඩනැගීම."
+                "Computer Languages": {
+                    "description": "Java, Python, C/C++/C#, JavaScript, Kotlin, Go, PHP, SQL, HTML, CSS, Sass, JSON, YAML, CSV, R"
                 },
-                "Gin": {
-                    "description": "Go භාවිතා කරමින් සරල, ආරක්ෂිත සහ පරිමාණය කළ හැකි පසුපෙළ සේවා ගොඩනැගීම."
+                "Specialities": {
+                    "description": "django, django ORM, typescript, react, flutter, riverpod, react built-in state management, configuring CI/CD using git or vercel, RESTful web services, Amazon EC2/ S3/ MQ / SQS, pytorch."
+                },
+                "Certifications": {
+                    "description": "Google Data Analytics Professional Certificate, working on AWS Certified Developer - Associate."
                 }
             }
         }

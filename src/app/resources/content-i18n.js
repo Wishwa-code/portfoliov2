@@ -115,57 +115,50 @@ const createI18nContent = (t) => {
             title: t("about.technical.title"),
             skills: [
                 {
-                    title: 'Figma',
-                    description: <>{t("about.technical.skills.Figma.description")}</>,
+                    title: 'Particularly interested in',
+                    description: <>{t("about.technical.skills.Particularly interested in.description")}</>,
+                    images: []
+                },
+                {
+                    title: 'Libraries',
+                    description: <>{t("about.technical.skills.Libraries.description")}</>,
                     images: [
-                        {
-                            src: '/images/projects/project-01/cover-02.png',
-                            alt: 'Project image',
-                            width: 16,
-                            height: 9
-                        },
-                        {
-                            src: '/images/projects/project-01/cover-03.png',
-                            alt: 'Project image',
-                            width: 16,
-                            height: 9
-                        },
                     ]
                 },
                 {
-                    title: 'Next.js',
-                    description: <>{t("about.technical.skills.Nextjs.description")}</>, // "." not accepted in next-intl namespace
+                    title: 'Computer Languages',
+                    description: <>{t("about.technical.skills.Computer Languages.description")}</>, // "." not accepted in next-intl namespace
                     images: [
-                        {
-                            src: '/images/projects/project-01/cover-04.png',
-                            alt: 'Project image',
-                            width: 16,
-                            height: 9
-                        },
+                        // {
+                        //     src: '/images/projects/project-01/cover-04.png',
+                        //     alt: 'Project image',
+                        //     width: 16,
+                        //     height: 9
+                        // },
                     ]
                 },
                 {
-                    title: 'Flutter',
-                    description: <>{t("about.technical.skills.Flutter.description")}</>, // "." not accepted in next-intl namespace
+                    title: 'Specialities',
+                    description: <>{t("about.technical.skills.Specialities.description")}</>, // "." not accepted in next-intl namespace
                     images: [
-                        {
-                            src: '/images/projects/project-01/cover-04.png',
-                            alt: 'Project image',
-                            width: 16,
-                            height: 9
-                        },
+                        // {
+                        //     src: '/images/projects/project-01/cover-04.png',
+                        //     alt: 'Project image',
+                        //     width: 16,
+                        //     height: 9
+                        // },
                     ]
                 },
                 {
-                    title: 'Gin',
-                    description: <>{t("about.technical.skills.Gin.description")}</>, // "." not accepted in next-intl namespace
+                    title: 'Certifications',
+                    description: <>{t("about.technical.skills.Certifications.description")}</>, // "." not accepted in next-intl namespace
                     images: [
-                        {
-                            src: '/images/projects/project-01/cover-04.png',
-                            alt: 'Project image',
-                            width: 16,
-                            height: 9
-                        },
+                        // {
+                        //     src: '/images/projects/project-01/cover-04.png',
+                        //     alt: 'Project image',
+                        //     width: 16,
+                        //     height: 9
+                        // },
                     ]
                 }
             ]

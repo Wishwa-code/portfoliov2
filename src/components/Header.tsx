@@ -136,11 +136,13 @@ export const Header = () => {
                 </Flex>
             </Flex>
             <Flex
+                hide="s"
                 paddingRight="12" fillWidth
                 justifyContent="flex-end" alignItems="center"
                 textVariant="body-default-s"
                 gap="20">
                 {routing.locales.length > 1 && <Flex
+                    
                     background="surface" border="neutral-medium" borderStyle="solid-1" radius="m-4" shadow="l"
                     padding="4" gap="2"
                     justifyContent="center">

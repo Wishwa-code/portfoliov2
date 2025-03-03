@@ -22,7 +22,7 @@
         "description": "Meet {name}, {role} from {location}",
         "intro": {
             "title": "Introduction",
-            "description": "Wishwa is a colombo based software engineer with a passion for developing elegant and efficient complex, multithreaded backend applications. His work spans digital strategy, digital interfaces, distributed business information system architecture, and the convergence of design and technology."
+            "description": "Wishwa is a software engineer with experience building client/server desktop, web and mobile applications, middleware systems and database primarily based on the java platform. Wishwa has a keen interest in learning and working with Go, multithreaded applications, the Internet's WebAssembly adaptation, and Linux."
         },
         "work": {
             "title": "Work Experience",
@@ -53,17 +53,20 @@
         "technical": {
             "title": "Technical skills",
             "skills": {
-                "Figma": {
-                    "description": "Able to prototype in Figma with Once UI with unnatural speed."
+                "Particularly interested in": {
+                    "description": "go, gin, next.Js, kotlin multi platoform, general software design, software development process, agile, performance, scalability, multithreading, distributed and cloud computing"
                 },
-                "Nextjs": {
-                    "description": "Building next gen applications with Next.js + Once UI + Supabase."
+                "Libraries": {
+                    "description": "django, flask, express.Js, spring boot, flutter, next.js, react, vue, react native, typeScript, selenium, sci-kit learn, open CV, rive, framer, intl.js, three.js, PDF.js,"
                 },
-                "Flutter": {
-                    "description": "Building beautiful, natively compiled, multi-platform applications with flutter."
+                "Computer Languages": {
+                    "description": "Java, Python, C/C++/C#, JavaScript, Kotlin, Go, PHP, SQL, HTML, CSS, Sass, JSON, YAML, CSV, R"
                 },
-                "Gin": {
-                    "description": "Building simple, secure, and scalable backend services with Go."
+                "Specialities": {
+                    "description": "django, django ORM, typescript, react, flutter, riverpod, react built-in state management, configuring CI/CD using git or vercel, RESTful web services, Amazon EC2/ S3/ MQ / SQS, pytorch."
+                },
+                "Certifications": {
+                    "description": "Google Data Analytics Professional Certificate., working on AWS Certified Developer - Associate."
                 }
             }
         }
