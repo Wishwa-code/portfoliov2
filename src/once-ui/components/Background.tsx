@@ -10,6 +10,7 @@ import { Flex } from "./Flex";
 import { DisplayProps } from "../interfaces";
 import styles from "./Background.module.scss";
 import classNames from "classnames";
+import { useConfig } from "@/app/contexts/ConfigContext";
 
 function setRef<T>(ref: React.Ref<T> | undefined, value: T | null) {
   if (typeof ref === "function") {
@@ -94,6 +95,17 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
     const [smoothPosition, setSmoothPosition] = useState({ x: 0, y: 0 });
     const backgroundRef = useRef<HTMLDivElement>(null);
 
+    const { config, setConfig } = useConfig(); // Destructure both config and setConfig
+    
+    useEffect(() => {
+      console.log('Current theme from config:', config.style.theme);
+      // You can also update the config if needed like this:
+      // setConfig(prev => ({
+      //   ...prev,
+      //   style: { ...prev.style, theme: 'light' }
+      // }));
+    }, [config]);
+
     useEffect(() => {
       setRef(forwardedRef, backgroundRef.current);
     }, [forwardedRef]);
@@ -177,7 +189,6 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
 
     const adjustedX = cursorPosition.x != null ? remap(50, 0, 100, 37.5, 62.5) : 50;
     const adjustedY = cursorPosition.y != null ? remap(100, 0, 100, 37.5, 62.5) : 50;
-    console.log('cursorPosition',smoothPosition);
     return (
       <Flex
         ref={backgroundRef}
@@ -208,7 +219,7 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
               width: "1200px", // Use pixel values for width
               height: "1200px", // Use pixel values for height
                 // Set border radius to 50% for a circular shape
-              background: `radial-gradient(circle,#000000 0%,hsla(140, 52.20%, 54.90%, 0.00) 70%, rgba(80, 200, 120, 0) 100%)`, // Radial gradient with emerald color
+              background: `radial-gradient(circle,${config.accent.color} 0%,hsla(140, 52.20%, 54.90%, 0.00) 70%, rgba(80, 200, 120, 0) 100%)`, // Radial gradient with emerald color
               transform: `rotate(${gradient.tilt != null ? gradient.tilt : 0}deg)`, // Directly set tilt
               transformOrigin: 'center', // Set transform origin to center for proper rotation
             }}
@@ -224,70 +235,3 @@ Background.displayName = "Background";
 
 export { Background };
 
-
-
-
-// {dots.display && (
-//     <Flex
-//       position="absolute"
-//       top="0"
-//       left="0"
-//       fill ="true"
-//       pointerEvents="none"
-//       className={styles.dots}
-//       opacity={dots.opacity}
-//       style={
-//         {
-//           "--dots-color": `var(--${dotsColor})`,
-//           "--dots-size": dotsSize,
-//         } as React.CSSProperties
-//       }
-//     />
-//   )}
-//   {lines.display && (
-//     <Flex
-//       position="absolute"
-//       top="0"
-//       left="0"
-//       fill="true"
-//       pointerEvents="none"
-//       className={styles.lines}
-//       opacity={lines.opacity}
-//       style={{
-//         backgroundImage: `repeating-linear-gradient(45deg, var(--brand-on-background-weak) 0, var(--brand-on-background-weak) 0.5px, var(--static-transparent) 0.5px, var(--static-transparent) ${dots.size})`,
-//       }}
-//     />
-//   )}
-//   {grid.display && (
-//     <Flex
-//       position="absolute"
-//       top="0"
-//       left="0"
-//       fill="true"
-//       pointerEvents="none"
-//       className={styles.grid}
-//       opacity={grid.opacity}
-//       style={{
-//         backgroundSize: `
-//           ${grid.width || "var(--static-space-32)"}
-//           ${grid.height || "var(--static-space-32)"}`,
-//         backgroundPosition: "0 0",
-//         backgroundImage: `
-//           linear-gradient(
-//             90deg,
-//             var(--${grid.color || "brand-on-background-weak"}) 0,
-//             var(--${grid.color || "brand-on-background-weak"}) 1px,
-//             var(--static-transparent) 1px,
-//             var(--static-transparent) ${grid.width || "var(--static-space-32)"}
-//           ),
-//           linear-gradient(
-//             0deg,
-//             var(--${grid.color || "brand-on-background-weak"}) 0,
-//             var(--${grid.color || "brand-on-background-weak"}) 1px,
-//             var(--static-transparent) 1px,
-//             var(--static-transparent) ${grid.height || "var(--static-space-32)"}
-//           )
-//         `,
-//       }}
-//     />
-//   )}

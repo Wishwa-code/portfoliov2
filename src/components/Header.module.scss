@@ -3,6 +3,18 @@
     top: 0;
 }
 
+.absoluteOverlay {
+    position: absolute;
+    top: 100%; // Adjust as necessary to position it below the settings button
+    left: 40%;
+    right: 0;
+    background: var(--your-background-color); // Match the menu background
+    border: 1px solid var(--your-border-color); // Match the menu border
+    border-radius: var(--your-border-radius); // Match the menu border radius
+    box-shadow: var(--your-shadow); // Match the menu shadow
+    z-index: 10; // Ensure it appears above other content
+}
+
 @media (--s) {
     .position {
         top: auto;

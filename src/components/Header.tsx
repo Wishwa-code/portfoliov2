@@ -13,6 +13,7 @@ import { Locale, usePathname, useRouter } from '@/i18n/routing';
 import { renderContent } from "@/app/resources";
 import { useTranslations } from "next-intl";
 import { i18n } from "@/app/resources/config";
+import { useConfig } from '@/app/contexts/ConfigContext';
 
 type TimeDisplayProps = {
     timeZone: string;
@@ -56,6 +57,8 @@ export const Header = () => {
     const [isPending, startTransition] = useTransition();
     const pathname = usePathname() ?? '';
     const params = useParams();
+    const [isOverlayVisible, setOverlayVisible] = useState(false);
+    const { config, setConfig } = useConfig();
 
     function handleLanguageChange(locale: string) {
         const nextLocale = locale as Locale;
@@ -66,6 +69,35 @@ export const Header = () => {
             )
         })
     }
+
+    const toggleOverlay = () => {
+        setOverlayVisible(!isOverlayVisible); // Toggle overlay visibility
+    };
+
+    const handleThemeChange = (theme: string) => {
+        // Update URL with the new theme parameter
+        const newSearchParams = new URLSearchParams(window.location.search);
+        newSearchParams.set('mode', theme);
+        document.documentElement.setAttribute('data-theme', theme);
+        // Use router.push instead of replace to trigger a re-render
+        // startTransition(() => {
+        //     router.push(
+        //         `${pathname}?${newSearchParams.toString()}`,
+        //         { locale: params?.locale as Locale }
+        //     );
+        // });
+    };
+
+    const handleColorChange = (newColor: string) => {
+        setConfig((prevConfig: any) => ({
+            ...prevConfig,  // Keep all existing config values
+            accent: {
+                ...prevConfig.accent, // Keep other accent properties if any
+                color: newColor  // Update only the color
+            }
+        }));
+        console.log('Accent color changed to:', newColor);
+    };
 
     const t = useTranslations();
     const { person, home, about, blog, work, gallery } = renderContent(t);
@@ -132,6 +164,40 @@ export const Header = () => {
                             selected={pathname.startsWith('/gallery')}>
                             <Flex paddingX="2" hide="s">{gallery.label}</Flex>
                         </ToggleButton>
+                    )}
+                    <ToggleButton
+                        prefixIcon="gallery" // You can change this icon as needed
+                        onClick={toggleOverlay}
+                        selected={isOverlayVisible} // Show overlay on click
+                    >
+                        <Flex paddingX="2" hide="s">Settings</Flex>
+                    </ToggleButton>
+                    
+                    {isOverlayVisible && ( // Conditional rendering of the overlay
+                        <div className={`${styles.overlayCard} ${styles.absoluteOverlay}`}> {/* Add your overlay card styles */}
+                            <h3>Select Options</h3>
+                            <div>
+                                <label>
+                                    <input type="radio" name="theme" value="light" onChange={() => handleThemeChange('light')} /> Light Theme
+                                </label>
+                                <label>
+                                    <input type="radio" name="theme" value="dark" onChange={() => handleThemeChange('dark')} /> Dark Theme
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" name="bulb" /> Bulb On/Off
+                                </label>
+                            </div>
+                                
+                        {/* Or example with multiple color options */}
+                        <div>
+                            <button onClick={() => handleColorChange('red')}>Red</button>
+                            <button onClick={() => handleColorChange('green')}>Green</button>
+                            <button onClick={() => handleColorChange('blue')}>Blue</button>
+                        </div>
+                            <button onClick={toggleOverlay}>Close</button> {/* Button to close overlay */}
+                        </div>
                     )}
                 </Flex>
             </Flex>
