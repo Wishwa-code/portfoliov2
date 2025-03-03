@@ -14,10 +14,6 @@ export const ConfigProvider = ({ children }) => {
             state: true,
             color: 'hsl(140, 59.00%, 40.20%)',
         },
-        accent: {
-            state: true,
-            color: 'hsl(140, 59.00%, 40.20%)',
-        },
         style: {
             theme: 'dark',
         },

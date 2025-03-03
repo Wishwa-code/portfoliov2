@@ -3,16 +3,20 @@
     top: 0;
 }
 
-.absoluteOverlay {
+.overlayCard {
     position: absolute;
-    top: 100%; // Adjust as necessary to position it below the settings button
-    left: 40%;
-    right: 0;
-    background: var(--your-background-color); // Match the menu background
-    border: 1px solid var(--your-border-color); // Match the menu border
-    border-radius: var(--your-border-radius); // Match the menu border radius
-    box-shadow: var(--your-shadow); // Match the menu shadow
-    z-index: 10; // Ensure it appears above other content
+    top: 100%; // Position it right below the header
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    min-width: 200px; // Adjust as needed
+}
+
+.absoluteOverlay {
+    position: fixed; // This ensures it stays in view even when scrolling
+    top: 60px; // Adjust this value based on your header height
+    left: 90%;
+    transform: translateX(-50%);
 }
 
 @media (--s) {
@@ -20,5 +24,18 @@
         top: auto;
         position: fixed;
         bottom: var(--static-space-24);
+    }
+}
+
+// Add media query for mobile
+@media (max-width: 768px) { // Adjust breakpoint as needed
+    .overlayCard {
+        position: fixed;
+        top: auto;
+        bottom: 60px; // Adjust based on your header height
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%; // Make it wider on mobile
+        max-width: 300px; // But not too wide
     }
 }

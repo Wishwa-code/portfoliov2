@@ -1,5 +1,8 @@
 "use client";
 
+//! for now we are deciding to not dumb down machines just to make color mode stay with language change
+//! untill it fixed with route paramters eventually
+
 import { useParams } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
 
@@ -88,15 +91,15 @@ export const Header = () => {
         // });
     };
 
-    const handleColorChange = (newColor: string) => {
+    const handleColorChange = (newChange: string, change: 'state' | 'color') => {
         setConfig((prevConfig: any) => ({
             ...prevConfig,  // Keep all existing config values
-            accent: {
-                ...prevConfig.accent, // Keep other accent properties if any
-                color: newColor  // Update only the color
+            backlight: {
+                ...prevConfig.backlight, // Keep other accent properties if any
+                [change]: newChange  // Use the change parameter as the key
             }
         }));
-        console.log('Accent color changed to:', newColor);
+        console.log(`Backlight ${change} changed to:`, newChange);
     };
 
     const t = useTranslations();
@@ -173,31 +176,84 @@ export const Header = () => {
                         <Flex paddingX="2" hide="s">Settings</Flex>
                     </ToggleButton>
                     
-                    {isOverlayVisible && ( // Conditional rendering of the overlay
-                        <div className={`${styles.overlayCard} ${styles.absoluteOverlay}`}> {/* Add your overlay card styles */}
-                            <h3>Select Options</h3>
-                            <div>
-                                <label>
-                                    <input type="radio" name="theme" value="light" onChange={() => handleThemeChange('light')} /> Light Theme
-                                </label>
-                                <label>
-                                    <input type="radio" name="theme" value="dark" onChange={() => handleThemeChange('dark')} /> Dark Theme
-                                </label>
-                            </div>
-                            <div>
-                                <label>
-                                    <input type="checkbox" name="bulb" /> Bulb On/Off
-                                </label>
-                            </div>
-                                
-                        {/* Or example with multiple color options */}
-                        <div>
-                            <button onClick={() => handleColorChange('red')}>Red</button>
-                            <button onClick={() => handleColorChange('green')}>Green</button>
-                            <button onClick={() => handleColorChange('blue')}>Blue</button>
-                        </div>
-                            <button onClick={toggleOverlay}>Close</button> {/* Button to close overlay */}
-                        </div>
+                    {isOverlayVisible && (
+                        <Flex 
+                            className={`${styles.overlayCard} ${styles.absoluteOverlay}`}
+                            background="surface" 
+                            border="neutral-medium" 
+                            borderStyle="solid-1" 
+                            radius="m-4" 
+                            shadow="l"
+                            padding="4"
+                            gap="4"
+                            direction="column">
+                            
+                            {/* Theme Toggle Row */}
+                            <Flex gap="2" justifyContent="center">
+                                <ToggleButton
+                                    prefixIcon="gallery"
+                                    selected={document.documentElement.getAttribute('data-theme') === 'light'}
+                                    onClick={() => handleThemeChange('light')}
+                                >
+                                    <Flex paddingX="2" hide="s">Light</Flex>
+                                </ToggleButton>
+                                <ToggleButton
+                                    prefixIcon="gallery"
+                                    selected={document.documentElement.getAttribute('data-theme') === 'dark'}
+                                    onClick={() => handleThemeChange('dark')}
+                                >
+                                    <Flex paddingX="2" hide="s">Dark</Flex>
+                                </ToggleButton>
+                            </Flex>
+
+                            {/* Bulb Toggle Row */}
+                            <Flex gap="2" justifyContent="center">
+                                <ToggleButton
+                                    prefixIcon="gallery"
+                                    selected={config.backlight.state === 'true'}
+                                    onClick={() => handleColorChange(config.backlight.state === 'true' ? 'false' : 'true', 'state')}
+                                >
+                                    <Flex paddingX="2" hide="s">Bulb</Flex>
+                                </ToggleButton>
+                            </Flex>
+
+                            {/* Color Selection Row */}
+                            <Flex gap="2" justifyContent="center">
+                                <ToggleButton
+                                    prefixIcon="gallery"
+                                    selected={config.backlight.color === 'red'}
+                                    onClick={() => handleColorChange('red', 'color')}
+                                >
+                                    <Flex paddingX="2" hide="s">Red</Flex>
+                                </ToggleButton>
+                                <ToggleButton
+                                    prefixIcon="gallery"
+                                    selected={config.backlight.color === 'green'}
+                                    onClick={() => handleColorChange('green', 'color')}
+                                >
+                                    <Flex paddingX="2" hide="s">Green</Flex>
+                                </ToggleButton>
+                                <ToggleButton
+                                    prefixIcon="gallery"
+                                    selected={config.backlight.color === 'blue'}
+                                    onClick={() => handleColorChange('blue', 'color')}
+                                >
+                                    <Flex paddingX="2" hide="s">Blue</Flex>
+                                </ToggleButton>
+                            </Flex>
+
+                            {/* Close Button */}
+                            <Flex justifyContent="center">
+                                {/* @ts-nocheck */}
+                                <ToggleButton
+                                    prefixIcon="close"
+                                    onClick={toggleOverlay}
+                                    selected={false}
+                                >
+                                    <Flex paddingX="2" hide="s">Close</Flex>
+                                </ToggleButton>
+                            </Flex>
+                        </Flex>
                     )}
                 </Flex>
             </Flex>
