@@ -77,11 +77,29 @@ export const Header = () => {
         setOverlayVisible(!isOverlayVisible); // Toggle overlay visibility
     };
 
+    useEffect(() => {
+        console.log('Current theme from config:', config.style.theme);
+        document.documentElement.setAttribute('data-theme', config.style.theme);
+  
+        // You can also update the config if needed like this:
+        // setConfig(prev => ({
+        //   ...prev,
+        //   style: { ...prev.style, theme: 'light' }
+        // }));
+      }, [config]);
+
     const handleThemeChange = (theme: string) => {
         // Update URL with the new theme parameter
         const newSearchParams = new URLSearchParams(window.location.search);
         newSearchParams.set('mode', theme);
         document.documentElement.setAttribute('data-theme', theme);
+        setConfig((prevConfig: any) => ({
+            ...prevConfig,
+            style: {
+                ...prevConfig.style,
+                theme: theme
+            }
+        }));
         // Use router.push instead of replace to trigger a re-render
         // startTransition(() => {
         //     router.push(

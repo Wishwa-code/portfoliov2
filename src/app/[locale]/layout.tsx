@@ -19,6 +19,7 @@ import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server
 import { Metadata } from "next";
 import { routing } from "@/i18n/routing";
 import { renderContent } from "@/app/resources";
+import { useConfig } from '@/app/contexts/ConfigContext';
 
 
 export async function generateMetadata(
@@ -98,87 +99,89 @@ export default async function RootLayout({
 	const messages = await getMessages();
 	const mode = (searchParams?.mode) || 'default';
 	console.log('mode', mode);
+
 	return (
-		<NextIntlClientProvider messages={messages}>
-			
-			<Flex
-				as="html" lang="en"
-				background="page"
-				data-neutral={style.neutral} 
-				data-brand={style.brand}
-				data-accent={style.accent}
-				data-solid={style.solid} 
-				data-solid-style={style.solidStyle}
-				data-theme={style.theme}
-				data-border={style.border}
-				data-surface={style.surface}
-				data-transition={style.transition}
-				className={classNames(
-					primary.variable,
-					secondary ? secondary.variable : '',
-					tertiary ? tertiary.variable : '',
-					code.variable,
-					'dark:data-device-dark')}>
-				<ConfigProvider>
-					<Flex style={{minHeight: '100vh'}}
-						as="body"
-						fillWidth margin="0" padding="0"
-						direction="column">
-						<Background
-							mask={{
-								cursor: neweffects.mask.cursor,
-								x: neweffects.mask.x,
-								y: neweffects.mask.y,
-								radius: neweffects.mask.radius,
-							}}
-							gradient={{
-								display: neweffects.gradient.display,
-								x: neweffects.gradient.x,
-								y: neweffects.gradient.y,
-								width: neweffects.gradient.width,
-								height: neweffects.gradient.height,
-								tilt: neweffects.gradient.tilt,
-								colorStart: neweffects.gradient.colorStart,
-								colorEnd: neweffects.gradient.colorEnd,
-								opacity: neweffects.gradient.opacity as
-								| 0
-								| 10
-								| 20
-								| 30
-								| 40
-								| 50
-								| 60
-								| 70
-								| 80
-								| 90
-								| 100,
-							}}
-							
-							/>
-						<Flex
-							fillWidth
-							minHeight="16">
-						</Flex>
-						<Header/>
-						<Flex
-							zIndex={0}
-							fillWidth paddingY="l" paddingX="l"
-							justifyContent="center" flex={1}>
+		<ConfigProvider>
+			<NextIntlClientProvider messages={messages}>
+				
+				<Flex
+					as="html" lang="en"
+					background="page"
+					data-neutral={style.neutral} 
+					data-brand={style.brand}
+					data-accent={style.accent}
+					data-solid={style.solid} 
+					data-solid-style={style.solidStyle}
+					data-border={style.border}
+					data-surface={style.surface}
+					data-transition={style.transition}
+					className={classNames(
+						primary.variable,
+						secondary ? secondary.variable : '',
+						tertiary ? tertiary.variable : '',
+						code.variable,
+						'dark:data-device-dark')}>
+					
+						<Flex style={{minHeight: '100vh'}}
+							as="body"
+							fillWidth margin="0" padding="0"
+							direction="column">
+							<Background
+								mask={{
+									cursor: neweffects.mask.cursor,
+									x: neweffects.mask.x,
+									y: neweffects.mask.y,
+									radius: neweffects.mask.radius,
+								}}
+								gradient={{
+									display: neweffects.gradient.display,
+									x: neweffects.gradient.x,
+									y: neweffects.gradient.y,
+									width: neweffects.gradient.width,
+									height: neweffects.gradient.height,
+									tilt: neweffects.gradient.tilt,
+									colorStart: neweffects.gradient.colorStart,
+									colorEnd: neweffects.gradient.colorEnd,
+									opacity: neweffects.gradient.opacity as
+									| 0
+									| 10
+									| 20
+									| 30
+									| 40
+									| 50
+									| 60
+									| 70
+									| 80
+									| 90
+									| 100,
+								}}
+								
+								/>
 							<Flex
-								justifyContent="center"
-								fillWidth minHeight="0">
-								<RouteGuard>
-									{children}
-								</RouteGuard>
+								fillWidth
+								minHeight="16">
 							</Flex>
+							<Header/>
+							<Flex
+								zIndex={0}
+								fillWidth paddingY="l" paddingX="l"
+								justifyContent="center" flex={1}>
+								<Flex
+									justifyContent="center"
+									fillWidth minHeight="0">
+									<RouteGuard>
+										{children}
+									</RouteGuard>
+								</Flex>
+							</Flex>
+							<Footer/>
+							
 						</Flex>
-						<Footer/>
-						
-					</Flex>
-				</ConfigProvider>
-			</Flex>
-			
-		</NextIntlClientProvider>
+					
+				</Flex>
+				
+			</NextIntlClientProvider>
+		</ConfigProvider>
 	);
 }
 

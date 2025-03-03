@@ -99,6 +99,7 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
     
     useEffect(() => {
       console.log('Current theme from config:', config.style.theme);
+
       // You can also update the config if needed like this:
       // setConfig(prev => ({
       //   ...prev,

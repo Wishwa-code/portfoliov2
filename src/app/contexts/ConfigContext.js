@@ -1,26 +1,41 @@
 'use client'
 
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const ConfigContext = createContext();
 
+const defaultConfig = {
+    display: {
+        location: true,
+        time: true,
+    },
+    backlight: {
+        state: true,
+        color: 'hsl(140, 59.00%, 40.20%)',
+    },
+    style: {
+        theme: 'dark',
+    },
+    // ... other default values
+};
+
 export const ConfigProvider = ({ children }) => {
-    const [config, setConfig] = useState({
-        display: {
-            location: true,
-            time: true,
-        },
-        backlight: {
-            state: true,
-            color: 'hsl(140, 59.00%, 40.20%)',
-        },
-        style: {
-            theme: 'dark',
-        },
-        // ... other config values from config.js
+    const [config, setConfig] = useState(() => {
+        if (typeof window !== 'undefined') {
+            const savedConfig = localStorage.getItem('appConfig');
+            console.log('Loading config from localStorage:', savedConfig);
+            return savedConfig ? JSON.parse(savedConfig) : defaultConfig;
+        }
+        return defaultConfig;
     });
 
-    console.log('displaying changed theme from provider',config.style.theme);
+    // Update localStorage whenever config changes
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            console.log('Saving config to localStorage:', config);
+            localStorage.setItem('appConfig', JSON.stringify(config));
+        }
+    }, [config]);
 
     return (
         <ConfigContext.Provider value={{ config, setConfig }}>
