@@ -25,7 +25,10 @@ import {
 	PiUserCircleDuotone,
 	PiGridFourDuotone,
 	PiBookBookmarkDuotone,
-	PiImageDuotone
+	PiImageDuotone,
+	PiCheckFatFill,
+	PiGearDuotone,
+	PiCheckFatDuotone
 } from "react-icons/pi";
 
 import {
@@ -71,5 +74,7 @@ export const iconLibrary: Record<string, IconType> = {
 	dark: FaMountainSun,
 	light: FaCloudSun,
 	spotlighton:TbBulb,
-	spotlightoff:TbBulbOff 
+	spotlightoff:TbBulbOff,
+	tick:PiCheckFatDuotone,
+	settings:PiGearDuotone,
 };

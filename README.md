@@ -62,7 +62,7 @@ Lorant Toth: [Threads](https://www.threads.net/@lorant.one), [LinkedIn](https://
 Zsofia Komaromi: [Threads](https://www.threads.net/@zsofia_kom), [LinkedIn](https://www.linkedin.com/in/zsofiakomaromi/)
 
 Localization added by [François Hernandez](https://github.com/francoishernandez/magic-portfolio/)
-Added some stuff by [Wishwa Kankanamge](https://github.com/Wishwa-code/)
+Added settings and some stuff by [Wishwa Kankanamge](https://github.com/Wishwa-code/)
 
 
 # **License**

@@ -54,16 +54,16 @@
             "title": "Technical skills",
             "skills": {
                 "Particularly interested in": {
-                    "description": "go, gin, next.Js, kotlin multi platoform, general software design, software development process, agile, performance, scalability, multithreading, distributed and cloud computing"
+                    "description": "go, gin, next.Js, kotlin multi platform, general software design, software development process, agile, performance, scalability, multithreading, security, distributed and cloud computing"
                 },
                 "Libraries": {
-                    "description": "django, flask, express.Js, spring boot, flutter, next.js, react, vue, react native, typeScript, selenium, sci-kit learn, open CV, rive, framer, intl.js, three.js, PDF.js,"
+                    "description": "django, flask, express.Js, spring boot, flutter, gin, prisma, next.js, react, vue, react native, typeScript, selenium, sci-kit learn, open CV, rive, framer, intl.js, three.js, PDF.js,"
                 },
                 "Computer Languages": {
                     "description": "Java, Python, C/C++/C#, JavaScript, Kotlin, Go, PHP, SQL, HTML, CSS, Sass, JSON, YAML, CSV, R"
                 },
                 "Specialities": {
-                    "description": "django, django ORM, typescript, react, flutter, riverpod, react built-in state management, configuring CI/CD using git or vercel, RESTful web services, Amazon EC2/ S3/ MQ / SQS, pytorch."
+                    "description": "django, django ORM, typescript, Once UI, tailwind, react, react context API, react Query, flutter, riverpod, supabase, neonDB, configuring CI/CD using git or vercel, RESTful web services, Amazon EC2/ S3/ MQ / SQS, pytorch."
                 },
                 "Certifications": {
                     "description": "Google Data Analytics Professional Certificate., working on AWS Certified Developer - Associate."

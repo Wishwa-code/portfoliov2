@@ -1,0 +1,14 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 16px; /* Adjust the gap between the buttons as needed */
+    justify-content: center;
+    padding:15px;
+}
+
+.grid-container > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

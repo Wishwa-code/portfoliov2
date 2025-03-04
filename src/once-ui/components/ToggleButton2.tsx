@@ -1,5 +1,3 @@
-"use client";
-
 import React, { forwardRef, ReactNode, ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react';
 import Link from 'next/link';
 
@@ -18,6 +16,7 @@ interface CommonProps {
     suffixIcon?: string;
     className?: string;
     style?: React.CSSProperties;
+    backgroundColor?: string;
     children?: ReactNode;
     href?: string;
 }
@@ -39,6 +38,7 @@ const ToggleButton2 = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
     suffixIcon,
     className,
     style,
+    backgroundColor,
     children,
     href,
     ...props
@@ -48,7 +48,7 @@ const ToggleButton2 = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
     const content = (
         <>
             <div className={styles.labelWrapper}>
-                {prefixIcon && (
+                {prefixIcon && selected &&(
                     <Icon
                         name={prefixIcon}
                         size={iconSize}/>
@@ -58,7 +58,7 @@ const ToggleButton2 = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
                         {label}
                     </div>
                 )}
-                {children}
+                {/* {children} */}
             </div>
             {suffixIcon && (
                 <Icon
@@ -70,7 +70,7 @@ const ToggleButton2 = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
 
     const commonProps = {
         className: `${styles.button} ${selected ? styles.selected : ''} ${styles[size]} ${styles[align]} ${styles[width]} ${className || ''}`,
-        style: { ...style, textDecoration: 'none' },
+        style: { ...style, backgroundColor, textDecoration: 'none' },
         'aria-pressed': selected,
         tabIndex: 0,
     };

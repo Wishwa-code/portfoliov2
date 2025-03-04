@@ -17,6 +17,7 @@ import { renderContent } from "@/app/resources";
 import { useTranslations } from "next-intl";
 import { i18n } from "@/app/resources/config";
 import { useConfig } from '@/app/contexts/ConfigContext';
+import ColorPalette from '@/components/Colorpalette'
 
 type TimeDisplayProps = {
     timeZone: string;
@@ -96,7 +97,7 @@ export const Header = () => {
                 theme: theme
             }
         }));
-
+        // @ts-ignore
         document.documentElement.setAttribute('data-theme', theme);
         setTheme(newTheme);
 
@@ -178,13 +179,13 @@ export const Header = () => {
                             selected={pathname.startsWith('/gallery')}>
                             <Flex paddingX="2" hide="s">{gallery.label}</Flex>
                         </ToggleButton>
-                    )}
+                    )} 
                     <ToggleButton
-                        prefixIcon="gallery" // You can change this icon as needed
+                        prefixIcon="settings" // You can change this icon as needed
                         onClick={toggleOverlay}
                         selected={isOverlayVisible} // Show overlay on click
                     >
-                        <Flex paddingX="2" hide="s">Settings</Flex>
+                        
                     </ToggleButton>
                     
                     {isOverlayVisible && (
@@ -200,7 +201,28 @@ export const Header = () => {
                             direction="column"
                             justifyContent="center"
                             alignItems="center">
-                        
+                            <Flex 
+                                paddingBottom="16"
+                            >
+                                {routing.locales.length > 1 && 
+                                    <Flex
+                                        
+                                        background="surface" border="neutral-medium" borderStyle="solid-1" radius="m-4" shadow="l"
+                                        padding="4" gap="2"
+                                        justifyContent="center">
+                                            {i18n && routing.locales.map((locale, index) => (
+                                                <ToggleButton
+                                                    key={index}
+                                                    selected={params?.locale === locale}
+                                                    onClick={() => handleLanguageChange(locale)}
+                                                    className={isPending && 'pointer-events-none opacity-60' || ''}
+                                                >
+                                                    {index === 1 ? 'සිං' : locale.toUpperCase()}
+                                                </ToggleButton>
+                                            ))}
+                                    </Flex>
+                                }
+                            </Flex>
                             <Switch2
                                     isChecked={document.documentElement.getAttribute('data-theme') === 'dark'}
                                     onToggle={() => handleThemeChange()}
@@ -220,34 +242,14 @@ export const Header = () => {
                                     className="custom-switch-class"
                                     label="Switch Label"
                             />
+                            {config.backlight.state === 'true' && (
+                            <ColorPalette/>)}
 
-                            {/* Color Selection Row */}
-                            <Flex gap="2" justifyContent="center">
-                                <ToggleButton2
-                                    prefixIcon="gallery"
-                                    selected={config.backlight.color === 'red'}
-                                    onClick={() => handleColorChange('red', 'color')}
-                                >
-                                    <Flex paddingX="2" hide="s">Red</Flex>
-                                </ToggleButton2>
-                                <ToggleButton2
-                                    prefixIcon="gallery"
-                                    selected={config.backlight.color === 'green'}
-                                    onClick={() => handleColorChange('green', 'color')}
-                                >
-                                    <Flex paddingX="2" hide="s">Green</Flex>
-                                </ToggleButton2>
-                                <ToggleButton2
-                                    prefixIcon="gallery"
-                                    selected={config.backlight.color === 'blue'}
-                                    onClick={() => handleColorChange('blue', 'color')}
-                                >
-                                    <Flex paddingX="2" hide="s">Blue</Flex>
-                                </ToggleButton2>
-                            </Flex>
 
                             {/* Close Button */}
-                            <Flex justifyContent="center">
+                            <Flex 
+                            justifyContent="center"
+                            padding="16">
                                 {/* @ts-nocheck */}
                                 <ToggleButton
                                     prefixIcon="close"
@@ -267,23 +269,6 @@ export const Header = () => {
                 justifyContent="flex-end" alignItems="center"
                 textVariant="body-default-s"
                 gap="20">
-                {routing.locales.length > 1 && <Flex
-                    
-                    background="surface" border="neutral-medium" borderStyle="solid-1" radius="m-4" shadow="l"
-                    padding="4" gap="2"
-                    justifyContent="center">
-                        {i18n && routing.locales.map((locale, index) => (
-                            <ToggleButton
-                                key={index}
-                                selected={params?.locale === locale}
-                                onClick={() => handleLanguageChange(locale)}
-                                className={isPending && 'pointer-events-none opacity-60' || ''}
-                            >
-                                {index === 1 ? 'සිං' : locale.toUpperCase()}
-                            </ToggleButton>
-                        ))}
-                    </Flex>
-                }
                 <Flex hide="s">
                     { display.time && (
                         <TimeDisplay timeZone={person.location}/>
