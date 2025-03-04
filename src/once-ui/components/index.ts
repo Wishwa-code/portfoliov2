@@ -1,3 +1,4 @@
+import { Switch2 } from '@/once-ui/components';
 export { Accordion } from './Accordion';
 export { Avatar } from './Avatar';
 export type { AvatarProps } from './Avatar';
@@ -56,3 +57,5 @@ export { Tooltip } from './Tooltip';
 export { User } from './User';
 export type { UserProps } from './User';
 export { UserMenu } from './UserMenu';
+export { Switch2 } from './Switch2';
+export { ToggleButton2 } from './ToggleButton2';

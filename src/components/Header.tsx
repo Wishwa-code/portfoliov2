@@ -6,7 +6,7 @@
 import { useParams } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
 
-import { Flex, ToggleButton } from "@/once-ui/components"
+import { Flex, ToggleButton , Switch2, ToggleButton2} from "@/once-ui/components"
 import styles from '@/components/Header.module.scss'
 
 import { routes, display } from '@/app/resources'
@@ -62,6 +62,8 @@ export const Header = () => {
     const params = useParams();
     const [isOverlayVisible, setOverlayVisible] = useState(false);
     const { config, setConfig } = useConfig();
+    const [theme, setTheme] = useState<'light' | 'dark'>();
+
 
     function handleLanguageChange(locale: string) {
         const nextLocale = locale as Locale;
@@ -81,18 +83,12 @@ export const Header = () => {
         console.log('Current theme from config:', config.style.theme);
         document.documentElement.setAttribute('data-theme', config.style.theme);
   
-        // You can also update the config if needed like this:
-        // setConfig(prev => ({
-        //   ...prev,
-        //   style: { ...prev.style, theme: 'light' }
-        // }));
       }, [config]);
 
-    const handleThemeChange = (theme: string) => {
-        // Update URL with the new theme parameter
-        const newSearchParams = new URLSearchParams(window.location.search);
-        newSearchParams.set('mode', theme);
-        document.documentElement.setAttribute('data-theme', theme);
+    const handleThemeChange = () => {
+        
+        const newTheme = (theme === 'dark' ? 'light' : 'dark') as 'light' | 'dark';
+
         setConfig((prevConfig: any) => ({
             ...prevConfig,
             style: {
@@ -100,13 +96,10 @@ export const Header = () => {
                 theme: theme
             }
         }));
-        // Use router.push instead of replace to trigger a re-render
-        // startTransition(() => {
-        //     router.push(
-        //         `${pathname}?${newSearchParams.toString()}`,
-        //         { locale: params?.locale as Locale }
-        //     );
-        // });
+
+        document.documentElement.setAttribute('data-theme', theme);
+        setTheme(newTheme);
+
     };
 
     const handleColorChange = (newChange: string, change: 'state' | 'color') => {
@@ -202,62 +195,55 @@ export const Header = () => {
                             borderStyle="solid-1" 
                             radius="m-4" 
                             shadow="l"
-                            padding="4"
+                            padding="16"
                             gap="4"
-                            direction="column">
-                            
-                            {/* Theme Toggle Row */}
-                            <Flex gap="2" justifyContent="center">
-                                <ToggleButton
-                                    prefixIcon="gallery"
-                                    selected={document.documentElement.getAttribute('data-theme') === 'light'}
-                                    onClick={() => handleThemeChange('light')}
-                                >
-                                    <Flex paddingX="2" hide="s">Light</Flex>
-                                </ToggleButton>
-                                <ToggleButton
-                                    prefixIcon="gallery"
-                                    selected={document.documentElement.getAttribute('data-theme') === 'dark'}
-                                    onClick={() => handleThemeChange('dark')}
-                                >
-                                    <Flex paddingX="2" hide="s">Dark</Flex>
-                                </ToggleButton>
-                            </Flex>
+                            direction="column"
+                            justifyContent="center"
+                            alignItems="center">
+                        
+                            <Switch2
+                                    isChecked={document.documentElement.getAttribute('data-theme') === 'dark'}
+                                    onToggle={() => handleThemeChange()}
+                                    iconChecked="dark"
+                                    iconUnchecked="light"
+                                    ariaLabel="Toggle switch example"
+                                    className="custom-switch-class"
+                                    label="Switch Label"
+                            />
 
-                            {/* Bulb Toggle Row */}
-                            <Flex gap="2" justifyContent="center">
-                                <ToggleButton
-                                    prefixIcon="gallery"
-                                    selected={config.backlight.state === 'true'}
-                                    onClick={() => handleColorChange(config.backlight.state === 'true' ? 'false' : 'true', 'state')}
-                                >
-                                    <Flex paddingX="2" hide="s">Bulb</Flex>
-                                </ToggleButton>
-                            </Flex>
+                            <Switch2
+                                    isChecked={config.backlight.state === 'true'}
+                                    onToggle={() => handleColorChange(config.backlight.state === 'true' ? 'false' : 'true', 'state')}
+                                    iconChecked="spotlighton"
+                                    iconUnchecked="spotlightoff"
+                                    ariaLabel="Toggle switch example"
+                                    className="custom-switch-class"
+                                    label="Switch Label"
+                            />
 
                             {/* Color Selection Row */}
                             <Flex gap="2" justifyContent="center">
-                                <ToggleButton
+                                <ToggleButton2
                                     prefixIcon="gallery"
                                     selected={config.backlight.color === 'red'}
                                     onClick={() => handleColorChange('red', 'color')}
                                 >
                                     <Flex paddingX="2" hide="s">Red</Flex>
-                                </ToggleButton>
-                                <ToggleButton
+                                </ToggleButton2>
+                                <ToggleButton2
                                     prefixIcon="gallery"
                                     selected={config.backlight.color === 'green'}
                                     onClick={() => handleColorChange('green', 'color')}
                                 >
                                     <Flex paddingX="2" hide="s">Green</Flex>
-                                </ToggleButton>
-                                <ToggleButton
+                                </ToggleButton2>
+                                <ToggleButton2
                                     prefixIcon="gallery"
                                     selected={config.backlight.color === 'blue'}
                                     onClick={() => handleColorChange('blue', 'color')}
                                 >
                                     <Flex paddingX="2" hide="s">Blue</Flex>
-                                </ToggleButton>
+                                </ToggleButton2>
                             </Flex>
 
                             {/* Close Button */}

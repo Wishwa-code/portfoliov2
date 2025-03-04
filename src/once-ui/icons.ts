@@ -37,6 +37,10 @@ import {
 	FaMountainSun
 } from "react-icons/fa6";
 
+import { 
+	TbBulb,
+	TbBulbOff } from "react-icons/tb";
+
 export const iconLibrary: Record<string, IconType> = {
 	chevronUp: HiChevronUp,
     chevronDown: HiChevronDown,
@@ -65,5 +69,7 @@ export const iconLibrary: Record<string, IconType> = {
 	linkedin: FaLinkedin,
 	x: FaXTwitter,
 	dark: FaMountainSun,
-	light: FaCloudSun
+	light: FaCloudSun,
+	spotlighton:TbBulb,
+	spotlightoff:TbBulbOff 
 };
