@@ -12,6 +12,16 @@ const person = {
     languages: ['English', 'Sinhala']  // optional: Leave the array empty if you don't want to display languages
 }
 
+const certificate = {
+    display: true,
+    title: 'UOW',
+    description: 'cetificate description',
+    program: 'certificate program',
+    link: 'https://www.westminster.ac.uk/',
+    buttonname: 'UOW'
+
+}
+
 const newsletter = {
     display: true,
     title: <>Subscribe to {person.firstName}'s Newsletter</>,
@@ -251,4 +261,4 @@ const gallery = {
     ]
 }
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, newsletter, home, about, blog, work, gallery, certificate };

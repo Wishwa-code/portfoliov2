@@ -1,6 +1,6 @@
 "use client";
 
-import { AvatarGroup, Flex, Heading, RevealFx, SmartImage, SmartLink, Text } from "@/once-ui/components";
+import { AvatarGroup, Flex, Heading, RevealFx, SmartImage, SmartLink, Text, Button } from "@/once-ui/components";
 import { useEffect, useState } from "react";
 import { useTranslations } from 'next-intl';
 
@@ -11,6 +11,8 @@ interface ProjectCardProps {
     content: string;
     description: string;
     avatars: { src: string }[];
+    sourcelabel: string;
+    sourcelink: string;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -19,7 +21,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     title,
     content,
     description,
-    avatars
+    avatars,
+    sourcelabel,
+    sourcelink
 }) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
@@ -137,6 +141,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                                 {description}
                             </Text>
                         )}
+                        <Flex
+                        flex={7} direction="column"
+                        gap="s">
                         {content?.trim() && (
                             <SmartLink
                                 suffixIcon="chevronRight"
@@ -147,7 +154,22 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                                        {t("projectCard.label")}
                                     </Text>
                             </SmartLink>
+                            
                         )}
+                            {/* <a href="https://github.com/Wishwa-code/Ceylon2World">Visit Repo</a> */}
+                            <Button
+								data-border="rounded"
+								href={sourcelink}
+								variant="tertiary"
+								suffixIcon="chevronRight"
+								size="s">
+								<Flex
+									gap="8"
+									alignItems="center">
+                                        {sourcelabel}
+								</Flex>
+							</Button>
+                        </Flex>
                     </Flex>
                 )}
             </Flex>

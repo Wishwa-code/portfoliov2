@@ -9,6 +9,11 @@
         "description": "මම ඉඳහිට නිර්මාණ, තාක්‍ෂණය ගැන ලියන අතර නිර්මාණශීලීත්වය සහ ඉංජිනේරු විද්‍යාවේ ඡේදනය පිළිබඳ සිතුවිලි බෙදා ගනිමි.",
         "button": "ලියාපදිංචි වන්න"
     },
+    "certificate": {
+        "title": "University of Westminster",
+        "description": "School of Computer Science and Engineering",
+        "program": "Business Information Systems with Upper Second Class Honours"
+    },
     "home": {
         "label": "Home",
         "title": "{name}'s Portfolio",
@@ -46,6 +51,7 @@
             "institutions": {
                 "University of Westminster": {
                     "name": "University of Westminster",
+                    "faculty": "School of Computer Science and Engineering",
                     "description": "ව්‍යාපාර තොරතුරු පද්ධති අධ්‍යයනය කරන ලදි."
                 }
             }
