@@ -1,4 +1,4 @@
-import { Avatar, Button, Flex, Heading, Icon, IconButton, SmartImage, Tag, Text } from '@/once-ui/components';
+import { Avatar, Button, Flex, Heading, Icon, IconButton, SmartImage, Tag, Text, SmartLink } from '@/once-ui/components';
 import { baseURL, renderContent } from '@/app/resources';
 import TableOfContents from '@/components/about/TableOfContents';
 import styles from '@/components/about/about.module.scss'
@@ -184,6 +184,7 @@ export default function About(
                             onBackground="neutral-weak">
                             {person.role}
                         </Text>
+                        
                         {social.length > 0 && (
                             <Flex
                                 className={styles.blockAlign}
@@ -310,14 +311,32 @@ export default function About(
                                         <Text
                                             //@ts-ignore
                                             id={institution.name}
+                                            //@ts-ignore
                                             variant="heading-strong-l">
                                             {institution.name}
+                                        </Text>
+                                        <Text
+                                            //@ts-ignore
+                                            id={institution.faculty}
+                                            //@ts-ignore
+                                            variant="heading-default-s">{institution.faculty}
                                         </Text>
                                         <Text
                                             variant="heading-default-xs"
                                             onBackground="neutral-weak">
                                             {institution.description}
                                         </Text>
+                                        <SmartLink
+                                            suffixIcon="chevronRight"
+                                            style={{margin: '0', width: 'fit-content',padding: '0'}}
+                                            //@ts-ignore
+                                            href="about/uow">
+                                                
+                                                <Text 
+                                                //@ts-ignore
+                                                variant="body-default-s">{institution.label}
+                                                </Text>
+                                        </SmartLink>
                                     </Flex>
                                 ))}
                             </Flex>

@@ -14,6 +14,16 @@ const createI18nContent = (t) => {
         languages: ['English', 'Sinhala']  // optional: Leave the array empty if you don't want to display languages
     }
 
+    const certificate = {
+        display: true,
+        title: <>{t("certificate.title")}</>,
+        description: <>{t("certificate.description")}</>,
+        program: <>{t("certificate.program")}</>,
+        link: 'https://www.westminster.ac.uk/',
+        buttonname: 'UOW'
+
+    }
+
     const newsletter = {
         display: true,
         title: <>{t("newsletter.title", {firstName: person.firstName})}</>,
@@ -106,7 +116,9 @@ const createI18nContent = (t) => {
             institutions: [
                 {
                     name: <>{t(`about.studies.institutions.University of Westminster.name`)}</>,
+                    faculty: <>{t(`about.studies.institutions.University of Westminster.faculty`)}</>,
                     description: <>{t(`about.studies.institutions.University of Westminster.description`)}</>,
+                    label: 'certificate'
                 },
             ]
         },
@@ -267,7 +279,8 @@ const createI18nContent = (t) => {
         about,
         blog,
         work,
-        gallery
+        gallery,
+        certificate
     }
 };
 

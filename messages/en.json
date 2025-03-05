@@ -9,6 +9,11 @@
         "description": "I occasionally write about design, technology, and share thoughts on the intersection of creativity and engineering",
         "button": "Sign up"
     },
+    "certificate": {
+        "title": "University of Westminster",
+        "description": "School of Computer Science and Engineering",
+        "program": "Business Information Systems with Upper Second Class Honours"
+    },
     "home": {
         "label": "Home",
         "title": "{name}'s Portfolio",
@@ -46,6 +51,7 @@
             "institutions": {
                 "University of Westminster": {
                     "name": "University of Westminster",
+                    "faculty": "School of Computer Science and Engineering",
                     "description": "Studied Business Information Systems."
                 }
             }

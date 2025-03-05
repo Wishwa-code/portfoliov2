@@ -33,7 +33,7 @@ export const Footer = () => {
                         / Built with <SmartLink style={{marginLeft: '-0.125rem'}} href="https://once-ui.com/templates/magic-portfolio">Once UI</SmartLink>
                          | <SmartLink style={{marginLeft: '-0.125rem'}} href="https://nextjs.org/">Next.Js 14</SmartLink>
                          | <SmartLink style={{marginLeft: '-0.125rem'}} href="https://react.dev/">React.Js 18</SmartLink> 
-                         | <SmartLink style={{marginLeft: '-0.125rem'}} href="">Open source software</SmartLink>
+                         | <SmartLink style={{marginLeft: '-0.125rem'}} href="https://opensource.dev/">Open source software</SmartLink>
                     </Text>
                 </Text>
                 <Flex
