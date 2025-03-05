@@ -4,6 +4,9 @@ import TableOfContents from '@/components/about/TableOfContents';
 import styles from '@/components/about/about.module.scss'
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
+import  SendEmailButton from '../../../components/about/Handlemail';
+import Link from '@/app/[locale]/about/Link/1_link';
+// import Link from 'next/link'
 
 export async function generateMetadata(
     {params: {locale}}: { params: { locale: string }}
@@ -43,6 +46,8 @@ export default function About(
     
 ) {
     console.log('locale here',locale);
+
+
     setRequestLocale(locale);
     const t = useTranslations();
     const {person, about, social } = renderContent(t);
@@ -68,6 +73,14 @@ export default function About(
             items: about.technical.skills.map(skill => skill.title)
         },
     ]
+
+    const handleMailto = (e:any) => {
+        e.preventDefault();
+        const email = "example@email.com";
+        const mailto = `mailto:${email}`;
+        window.location.href = mailto;
+    };
+
     return (
         <Flex
             fillWidth maxWidth="m"
@@ -200,6 +213,10 @@ export default function About(
                                             variant="tertiary"/>
                                     )
                                 ))}
+                                <a href="https://wa.me/15555555555?text=Hello%20there!%20I%20would%20like%20to%20chat.">email</a>
+                                {/* <a legacyBehavior href="mailto:hello@spaghetti.com">External URL (mailto:)</a> */}
+                                {/* <SendEmailButton/> */}
+                                 {/* <button onClick={handleMailto}> contact us </button> */}
                             </Flex>
                         )}
                     </Flex>
@@ -399,3 +416,5 @@ export default function About(
         </Flex>
     );
 }
+
+

@@ -17,7 +17,9 @@ import {
 	HiCheckCircle,
 	HiMiniGlobeAsiaAustralia,
 	HiEnvelope,
-	HiCalendarDays
+	HiCalendarDays,
+	HiArrowTopRightOnSquare,
+	HiArrowLongRight
 } from "react-icons/hi2";
 
 import {
@@ -77,4 +79,6 @@ export const iconLibrary: Record<string, IconType> = {
 	spotlightoff:TbBulbOff,
 	tick:PiCheckFatDuotone,
 	settings:PiGearDuotone,
+	link: HiArrowTopRightOnSquare,
+	rightarrow:HiArrowLongRight
 };

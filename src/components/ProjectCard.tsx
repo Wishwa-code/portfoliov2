@@ -146,7 +146,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                         gap="s">
                         {content?.trim() && (
                             <SmartLink
-                                suffixIcon="chevronRight"
+                                suffixIcon="rightarrow"
                                 style={{margin: '0', width: 'fit-content'}}
                                 href={href}>
                                     <Text
@@ -157,18 +157,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                             
                         )}
                             {/* <a href="https://github.com/Wishwa-code/Ceylon2World">Visit Repo</a> */}
-                            <Button
-								data-border="rounded"
-								href={sourcelink}
-								variant="tertiary"
-								suffixIcon="chevronRight"
-								size="s">
-								<Flex
-									gap="8"
-									alignItems="center">
-                                        {sourcelabel}
-								</Flex>
-							</Button>
+                            <SmartLink
+                                suffixIcon="link"
+                                style={{margin: '0', width: 'fit-content'}}
+                                href={sourcelink}>
+                                    <Text
+                                        variant="body-default-s">
+                                       {sourcelabel}
+                                    </Text>
+                            </SmartLink>
                         </Flex>
                     </Flex>
                 )}
