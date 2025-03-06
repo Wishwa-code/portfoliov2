@@ -19,7 +19,8 @@ import {
 	HiEnvelope,
 	HiCalendarDays,
 	HiArrowTopRightOnSquare,
-	HiArrowLongRight
+	HiArrowLongRight,
+	HiComputerDesktop
 } from "react-icons/hi2";
 
 import {
@@ -39,8 +40,11 @@ import {
 	FaLinkedin,
 	FaXTwitter,
 	FaCloudSun,
-	FaMountainSun
+	FaMountainSun,
+	FaFirefoxBrowser,
+	FaWhatsapp
 } from "react-icons/fa6";
+
 
 import { 
 	TbBulb,
@@ -80,5 +84,8 @@ export const iconLibrary: Record<string, IconType> = {
 	tick:PiCheckFatDuotone,
 	settings:PiGearDuotone,
 	link: HiArrowTopRightOnSquare,
-	rightarrow:HiArrowLongRight
+	rightarrow:HiArrowLongRight,
+	desktop:HiComputerDesktop,
+	browser:FaFirefoxBrowser,
+    whatsapp:FaWhatsapp
 };

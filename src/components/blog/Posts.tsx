@@ -1,5 +1,5 @@
 import { formatDate, getPosts } from '@/app/utils';
-import { Flex, Grid, Heading, SmartLink, Text } from '@/once-ui/components';
+import { Flex, Grid, Heading, SmartLink, Text, Tag } from '@/once-ui/components';
 import styles from '@/components/blog/Posts.module.scss';
 
 interface PostsProps {
@@ -59,6 +59,9 @@ export function Posts({
                                     onBackground="neutral-weak">
                                     {formatDate(post.metadata.publishedAt, false)}
                                 </Text>
+                                    <Flex gap="8">
+                                        <Tag key={post.metadata.tag} label={post.metadata.tag} variant="accent" />
+                                    </Flex>
                             </Flex>
                         </SmartLink>
                     ))}

@@ -51,7 +51,7 @@ const createI18nContent = (t) => {
         {
             name: 'Email',
             icon: 'email',
-            link: 'mailto:wishwakankanamge@gmail.com?subject=Your%20Subject&body=Body%20of%20the%20email',
+            link: '',
         },
     ]
 

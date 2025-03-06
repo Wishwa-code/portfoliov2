@@ -66,6 +66,7 @@ export const Mailchimp = (
             fillWidth padding="l"  radius="l" marginBottom="m"
             direction="column" alignItems="center" align="center"
             background="surface" border="neutral-medium" borderStyle="solid-1">
+            {/* //!change this one to add color for mailchimp background*/}
             {/* <Background
                 position="absolute"
                 gradient={mailchimp.effects.gradient}
@@ -115,7 +116,7 @@ export const Mailchimp = (
                         }}
                         onBlur={handleBlur}
                         error={error}/>
-                    <div style={{display: 'none'}}>
+                    <div style={{display: 'none'}}> 
                         <input type="checkbox" readOnly name="group[3492][1]" id="mce-group[3492]-3492-0" value="" checked/>
                     </div>
                     <div id="mce-responses" className="clearfalse">

@@ -1,4 +1,4 @@
-import { Switch2 } from '@/once-ui/components';
+import { Switch2, DialogBox } from '@/once-ui/components';
 export { Accordion } from './Accordion';
 export { Avatar } from './Avatar';
 export type { AvatarProps } from './Avatar';
@@ -50,6 +50,7 @@ export { Tag } from './Tag';
 export type { TagProps } from './Tag';
 export { TagInput } from './TagInput';
 export { Text } from './Text';
+export { Textarea } from './Textarea';
 export { Toast } from './Toast';
 export { Toaster } from './Toaster';
 export { ToggleButton } from './ToggleButton';
@@ -59,3 +60,4 @@ export type { UserProps } from './User';
 export { UserMenu } from './UserMenu';
 export { Switch2 } from './Switch2';
 export { ToggleButton2 } from './ToggleButton2';
+export { DialogBox} from './DialogBox';

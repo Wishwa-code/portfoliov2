@@ -10,12 +10,13 @@ const i18nOptions = {
 }
 
 const routes = {
-    '/':        true,
-    '/about':   true,
-    '/about/uow':   true,
-    '/work':    true,
-    '/blog':    true,
-    '/gallery': false,
+    '/':              true,
+    '/about':         true,
+    '/about/uow':     true,
+    '/about/email':   true,
+    '/work':          true,
+    '/blog':          true,
+    '/gallery':       false,
 }
 
 // Enable password protection on selected routes

@@ -1,11 +1,10 @@
-import { Avatar, Button, Flex, Heading, Icon, IconButton, SmartImage, Tag, Text, SmartLink } from '@/once-ui/components';
+import { Avatar, Button, Flex, Heading, Icon, IconButton, SmartImage, Tag, Text, SmartLink, DialogBox} from '@/once-ui/components';
 import { baseURL, renderContent } from '@/app/resources';
 import TableOfContents from '@/components/about/TableOfContents';
 import styles from '@/components/about/about.module.scss'
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import  SendEmailButton from '../../../components/about/Handlemail';
-import Link from '@/app/[locale]/about/Link/1_link';
 // import Link from 'next/link'
 
 export async function generateMetadata(
@@ -73,6 +72,7 @@ export default function About(
             items: about.technical.skills.map(skill => skill.title)
         },
     ]
+    
 
     const handleMailto = (e:any) => {
         e.preventDefault();
@@ -200,7 +200,6 @@ export default function About(
                         
                         {social.length > 0 && (
                             <Flex
-                                className={styles.blockAlign}
                                 paddingTop="20" paddingBottom="8" gap="8" wrap>
                                 {social.map((item) => (
                                     item.link && (
@@ -212,11 +211,10 @@ export default function About(
                                             size="s"
                                             variant="tertiary"/>
                                     )
-                                ))}
-                                <a href="https://wa.me/15555555555?text=Hello%20there!%20I%20would%20like%20to%20chat.">email</a>
-                                {/* <a legacyBehavior href="mailto:hello@spaghetti.com">External URL (mailto:)</a> */}
-                                {/* <SendEmailButton/> */}
-                                 {/* <button onClick={handleMailto}> contact us </button> */}
+                                ))}                           
+                                 <DialogBox title="Hello there 🫰">
+                                    Content goes here
+                                </DialogBox>
                             </Flex>
                         )}
                     </Flex>
