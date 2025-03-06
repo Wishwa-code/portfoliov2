@@ -1,10 +1,11 @@
 "use client";
 
+import { useState } from 'react';
 import { mailchimp } from '@/app/resources'
 import { Button, Flex, Heading, Input, Text } from '@/once-ui/components';
 import { Background } from '@/once-ui/components/Background';
-import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import axios from 'axios';
 
 
 function debounce<T extends (...args: any[]) => void>(func: T, delay: number): T {
@@ -27,8 +28,21 @@ export const Mailchimp = (
     const [email, setEmail] = useState<string>('');
     const [error, setError] = useState<string>('');
     const [touched, setTouched] = useState<boolean>(false);
+    const [response, setResponse] = useState(null);
 
     const t = useTranslations();
+
+    const handlePing = async () => {
+        try {
+            const res = await axios.post('/api/ping', {
+                email: email // Send email in request body
+            });
+            console.log('mailchimp subscription:', res, email);
+            setResponse(res.data);
+        } catch (err) {
+            setError(err?.response?.data?.error || 'An error occurred');
+        }
+    };
 
     const validateEmail = (email: string): boolean => {
         if (email === '') {
@@ -93,7 +107,7 @@ export const Mailchimp = (
                     display: 'flex',
                     justifyContent: 'center'
                 }}
-                action={mailchimp.action}
+                action={handlePing}
                 method="post"
                 id="mc-embedded-subscribe-form"
                 name="mc-embedded-subscribe-form">
