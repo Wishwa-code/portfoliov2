@@ -83,7 +83,7 @@ export default function Home(
 						fillWidth maxWidth="s" gap="m">
 						<RevealFx translateY="4">
 							<Heading
-								style={{ height: '140px' }} 
+								className="responsive-heading"
 								wrap="balance"
 								variant="display-strong-l">
 								{home.headline}
@@ -125,12 +125,12 @@ export default function Home(
 			</RevealFx>
 			{routes['/blog'] && (
 				<Flex fillWidth gap="24" mobileDirection="column">
-					<Flex flex={1} paddingLeft="l">
+					<Flex flex={1} paddingLeft="80">
 						<Heading as="h2" variant="display-strong-xs" wrap="balance">
 						Latest from the blog
 						</Heading>
 					</Flex>
-					<Flex flex={3} paddingX="20">
+					<Flex flex={3} paddingLeft="80">
 						<Posts range={[1,1]} columns="1" locale={locale}/>
 					</Flex>
 				</Flex>
