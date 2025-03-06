@@ -5,7 +5,7 @@ import { mailchimp } from '@/app/resources'
 import { Button, Flex, Heading, Input, Text } from '@/once-ui/components';
 import { Background } from '@/once-ui/components/Background';
 import { useTranslations } from 'next-intl';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 
 function debounce<T extends (...args: any[]) => void>(func: T, delay: number): T {
@@ -40,7 +40,8 @@ export const Mailchimp = (
             console.log('mailchimp subscription:', res, email);
             setResponse(res.data);
         } catch (err) {
-            setError(err?.response?.data?.error || 'An error occurred');
+            const error = err as AxiosError;
+            setError(error?.message || 'An error occurred');
         }
     };
 
@@ -129,7 +130,7 @@ export const Mailchimp = (
                             }
                         }}
                         onBlur={handleBlur}
-                        error={error}/>
+                        errorMessage={error}/>
                     <div style={{display: 'none'}}> 
                         <input type="checkbox" readOnly name="group[3492][1]" id="mce-group[3492]-3492-0" value="" checked/>
                     </div>
