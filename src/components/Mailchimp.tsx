@@ -34,7 +34,7 @@ export const Mailchimp = (
 
     const handlePing = async () => {
         try {
-            const res = await axios.post('/api/ping', {
+            const res = await axios.post('/api/subscribe', {
                 email: email // Send email in request body
             });
             console.log('mailchimp subscription:', res, email);

@@ -1,19 +1,3 @@
-// const mailchimpTx = require("mailchimp_transactional")("md--FpzgSW-VKOK93W4rsHn3w");
-
-// export default async function handler(req, res) {
-//   if (req.method === 'GET') {
-//     try {
-//       const response = await mailchimpTx.users.ping();
-//       res.status(200).json(response);
-//     } catch (error) {
-//       res.status(500).json({ error: error.message });
-//     }
-//   } else {
-//     res.setHeader('Allow', ['GET']);
-//     res.status(405).end(`Method ${req.method} Not Allowed`);
-//   }
-// }
-
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(
@@ -31,9 +15,9 @@ export default async function handler(
       return res.status(400).json({ error: 'Email is required' });
     }
 
-    const MailchimpKey = '21499c923788114fabca65ca34eab03f-us14';
-    const MailchimpServer = 'us14';
-    const MailchimpAudience = '62d9e0c460';
+    const MailchimpKey = process.env.MAILCHIMP_API_KEY;
+    const MailchimpServer = process.env.MAILCHIMP_SERVER;
+    const MailchimpAudience = process.env.MAILCHIMP_AUDIENCE_ID;
 
     if (!MailchimpKey || !MailchimpServer || !MailchimpAudience) {
       throw new Error('Missing Mailchimp environment variables');
@@ -66,15 +50,3 @@ export default async function handler(
     return res.status(500).json({ error: 'Internal Server Error' });
   }
 }
-
-// const response = await fetch(customUrl, {
-//     method: 'POST',
-//     headers: {
-//       Authorization: `apikey ${MailchimpKey}`,
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify({
-//       email_address: email,
-//       status: 'subscribed',
-//     }),
-//   });
