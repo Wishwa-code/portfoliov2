@@ -83,6 +83,7 @@ export default function Home(
 						fillWidth maxWidth="s" gap="m">
 						<RevealFx translateY="4">
 							<Heading
+								paddingBottom="4"
 								className="responsive-heading"
 								wrap="balance"
 								variant="display-strong-l">
