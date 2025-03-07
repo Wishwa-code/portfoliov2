@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { mailchimp } from '@/app/resources'
-import { Button, Flex, Heading, Input, Text } from '@/once-ui/components';
+import { Button, Flex, Heading, Input, Text, LetterFx } from '@/once-ui/components';
 import { Background } from '@/once-ui/components/Background';
 import { useTranslations } from 'next-intl';
 import axios, { AxiosError } from 'axios';
@@ -29,19 +29,56 @@ export const Mailchimp = (
     const [error, setError] = useState<string>('');
     const [touched, setTouched] = useState<boolean>(false);
     const [response, setResponse] = useState(null);
+    const [isSubscribed, setIsSubscribed] = useState(() => {
+        if (typeof window !== 'undefined') {
+            return sessionStorage.getItem('subscribed') === 'true';
+        }
+        return false;
+    });
 
     const t = useTranslations();
 
     const handlePing = async () => {
         try {
+            //for testing purposes
+            // throw {
+            //     response: {
+            //         status: 400 // This will show "Please provide a valid email address"
+            //         // status: 409 // This will show "This email is already subscribed"
+            //         // status: 429 // This will show "Too many attempts"
+            //     }
+            // } as AxiosError;
+
             const res = await axios.post('/api/subscribe', {
-                email: email // Send email in request body
+                email: email
             });
             console.log('mailchimp subscription:', res, email);
             setResponse(res.data);
+            setIsSubscribed(true);
+            sessionStorage.setItem('subscribed', 'true');
+            setEmail('');
         } catch (err) {
             const error = err as AxiosError;
-            setError(error?.message || 'An error occurred');
+            // Handle specific error cases with user-friendly messages
+            if (error.response) {
+                switch (error.response.status) {
+                    case 400:
+                        setError('Please provide a valid email address.');
+                        break;
+                    case 409:
+                        setError('This email is already subscribed to our newsletter.');
+                        break;
+                    case 429:
+                        setError('Too many attempts. Please try again later.');
+                        break;
+                    default:
+                        setError('Unable to subscribe at the moment. Please try again later.');
+                }
+            } else if (error.request) {
+                setError('Network error. Please check your internet connection.');
+            } else {
+                setError('Unable to subscribe at the moment. Please try again later.');
+            }
         }
     };
 
@@ -57,7 +94,10 @@ export const Mailchimp = (
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setEmail(value);
+        validateAndSetError(value);
+    };
 
+    const validateAndSetError = (value: string) => {
         if (!validateEmail(value)) {
             setError('Please enter a valid email address.');
         } else {
@@ -65,7 +105,7 @@ export const Mailchimp = (
         }
     };
 
-    const debouncedHandleChange = debounce(handleChange, 2000);
+    const debouncedValidateAndSetError = debounce(validateAndSetError, 2000);
 
     const handleBlur = () => {
         setTouched(true);
@@ -102,59 +142,85 @@ export const Mailchimp = (
                 onBackground="neutral-medium">
                 {newsletter.description}
             </Text>
-            <form
-                style={{
-                    width: '100%',
-                    display: 'flex',
-                    justifyContent: 'center'
-                }}
-                action={handlePing}
-                method="post"
-                id="mc-embedded-subscribe-form"
-                name="mc-embedded-subscribe-form">
-                <Flex id="mc_embed_signup_scroll"
-                    fillWidth maxWidth={24} gap="8">
-                    <Input
-                        formNoValidate
-                        labelAsPlaceholder
-                        id="mce-EMAIL"
-                        name="EMAIL"
-                        type="email"
-                        label="Email"
-                        required
-                        onChange={(e) => {
-                            if (error) {
-                                handleChange(e);
-                            } else {
-                                debouncedHandleChange(e);
-                            }
-                        }}
-                        onBlur={handleBlur}
-                        errorMessage={error}/>
-                    <div style={{display: 'none'}}> 
-                        <input type="checkbox" readOnly name="group[3492][1]" id="mce-group[3492]-3492-0" value="" checked/>
-                    </div>
-                    <div id="mce-responses" className="clearfalse">
-                        <div className="response" id="mce-error-response" style={{display: 'none'}}></div>
-                        <div className="response" id="mce-success-response" style={{display: 'none'}}></div>
-                    </div>
-                    <div aria-hidden="true" style={{position: 'absolute', left: '-5000px'}}>
-                        <input type="text" readOnly name="b_c1a5a210340eb6c7bff33b2ba_0462d244aa" tabIndex={-1} value=""/>
-                    </div>
-                    <div className="clear">
-                        <Flex
-                            height="48" alignItems="center">
-                            <Button
-                                id="mc-embedded-subscribe"
-                                value="Subscribe"
-                                size="m"
-                                fillWidth>
-                                {t("newsletter.button")}
-                            </Button>
-                        </Flex>
-                    </div>
-                </Flex>
-            </form>
+            {isSubscribed ? (
+                <Text>
+                    <LetterFx
+                    speed="medium"
+                    trigger="instant"
+                    charset={[
+                        'X',
+                        '@',
+                        '$',
+                        'a',
+                        'H',
+                        'z',
+                        'o',
+                        '0',
+                        'y',
+                        '#',
+                        '?',
+                        '*',
+                        '0',
+                        '1',
+                        '+'
+                    ]}
+                    >
+                    Thanks for subscribing !
+                    </LetterFx>
+                </Text>
+            ) : (
+                <form
+                    style={{
+                        width: '100%',
+                        display: 'flex',
+                        justifyContent: 'center'
+                    }}
+                    action={handlePing}
+                    method="post"
+                    id="mc-embedded-subscribe-form"
+                    name="mc-embedded-subscribe-form">
+                    <Flex id="mc_embed_signup_scroll"
+                        fillWidth maxWidth={24} gap="8">
+                        <Input
+                            formNoValidate
+                            labelAsPlaceholder
+                            id="mce-EMAIL"
+                            name="EMAIL"
+                            type="email"
+                            label="Email"
+                            required
+                            value={email}
+                            onChange={(e) => {
+                                setEmail(e.target.value);
+                                debouncedValidateAndSetError(e.target.value);
+                            }}
+                            onBlur={handleBlur}
+                            errorMessage={error}/>
+                        <div style={{display: 'none'}}> 
+                            <input type="checkbox" readOnly name="group[3492][1]" id="mce-group[3492]-3492-0" value="" checked/>
+                        </div>
+                        <div id="mce-responses" className="clearfalse">
+                            <div className="response" id="mce-error-response" style={{display: 'none'}}></div>
+                            <div className="response" id="mce-success-response" style={{display: 'none'}}></div>
+                        </div>
+                        <div aria-hidden="true" style={{position: 'absolute', left: '-5000px'}}>
+                            <input type="text" readOnly name="b_c1a5a210340eb6c7bff33b2ba_0462d244aa" tabIndex={-1} value=""/>
+                        </div>
+                        <div className="clear">
+                            <Flex
+                                height="48" alignItems="center">
+                                <Button
+                                    id="mc-embedded-subscribe"
+                                    value="Subscribe"
+                                    size="m"
+                                    fillWidth>
+                                    {t("newsletter.button")}
+                                </Button>
+                            </Flex>
+                        </div>
+                    </Flex>
+                </form>
+            )}
         </Flex>
     )
 }

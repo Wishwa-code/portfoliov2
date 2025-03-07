@@ -105,16 +105,16 @@ const DialogBox: React.FC<DialogBoxProps> = forwardRef<HTMLDivElement, DialogBox
                             Whatspp
                         </Button>
                     </Flex>
-                    <Flex 
+                    {/* <Flex 
                         paddingBottom='4'
                         paddingTop='28'
                     >
                         <Text>
                             Or else you can just send a hello, I will reach out to you.
                         </Text>
-                    </Flex>
+                    </Flex> */}
                     
-                    <Flex direction="column" gap="12" paddingBottom='32'>
+                    {/* <Flex direction="column" gap="12" paddingBottom='32'>
                         <Input
                             id="emailaddress"
                             label="Email"
@@ -130,7 +130,7 @@ const DialogBox: React.FC<DialogBoxProps> = forwardRef<HTMLDivElement, DialogBox
                             rows={7}
                         />
                         <Button variant="primary">Send Message</Button>
-                    </Flex>
+                    </Flex> */}
                 </Flex>
             </Dialog>
         </>
