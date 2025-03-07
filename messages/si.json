@@ -18,8 +18,8 @@
         "label": "Home",
         "title": "{name}'s Portfolio",
         "description": "Portfolio website showcasing my work as a {role}",
-        "headline": "නිර්මාණ ඉංජිනේරු සහ මෘදුකාංග ඉදිකිරීම්කරු",
-        "subline": "මම විශ්ව, නිර්මාණයේ නිර්මාණශීලීත්වය සමඟ ඉංජිනේරු විද්‍යාවේ නිරවද්‍යතාවය ඒකාබද්ධ කරමින් තිරසාර සහ ඵලදායී විසඳුම් ගොඩනඟන මෘදුකාංග ඉංජිනේරුවෙක්."
+        "headline": "මෘදුකාංග ඉංජිනේරු",
+        "subline": "මම විශ්ව, නිර්මාණශීලීත්වය සමඟ ඉංජිනේරු විද්‍යාවේ නිරවද්‍යතාවය ඒකාබද්ධ කරමින් තිරසාර සහ ඵලදායී විසඳුම් ගොඩනඟන මෘදුකාංග ඉංජිනේරුවෙක්."
     },
     "about": {
         "label": "About",
@@ -57,7 +57,7 @@
             }
         },
         "technical": {
-            "title": "Technical skills",
+            "title": "තාක්ෂණික කුසලතාවයන්",
             "skills": {
                 "Particularly interested in": {
                     "description": "go, gin, next.Js, kotlin multi platoform, general software design, software development process, agile, performance, scalability, multithreading, distributed and cloud computing"
