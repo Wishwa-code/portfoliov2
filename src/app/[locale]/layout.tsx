@@ -20,6 +20,7 @@ import { Metadata } from "next";
 import { routing } from "@/i18n/routing";
 import { renderContent } from "@/app/resources";
 import { useConfig } from '@/app/contexts/ConfigContext';
+import { Analytics } from "@vercel/analytics/react"
 
 
 export async function generateMetadata(
@@ -171,6 +172,7 @@ export default async function RootLayout({
 									fillWidth minHeight="0">
 									<RouteGuard>
 										{children}
+										<Analytics />
 									</RouteGuard>
 								</Flex>
 							</Flex>
