@@ -34,7 +34,7 @@
             "experiences": {
                 "FLY": {
                     "name": "Webs R Us",
-                    "timeframe": "Aug 2024 - Present",
+                    "timeframe": "Aug 2024 - February 2025",
                     "role": "Full Stack Developer",
                     "achievements": "Designed and developed travel application which enables users to create iternaries and book hotels through booking.com API.;Developed application in offline first approach to ensure users are capable of utilizing all the features provided by the application in low coverage areas.;Developed functionality to share iternaries and view live changes made by other users using supabase realtime features.;Developed backend web service using GIN(go) framework to ensure all the write operations are sent through backend RESTful web service including necessary api calls to provide route optimization and budget calculations features."
                 },
