@@ -88,7 +88,7 @@ export const Header = () => {
 
     const handleThemeChange = () => {
         
-        const newTheme = (theme === 'dark' ? 'light' : 'dark') as 'light' | 'dark';
+        const newTheme = (config.style.theme === 'dark' ? 'light' : 'dark') as 'light' | 'dark';
 
         setConfig((prevConfig: any) => ({
             ...prevConfig,
@@ -98,8 +98,8 @@ export const Header = () => {
             }
         }));
         // @ts-ignore
-        document.documentElement.setAttribute('data-theme', theme);
-        setTheme(newTheme);
+        // document.documentElement.setAttribute('data-theme', theme);
+        // setTheme(newTheme);
 
     };
 
@@ -224,7 +224,7 @@ export const Header = () => {
                                 }
                             </Flex>
                             <Switch2
-                                    isChecked={config.style.theme === document.documentElement.getAttribute('data-theme')}
+                                    isChecked={config.style.theme === 'dark'}
                                     onToggle={() => handleThemeChange()}
                                     iconChecked="dark"
                                     iconUnchecked="light"
