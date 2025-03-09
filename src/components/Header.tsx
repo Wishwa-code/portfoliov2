@@ -253,7 +253,8 @@ export const Header = () => {
                                     {/* Close Button */}
                                     <Flex 
                                     justifyContent="center"
-                                    padding="16">
+                                    paddingTop="8"
+                                    paddingBottom="4">
                                         {/* @ts-nocheck */}
                                         <ToggleButton
                                             prefixIcon="close"

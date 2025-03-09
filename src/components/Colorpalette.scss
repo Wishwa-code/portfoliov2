@@ -4,7 +4,8 @@
     grid-template-rows: repeat(3, auto);
     gap: 16px; /* Adjust the gap between the buttons as needed */
     justify-content: center;
-    padding:15px;
+    padding-top:10px;
+    padding-bottom:0px;
 }
 
 .grid-container > * {
