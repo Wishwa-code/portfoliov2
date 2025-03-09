@@ -4,19 +4,19 @@ import './Colorpalette.scss'; // Import the CSS file for styling
 import { useConfig } from '@/app/contexts/ConfigContext';
 
 const colors = [
-    'rgba(0, 0, 255, 0.5)', // blue
-    '#4B0082', // indigo
-    '#EE82EE', // violet
-    '#FF00FF', // magenta
-    '#FFC0CB', // pink
-    '#FF0000', // red
-    '#FFA500', // orange
-    '#FFFF00', // yellow
-    '#8A9A5B', // moss
-    '#008000', // green
-    '#50C878', // emerald
-    '#00FFFF'  // cyan
-  ];
+    'rgba(0, 0, 255, 0.47)',     // blue
+    'rgba(75, 0, 130, 0.47)',    // indigo
+    'rgba(238, 130, 238, 0.47)', // violet
+    'rgba(255, 0, 255, 0.47)',   // magenta
+    'rgba(255, 192, 203, 0.47)', // pink
+    'rgba(255, 0, 0, 0.47)',     // red
+    'rgba(255, 165, 0, 0.5)',   // orange
+    'rgba(255, 255, 0, 0.47)',   // yellow
+    'rgba(138, 154, 91, 0.47)',  // moss
+    'rgba(0, 128, 0, 0.47)',     // green
+    'rgba(80, 200, 120, 0.47)',  // emerald
+    'rgba(0, 255, 255, 0.47)'    // cyan
+];
 
 const ParentComponent: React.FC = () => {
     const { config, setConfig } = useConfig();
