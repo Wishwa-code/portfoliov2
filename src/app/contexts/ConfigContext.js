@@ -11,7 +11,7 @@ const defaultConfig = {
     },
     backlight: {
         state: false,
-        color: 'hsl(140, 59.00%, 40.20%)',
+        color: 'rgba(0, 128, 0, 0.47)',
     },
     style: {
         theme: 'light',

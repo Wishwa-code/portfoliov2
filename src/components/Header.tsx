@@ -63,8 +63,10 @@ export const Header = () => {
     const params = useParams();
     const [isOverlayVisible, setOverlayVisible] = useState(false);
     const { config, setConfig } = useConfig();
-    const [theme, setTheme] = useState<'light' | 'dark'>();
-
+    const [windowSize, setWindowSize] = useState({
+        width: typeof window !== 'undefined' ? window.innerWidth : 0,
+        height: typeof window !== 'undefined' ? window.innerHeight : 0,
+    });
 
     function handleLanguageChange(locale: string) {
         const nextLocale = locale as Locale;
@@ -197,33 +199,86 @@ export const Header = () => {
                             radius="m-4" 
                             shadow="l"
                             padding="16"
-                            gap="4"
+                            gap="8"
                             direction="column"
                             justifyContent="center"
                             alignItems="center">
-                            <Flex 
-                                paddingBottom="16"
-                            >
-                                {routing.locales.length > 1 && 
-                                    <Flex
-                                        
-                                        background="surface" border="neutral-medium" borderStyle="solid-1" radius="m-4" shadow="l"
-                                        padding="4" gap="2"
-                                        justifyContent="center">
-                                            {i18n && routing.locales.map((locale, index) => (
-                                                <ToggleButton
-                                                    key={index}
-                                                    selected={params?.locale === locale}
-                                                    onClick={() => handleLanguageChange(locale)}
-                                                    className={isPending && 'pointer-events-none opacity-60' || ''}
-                                                >
-                                                    {index === 1 ? 'සිං' : locale.toUpperCase()}
-                                                </ToggleButton>
-                                            ))}
+                            
+                            {windowSize.width > 768 ? ( 
+                                <>
+                                    <Flex 
+                                    paddingBottom="16"
+                                    >
+                                        {routing.locales.length > 1 && 
+                                            <Flex
+                                                
+                                                background="neutral-medium" border="neutral-medium" borderStyle="solid-1" radius="m-4" shadow="l"
+                                                padding="4" gap="2"
+                                                justifyContent="center">
+                                                    {i18n && routing.locales.map((locale, index) => (
+                                                        <ToggleButton
+                                                            key={index}
+                                                            selected={params?.locale === locale}
+                                                            onClick={() => handleLanguageChange(locale)}
+                                                            className={isPending && 'pointer-events-none opacity-60' || ''}
+                                                        >
+                                                            {index === 1 ? 'සිං' : locale.toUpperCase()}
+                                                        </ToggleButton>
+                                                    ))}
+                                            </Flex>
+                                        }
                                     </Flex>
-                                }
-                            </Flex>
-                            <Switch2
+                                    <Switch2
+                                        isChecked={config.style.theme === 'dark'}
+                                        onToggle={() => handleThemeChange()}
+                                        iconChecked="dark"
+                                        iconUnchecked="light"
+                                        ariaLabel="Toggle switch example"
+                                        className="custom-switch-class"
+                                        label="Switch Label"
+                                    />
+                        
+                                    <Switch2
+                                        isChecked={config.backlight.state === 'true'}
+                                        onToggle={() => handleColorChange(config.backlight.state === 'true' ? 'false' : 'true', 'state')}
+                                        iconChecked="spotlighton"
+                                        iconUnchecked="spotlightoff"
+                                        ariaLabel="Toggle switch example"
+                                        className="custom-switch-class"
+                                        label="Switch Label"
+                                    />
+                                    {config.backlight.state === 'true' && (
+                                        <ColorPalette/>
+                                    )}
+                                    {/* Close Button */}
+                                    <Flex 
+                                    justifyContent="center"
+                                    padding="16">
+                                        {/* @ts-nocheck */}
+                                        <ToggleButton
+                                            prefixIcon="close"
+                                            onClick={toggleOverlay}
+                                            selected={false}
+                                        >
+                                            <Flex paddingX="2" hide="s">Close</Flex>
+                                        </ToggleButton>
+                                    </Flex>
+                                </>
+                            ) : (
+                                <>  
+                                    {config.backlight.state === 'true' && (
+                                        <ColorPalette/>
+                                    )}
+                                    <Switch2
+                                            isChecked={config.backlight.state === 'true'}
+                                            onToggle={() => handleColorChange(config.backlight.state === 'true' ? 'false' : 'true', 'state')}
+                                            iconChecked="spotlighton"
+                                            iconUnchecked="spotlightoff"
+                                            ariaLabel="Toggle switch example"
+                                            className="custom-switch-class"
+                                            label="Switch Label"
+                                    />
+                                    <Switch2
                                     isChecked={config.style.theme === 'dark'}
                                     onToggle={() => handleThemeChange()}
                                     iconChecked="dark"
@@ -231,34 +286,47 @@ export const Header = () => {
                                     ariaLabel="Toggle switch example"
                                     className="custom-switch-class"
                                     label="Switch Label"
-                            />
-
-                            <Switch2
-                                    isChecked={config.backlight.state === 'true'}
-                                    onToggle={() => handleColorChange(config.backlight.state === 'true' ? 'false' : 'true', 'state')}
-                                    iconChecked="spotlighton"
-                                    iconUnchecked="spotlightoff"
-                                    ariaLabel="Toggle switch example"
-                                    className="custom-switch-class"
-                                    label="Switch Label"
-                            />
-                            {config.backlight.state === 'true' && (
-                            <ColorPalette/>)}
-
-
-                            {/* Close Button */}
-                            <Flex 
-                            justifyContent="center"
-                            padding="16">
-                                {/* @ts-nocheck */}
-                                <ToggleButton
-                                    prefixIcon="close"
-                                    onClick={toggleOverlay}
-                                    selected={false}
-                                >
-                                    <Flex paddingX="2" hide="s">Close</Flex>
-                                </ToggleButton>
-                            </Flex>
+                                    />
+                                    <Flex 
+                                    paddingTop="4"
+                                    >
+                                        {routing.locales.length > 1 && 
+                                            <Flex
+                                                
+                                                background="neutral-medium" 
+                                                border="neutral-medium" borderStyle="solid-1" radius="m-4" shadow="l"
+                                                padding="4" gap="2"
+                                                justifyContent="center">
+                                                    {i18n && routing.locales.map((locale, index) => (
+                                                        <ToggleButton
+                                                            key={index}
+                                                            selected={params?.locale === locale}
+                                                            onClick={() => handleLanguageChange(locale)}
+                                                            className={isPending && 'pointer-events-none opacity-60' || ''}
+                                                        >
+                                                            {index === 1 ? 'සිං' : locale.toUpperCase()}
+                                                        </ToggleButton>
+                                                    ))}
+                                            </Flex>
+                                        }
+                                    </Flex>
+                                    {/* Close Button */}
+                                    <Flex 
+                                    justifyContent="center"
+                                    paddingBottom="4"
+                                    paddingTop="8">
+                                        {/* @ts-nocheck */}
+                                        <ToggleButton
+                                            prefixIcon="close"
+                                            onClick={toggleOverlay}
+                                            selected={false}
+                                        >
+                                            <Flex paddingX="2" hide="s">Close</Flex>
+                                        </ToggleButton>
+                                    </Flex>
+                                        </>
+                                    )}
+                            
                         </Flex>
                     )}
                 </Flex>

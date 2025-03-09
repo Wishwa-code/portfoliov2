@@ -4,7 +4,7 @@ import './Colorpalette.scss'; // Import the CSS file for styling
 import { useConfig } from '@/app/contexts/ConfigContext';
 
 const colors = [
-    'rgba(0, 0, 255, 0.27)',     // blue
+    'rgba(0, 0, 255, 0.2)',     // blue
     'rgba(75, 0, 130, 0.27)',    // indigo
     'rgba(238, 130, 238, 0.27)', // violet
     'rgba(255, 0, 255, 0.27)',   // magenta
