@@ -137,7 +137,7 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
         setSmoothPosition((prev) => {
           const dx = cursorPosition.x - prev.x;
           const dy = cursorPosition.y - prev.y;
-          const easingFactor = 0.05;
+          const easingFactor = 0.04;
 
           return {
             x: Math.round(prev.x + dx * easingFactor),
@@ -215,10 +215,10 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
             opacity={gradient.opacity / 100} // Convert opacity from 0-100 to 0-1
             pointerEvents="none"
             style={{
-              left: `${smoothPosition.x-600}px`, // Use pixel values for left position
-              top: `${smoothPosition.y-600}px`, // Use pixel values for top position
-              width: "1200px", // Use pixel values for width
-              height: "1200px", // Use pixel values for height
+              left: `${smoothPosition.x-800}px`, // Use pixel values for left position
+              top: `${smoothPosition.y-800}px`, // Use pixel values for top position
+              width: "1600px", // Use pixel values for width
+              height: "1600px", // Use pixel values for height
                 // Set border radius to 50% for a circular shape
               background: `radial-gradient(circle,${config.backlight.color} 0%,hsla(140, 52.20%, 54.90%, 0.00) 70%, rgba(80, 200, 120, 0) 100%)`, // Radial gradient with emerald color
               transform: `rotate(${gradient.tilt != null ? gradient.tilt : 0}deg)`, // Directly set tilt

@@ -4,18 +4,18 @@ import './Colorpalette.scss'; // Import the CSS file for styling
 import { useConfig } from '@/app/contexts/ConfigContext';
 
 const colors = [
-    'rgba(0, 0, 255, 0.47)',     // blue
-    'rgba(75, 0, 130, 0.47)',    // indigo
-    'rgba(238, 130, 238, 0.47)', // violet
-    'rgba(255, 0, 255, 0.47)',   // magenta
-    'rgba(255, 192, 203, 0.47)', // pink
-    'rgba(255, 0, 0, 0.47)',     // red
-    'rgba(255, 165, 0, 0.5)',   // orange
-    'rgba(255, 255, 0, 0.47)',   // yellow
-    'rgba(138, 154, 91, 0.47)',  // moss
+    'rgba(0, 0, 255, 0.27)',     // blue
+    'rgba(75, 0, 130, 0.27)',    // indigo
+    'rgba(238, 130, 238, 0.27)', // violet
+    'rgba(255, 0, 255, 0.27)',   // magenta
+    'rgba(255, 192, 203, 0.27)', // pink
+    'rgba(255, 0, 0, 0.24)',     // red
+    'rgba(255, 166, 0, 0.24)',   // orange
+    'rgba(255, 255, 0, 0.24)',   // yellow
+    'rgba(138, 154, 91, 0.27)',  // moss
     'rgba(0, 128, 0, 0.47)',     // green
-    'rgba(80, 200, 120, 0.47)',  // emerald
-    'rgba(0, 255, 255, 0.47)'    // cyan
+    'rgba(80, 200, 120, 0.24)',  // emerald
+    'rgba(0, 255, 255, 0.17)'    // cyan
 ];
 
 const ParentComponent: React.FC = () => {
@@ -38,7 +38,7 @@ const ParentComponent: React.FC = () => {
                 <ToggleButton2
                     key={index}
                     prefixIcon="tick"
-                    backgroundColor={color}
+                    backgroundColor={color.replace(/rgba?\((\d+,\s*\d+,\s*\d+),[^)]+\)/, 'rgb($1)')}
                     selected={config.backlight.color === color}
                     onClick={() => handleColorChange(color, 'color')}
                 >
