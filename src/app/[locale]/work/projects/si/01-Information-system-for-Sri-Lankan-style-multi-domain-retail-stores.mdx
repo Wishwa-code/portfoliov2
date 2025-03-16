@@ -1,0 +1,48 @@
+---
+title: "Centralized Event-Driven Information System for Multi-Domain Retail Stores in Sri Lanka (Shopify Alternative)"
+publishedAt: "2025-03-02"
+summary: "Modern Sri Lankan businesses have been increasingly utilizing IT services to streamline their operations. However, a true local platform that meets the needs and budget of local SMEs owners has yet to evolve. This project is an open-source Shopify alternative focused on the local retail business models."
+images:
+  - "/images/projects/project-02/landing.png"
+  - "/images/projects/project-02/browse.png"
+  - "/images/projects/project-02/dashboard.png"
+sourcelabel: "Visit website"
+sourcelink: https://redrosehardware.website
+team:
+  - name: "John Doe"
+    role: "Software Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/company/once-ui/"
+---
+
+## Overview
+
+(සිංහල පරිවර්තනය ලඟ දීම)
+
+In this project, I focused on building a centralized information system capable of tracking both online and in-store sales, generating reports, and providing insights into day-to-day business operations. Particular emphasis was placed on ensuring that three key interfaces: e-commerce platform, billing system, and management dashboard, each serve distinct purposes while maintaining user friendliness. This design approach allows users to intuitively understand how the system operate and fully leverage the platform's capabilities.
+
+## Key Features
+
+- **E-commerce interface**:  A simple and elegant approach for browsing products across 3,000 to 10,000 categories has been introduced, featuring a tree menu. List of all products are displayed when a tree node is selected, and the product list is reduced when users select child tree nodes. Furthermore, business owners have the ability to add any number of new tree nodes/menu categories and decide whether to make any tree node visible or not.
+- **Modern and stylish billing interface**: A modern interface developed using the latest Flutter features to improve the efficiency of in-store business operations.
+- **Automated inventory update**: An experimental image recognition model has been used to assist users in adding new inventory items. Business owner users can simply scan their invoices, and the application will automatically generate an inventory list using the invoice images. Users are then given the opportunity to make adjustments and add products to the inventory.
+- **Credit bill management**: Billing management staff is required to add the phone number, name, and address when issuing credit bills. Business owner users are also given the opportunity to set up an automatic SMS messaging feature that sends notifications when credit bills expire after a set time period.
+
+## Technologies Used
+
+- **Next.Js**: For extracting design tokens and component data directly from the Figma designs.
+- **Neon DB**: Neon DB's branching, point-n-time-recovery and pure PostgreSQL(pg-stack) features are very useful to let multiple developers rapidly develop new features, paving more ways to build strong open source eco system.
+- **Flutter**: Flutter give the ability to build beautiful and performant UI with native performance for desktop and android environments.
+- **Gin**: Python is the talk of the town, but Go is the real deal.
+
+## Challenges and Learnings
+
+Main challenge was building a design system that is focused on Sri Lankan users, most of the modern countries have taken different approach to e-commerce due to the nature of specific business models they have in place. Multi-domain retails store is not business model which is talked that much in mainstream media, yet this business model have been thriving concept in Sri Lanka. 
+
+In order to develop a e-commerce interface, pilot study was done using questionnaire targeted at customers and store owners. Most modern consumers gave positive feedback about the idea of e-commerce platform which is focused on providing data about availability  and price through their mobile phones which assist them in reducing time wasted at different local store, finding products in person. Main goal was to let users be able to find the product in their mind within few clicks given that most of the customers are familiar with the image of the product rather than finding it with specific name which varies from region to region.
+
+## Outcome
+
+The e-commerce application is currently avallable at this [link](https://redrosehardware.website). Desktop application is still in beta version.(will be eventually rewritten in KMP). Code will be published on github soon.
+
+---

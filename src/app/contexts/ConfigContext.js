@@ -10,11 +10,11 @@ const defaultConfig = {
         time: true,
     },
     backlight: {
-        state: false,
-        color: 'rgba(0, 128, 0, 0.27)',
+        state: 'true',
+        color: 'rgba(255, 0, 255, 0.27)',
     },
     style: {
-        theme: 'light',
+        theme: 'dark',
     },
     // ... other default values
 };

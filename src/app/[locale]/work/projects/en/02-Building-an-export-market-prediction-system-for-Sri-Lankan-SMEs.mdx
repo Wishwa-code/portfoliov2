@@ -1,0 +1,57 @@
+---
+title: "Building an export market prediction system for Sri Lankan SMEs"
+publishedAt: "2025-03-01"
+summary: "In this project, I developed a export market prediction system using quantile convulutional neural network model(similar technology as amazon Q service) for multi step prediction of sri lankan export products."
+images:
+  - "/images/projects/project-01/slide7.jpg"
+  - "/images/projects/project-01/slide4.jpg"
+  - "/images/projects/project-01/video_demonstration.mp4"
+  - "/images/projects/project-01/cover-01.png"
+  - "/images/projects/project-01/cover-02.png"
+
+sourcelabel: "Visit repo"
+sourcelink: https://github.com/Wishwa-code/Ceylon2World
+team:
+  - name: "Selene Yu"
+    role: "Software Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/company/once-ui/"
+---
+
+## Overview
+
+In this project, I developed a export market prediction system using [quantile convolutional neural networks model](https://www.researchgate.net/publication/335318880_QCNN_Quantile_Convolutional_Neural_Network) (Similar technology is used in Amazon's Q service) for multi step prediction of sri lankan export market. The goal was to create a platform to empower Sri Lankan Agri-SME owners to discover lucrative export markets and successfully navigate the exportation journey.
+
+## Key Features
+
+- **ML-based forecasting system**: Implemented an ML-based forecasting system that processes heterogeneous export datasets (product-specific monthly quantities across global markets). Features include automated retraining via incremental learning and generating predictions for upcoming 5 months with latest available data. Delivering stored predictions for upcoming 5 months on user request.
+- **Personalized market news**: Users can subscribe to specific products, markets, or product-market combinations to receive automated alerts when new prediction reports are generated with new data or global news is published.
+- **Tutorial Library**: Curated video library of step-by-step tutorials and lectures about valuable topics to help newcomers master export processes.
+- **Intuitive tracking dashboard**: Users can easily keep track of their interest and explore information about new markets without getting cluttered with all the features.
+
+## Technologies Used
+
+- **Convolutional Neural Network Model**: CNNs outperform ARIMA/XGBoost for multi-market export forecasts by capturing nonlinear multivariate time series patterns and automatically learning cross-market spatiotemporal relationships.
+- **Flask**: Flask’s simplicity enables streamlined development and testing of machine learning models with frameworks like TensorFlow.
+- **React**: For building the front-end codebase with clean, reusable components.
+- **MongoDB**: MongoDB offers a single platform for machine learning workflows with greater adaptability and scalability.
+
+## Challenges and Learnings
+
+One key challenge was finding the best machine learning model which is capable of taking multiple monthly datasets in the same domain within three years and generating the most accurate results while having the ability to work with the nature of export data. Convolutional Neural Network models have found their footing in most real-world e-commerce use cases and have proved to be very effective with multi-market forecasting due to its ability to learn the patterns in temporal data.
+
+## Outcome
+
+The pure implementation of CNN model achieved above 70% baseline accuracy just using hand collected 3 years of monthly data for 65 products from [UN Comtrade Database](https://comtradeplus.un.org/) and [International Trade Administration](https://www.trade.gov/). At the moment application serves as a minimum viable product which supports limited set of products and markets. 
+
+With funding and leveraging tools provided by cloud providers like Amazon Q service, application has the potential to revolutionize South Asian Trade Infrastructure. Evolvement of the technologies like blockchain smart contracts and affordable cloud infrastructure has opened many doors for this platform to grow. 
+
+Thank you for engaging with this research. Your time and attention are deeply appreciated. As my final-year research project, this work represents both academic rigor and a passion for practical innovation. I enthusiastically welcome discussions with researchers, industry partners, or implementers interested in:
+
+🔹 Prototyping commercial applications
+
+🔹 Expanding the model’s domain adaptability
+
+🔹 Exploring grant opportunities for real-world deployment
+
+Here’s to building solutions that bridge theoretical AI and global economic impact. One algorithm at a time.

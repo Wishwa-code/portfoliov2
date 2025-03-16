@@ -98,7 +98,7 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
     const { config, setConfig } = useConfig(); // Destructure both config and setConfig
     
     useEffect(() => {
-      console.log('Current theme from config:', config.style.theme);
+      console.log('Current theme from config:', config);
 
       // You can also update the config if needed like this:
       // setConfig(prev => ({
@@ -208,7 +208,7 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
         }}
         {...rest}
       >
-        {gradient.display && config.backlight?.state === 'true' && (
+        { config != null && config.backlight?.state === 'true' && (
           <Flex
             position="absolute"
             className={styles.gradient}
