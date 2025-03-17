@@ -66,7 +66,7 @@
                     "description": "django, flask, express.Js, spring boot, flutter, gin, prisma, next.js, react, vue, react native, typeScript, selenium, sci-kit learn, open CV, rive, framer, intl.js, three.js, PDF.js,"
                 },
                 "Computer Languages": {
-                    "description": "Java, Python, C/C++/C#, JavaScript, Kotlin, Go, PHP, SQL, HTML, CSS, Sass, JSON, YAML, CSV, R"
+                    "description": "typeScript(JS), dart, java, python, C/C++/C#, rust, go, PHP, SQL, HTML, CSS, Sass, JSON, YAML, TOML, CSV, R"
                 },
                 "Specialities": {
                     "description": "django, django ORM, typescript, Once UI, tailwind, react, react context API, react Query, flutter, riverpod, supabase, neonDB, configuring CI/CD using git or vercel, RESTful web services, Amazon EC2/ S3/ MQ / SQS, pytorch."
