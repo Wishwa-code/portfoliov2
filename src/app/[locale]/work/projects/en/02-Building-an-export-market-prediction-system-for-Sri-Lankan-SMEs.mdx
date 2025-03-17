@@ -1,10 +1,11 @@
 ---
 title: "Building an export market prediction system for Sri Lankan SMEs"
 publishedAt: "2025-03-01"
-summary: "In this project, I developed a export market prediction system using quantile convulutional neural network model(similar technology as amazon Q service) for multi step prediction of sri lankan export products."
+summary: "In this project, I developed a export market prediction system using ARIMA model optimized with grid search for multi step prediction of sri lankan export product market."
 images:
   - "/images/projects/project-01/Slide7.png"
   - "/images/projects/project-01/Slide4.png"
+  - "/images/projects/project-01/short_vid.mp4"
   - "/images/projects/project-01/cover-01.png"
   - "/images/projects/project-01/cover-02.png"
 
@@ -19,7 +20,7 @@ team:
 
 ## Overview
 
-In this project, I developed a export market prediction system using [quantile convolutional neural networks model](https://www.researchgate.net/publication/335318880_QCNN_Quantile_Convolutional_Neural_Network) (Similar technology is used in Amazon's Q service) for multi step prediction of sri lankan export market. The goal was to create a platform to empower Sri Lankan Agri-SME owners to discover lucrative export markets and successfully navigate the exportation journey.
+In this project, I developed a web app which provides predicted market changes for specific sri lanka export product in specific foreign market. Prediction system is developed using ARIMA model optimized with grid search to deliver predictions with above 85% accuracy.
 
 ## Key Features
 
@@ -30,18 +31,18 @@ In this project, I developed a export market prediction system using [quantile c
 
 ## Technologies Used
 
-- **Convolutional Neural Network Model**: CNNs outperform ARIMA/XGBoost for multi-market export forecasts by capturing nonlinear multivariate time series patterns and automatically learning cross-market spatiotemporal relationships.
+- **ARIMA model optimized with grid search**: ARIMA model optimized with grid search gave the best accuracy with the limited available data.
 - **Flask**: Flask’s simplicity enables streamlined development and testing of machine learning models with frameworks like TensorFlow.
 - **React**: For building the front-end codebase with clean, reusable components.
 - **MongoDB**: MongoDB offers a single platform for machine learning workflows with greater adaptability and scalability.
 
 ## Challenges and Learnings
 
-One key challenge was finding the best machine learning model which is capable of taking multiple monthly datasets in the same domain within three years and generating the most accurate results while having the ability to work with the nature of export data. Convolutional Neural Network models have found their footing in most real-world e-commerce use cases and have proved to be very effective with multi-market forecasting due to its ability to learn the patterns in temporal data.
+One key challenge was finding the best machine learning model which is capable of taking multiple monthly datasets in the same domain within three years and generating the most accurate results while having the ability to work with the nature of export data. ARIMA models have found their footing in most real-world e-commerce use cases and have proved to be very effective with multi-market forecasting due to its ability to learn the patterns in temporal data.
 
 ## Outcome
 
-The pure implementation of CNN model achieved above 70% baseline accuracy just using hand collected 3 years of monthly data for 65 products from [UN Comtrade Database](https://comtradeplus.un.org/) and [International Trade Administration](https://www.trade.gov/). At the moment application serves as a minimum viable product which supports limited set of products and markets. 
+The pure implementation of ARIMA model achieved above 70% baseline accuracy just using hand collected 3 years of monthly data for 65 products from [UN Comtrade Database](https://comtradeplus.un.org/) and [International Trade Administration](https://www.trade.gov/). At the moment application serves as a minimum viable product which supports limited set of products and markets. 
 
 With funding and leveraging tools provided by cloud providers like Amazon Q service, application has the potential to revolutionize South Asian Trade Infrastructure. Evolvement of the technologies like blockchain smart contracts and affordable cloud infrastructure has opened many doors for this platform to grow. 
 
