@@ -1,6 +1,11 @@
 .position {
-    position: sticky;
+    // position: sticky;
+    position: fixed;
+    top: 100%; // Position it right below the header
+    right: 0%;
     top: 0;
+    width:200px;
+    height:100vh;
 }
 
 .overlayCard {
@@ -12,6 +17,31 @@
     min-width: 200px; // Adjust as needed
 }
 
+.menuButton {
+    position: absolute;
+    top: 65px; // Adjust this value based on your header height
+    right:65px;
+    
+    // transform: translateX(-50%);
+    z-index: 1000;
+
+}
+
+.menuContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 225px;
+  height: 100vh;
+  background-color: var(--your-bg-color); // Use your background token
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); // Fast start, slow end
+  transform: translateY(-100%); // Start hidden above
+  z-index: 999;
+}
+
+.menuContainer.show {
+  transform: translateY(0); // Slide in
+}
 .absoluteOverlay {
     position: fixed; // This ensures it stays in view even when scrolling
     top: 60px; // Adjust this value based on your header height

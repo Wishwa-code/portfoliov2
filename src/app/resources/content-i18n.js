@@ -25,7 +25,7 @@ const createI18nContent = (t) => {
     }
 
     const newsletter = {
-        display: true,
+        display: false,
         title: <>{t("newsletter.title", {firstName: person.firstName})}</>,
         description: <>{t("newsletter.description")}</>
     }

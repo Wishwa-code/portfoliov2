@@ -23,18 +23,12 @@ export const Footer = () => {
                     onBackground="neutral-strong">
                     <Text
                         onBackground="neutral-weak">
-                        © {currentYear} /
+                        © {currentYear} -
                     </Text>
                     <Text paddingX="4">
                         {person.name}
                     </Text>
-                    <Text onBackground="neutral-weak">
-                        {/* Usage of this template requires attribution. Please don't remove the link to Once UI. */}
-                        / Built with <SmartLink style={{marginLeft: '-0.125rem'}} href="https://once-ui.com/">Once UI</SmartLink>
-                         | <SmartLink style={{marginLeft: '-0.125rem'}} href="https://nextjs.org/">Next.Js 14</SmartLink>
-                         | <SmartLink style={{marginLeft: '-0.125rem'}} href="https://react.dev/">React.Js 18</SmartLink> 
-                         | <SmartLink style={{marginLeft: '-0.125rem'}} href="https://opensource.dev/">Open source software</SmartLink>
-                    </Text>
+
                 </Text>
                 <Flex
                     gap="16">

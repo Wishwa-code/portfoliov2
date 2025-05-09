@@ -60,4 +60,5 @@ export type { UserProps } from './User';
 export { UserMenu } from './UserMenu';
 export { Switch2 } from './Switch2';
 export { ToggleButton2 } from './ToggleButton2';
+export { ToggleButton3 } from './ToggleButton3';
 export { DialogBox} from './DialogBox';

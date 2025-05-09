@@ -122,7 +122,7 @@ export default function Home(
 				
 			</Flex>
 			<RevealFx translateY="16" delay={0.6}>
-				<Projects range={[1,2]} locale={locale}/>
+				<Projects range={[1,1]} locale={locale}/>
 			</RevealFx>
 			{routes['/blog'] && (
 				<Flex fillWidth gap="24" mobileDirection="column">

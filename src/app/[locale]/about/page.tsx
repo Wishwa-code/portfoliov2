@@ -107,7 +107,7 @@ export default function About(
                     }),
                 }}
             />
-            { about.tableOfContent.display && (
+            {/* { about.tableOfContent.display && (
                 <Flex
                     style={{ left: '0', top: '50%', transform: 'translateY(-50%)' }}
                     position="fixed"
@@ -117,7 +117,7 @@ export default function About(
                         structure={structure}
                         about={about} />
                 </Flex>
-            )}
+            )} */}
             <Flex
                 fillWidth
                 mobileDirection="column" justifyContent="center">
@@ -223,9 +223,112 @@ export default function About(
                         <Flex
                             direction="column"
                             textVariant="body-default-l"
-                            fillWidth gap="m" marginBottom="xl">
+                            fillWidth gap="m" marginBottom="40">
                             {about.intro.description}
                         </Flex>
+                    )}
+                    { about.technical.display && (
+                        <>
+                            <Heading
+                                as="h2"
+                                id={about.technical.title}
+                                variant="display-strong-s" marginBottom="40">
+                                {about.technical.title}
+                            </Heading>
+                            <Flex
+                                direction="column"
+                                fillWidth gap="l" marginBottom="40">
+                                {about.technical.skills.map((skill, index) => (
+                                    <Flex
+                                        key={`${skill}-${index}`}
+                                        fillWidth gap="4"
+                                        direction="column">
+                                        <Text
+                                            variant="heading-strong-l">
+                                            {skill.title}
+                                        </Text>
+                                        <Text
+                                            variant="body-default-m"
+                                            onBackground="neutral-weak">
+                                            {skill.description}
+                                        </Text>
+                                        {skill.images.length > 0 && (
+                                            <Flex
+                                                fillWidth paddingTop="m" gap="12"
+                                                wrap>
+                                                {skill.images.map((image, index) => (
+                                                    <Flex
+                                                        key={index}
+                                                        border="neutral-medium"
+                                                        borderStyle="solid-1"
+                                                        radius="m"
+                                                        minWidth={image.width} height={image.height}>
+                                                        <SmartImage
+                                                            enlarge
+                                                            radius="m"
+                                                            sizes={image.width.toString()}
+                                                            alt={image.alt}
+                                                            src={image.src}/>
+                                                    </Flex>
+                                                ))}
+                                            </Flex>
+                                        )}
+                                    </Flex>
+                                ))}
+                            </Flex>
+                        </>
+                    )}
+
+{ about.studies.display && (
+                        <>
+                            <Heading
+                                as="h2"
+                                id={about.studies.title}
+                                variant="display-strong-s"
+                                marginBottom="m">
+                                {about.studies.title}
+                            </Heading>
+                            <Flex
+                                direction="column"
+                                fillWidth gap="l" marginBottom="40">
+                                {about.studies.institutions.map((institution, index) => (
+                                    <Flex
+                                        key={`${institution.name}-${index}`}
+                                        fillWidth gap="4"
+                                        direction="column">
+                                        <Text
+                                            //@ts-ignore
+                                            id={institution.name}
+                                            //@ts-ignore
+                                            variant="heading-strong-l">
+                                            {institution.name}
+                                        </Text>
+                                        <Text
+                                            //@ts-ignore
+                                            id={institution.faculty}
+                                            //@ts-ignore
+                                            variant="heading-default-s">{institution.faculty}
+                                        </Text>
+                                        <Text
+                                            variant="heading-default-xs"
+                                            onBackground="neutral-weak">
+                                            {institution.description}
+                                        </Text>
+                                        <SmartLink
+                                            suffixIcon="chevronRight"
+                                            style={{margin: '0', width: 'fit-content',padding: '0'}}
+                                            //@ts-ignore
+                                            href="about/uow">
+                                                
+                                                <Text 
+                                                //@ts-ignore
+                                                variant="body-default-s">{institution.label}
+                                                </Text>
+                                        </SmartLink>
+                                    </Flex>
+                                ))}
+                            </Flex>
+                        </>
                     )}
 
                     { about.work.display && (
@@ -306,109 +409,9 @@ export default function About(
                         </>
                     )}
 
-                    { about.studies.display && (
-                        <>
-                            <Heading
-                                as="h2"
-                                id={about.studies.title}
-                                variant="display-strong-s"
-                                marginBottom="m">
-                                {about.studies.title}
-                            </Heading>
-                            <Flex
-                                direction="column"
-                                fillWidth gap="l" marginBottom="40">
-                                {about.studies.institutions.map((institution, index) => (
-                                    <Flex
-                                        key={`${institution.name}-${index}`}
-                                        fillWidth gap="4"
-                                        direction="column">
-                                        <Text
-                                            //@ts-ignore
-                                            id={institution.name}
-                                            //@ts-ignore
-                                            variant="heading-strong-l">
-                                            {institution.name}
-                                        </Text>
-                                        <Text
-                                            //@ts-ignore
-                                            id={institution.faculty}
-                                            //@ts-ignore
-                                            variant="heading-default-s">{institution.faculty}
-                                        </Text>
-                                        <Text
-                                            variant="heading-default-xs"
-                                            onBackground="neutral-weak">
-                                            {institution.description}
-                                        </Text>
-                                        <SmartLink
-                                            suffixIcon="chevronRight"
-                                            style={{margin: '0', width: 'fit-content',padding: '0'}}
-                                            //@ts-ignore
-                                            href="about/uow">
-                                                
-                                                <Text 
-                                                //@ts-ignore
-                                                variant="body-default-s">{institution.label}
-                                                </Text>
-                                        </SmartLink>
-                                    </Flex>
-                                ))}
-                            </Flex>
-                        </>
-                    )}
+                  
 
-                    { about.technical.display && (
-                        <>
-                            <Heading
-                                as="h2"
-                                id={about.technical.title}
-                                variant="display-strong-s" marginBottom="40">
-                                {about.technical.title}
-                            </Heading>
-                            <Flex
-                                direction="column"
-                                fillWidth gap="l">
-                                {about.technical.skills.map((skill, index) => (
-                                    <Flex
-                                        key={`${skill}-${index}`}
-                                        fillWidth gap="4"
-                                        direction="column">
-                                        <Text
-                                            variant="heading-strong-l">
-                                            {skill.title}
-                                        </Text>
-                                        <Text
-                                            variant="body-default-m"
-                                            onBackground="neutral-weak">
-                                            {skill.description}
-                                        </Text>
-                                        {skill.images.length > 0 && (
-                                            <Flex
-                                                fillWidth paddingTop="m" gap="12"
-                                                wrap>
-                                                {skill.images.map((image, index) => (
-                                                    <Flex
-                                                        key={index}
-                                                        border="neutral-medium"
-                                                        borderStyle="solid-1"
-                                                        radius="m"
-                                                        minWidth={image.width} height={image.height}>
-                                                        <SmartImage
-                                                            enlarge
-                                                            radius="m"
-                                                            sizes={image.width.toString()}
-                                                            alt={image.alt}
-                                                            src={image.src}/>
-                                                    </Flex>
-                                                ))}
-                                            </Flex>
-                                        )}
-                                    </Flex>
-                                ))}
-                            </Flex>
-                        </>
-                    )}
+                    
                 </Flex>
             </Flex>
         </Flex>
