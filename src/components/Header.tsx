@@ -6,7 +6,7 @@
 import { useParams } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
 
-import { Flex, ToggleButton , Switch2, ToggleButton3} from "@/once-ui/components"
+import { Flex, ToggleButton , Switch2, ToggleButton3,ToggleButton4} from "@/once-ui/components"
 import styles from '@/components/Header.module.scss'
 
 import { routes, display } from '@/app/resources'
@@ -132,6 +132,7 @@ export const Header = () => {
             zIndex={9}
             padding="8"
             justifyContent="center">
+                
             <ToggleButton3
                 className={styles.menuButton}
                 prefixIcon="Menu"
@@ -151,48 +152,85 @@ export const Header = () => {
                     // topRadius="xs" 
                     shadow="l"
                     padding="4"
-                    justifyContent="center"
-                    >
-
-                    <Flex
+                    justifyContent="start"
                     >
                     <Flex
+                        direction ="column"
+                        style={{
+                        height: "50px",
+                    }}>
+                        <Flex
+                        hide="s"
+                        paddingLeft="24" 
+                        paddingTop="12" 
+                        alignItems="center"
+                        textVariant="body-default-s">
+                        { display.location && (
+                            <>{person.location}</>
+                        )}
+                        </Flex>
+                        <Flex
+                            hide="s"
+                            paddingLeft="24" 
+                            paddingTop="4" 
+                            paddingRight="12" fillWidth
+                            justifyContent="flex-start" alignItems="center"
+                            textVariant="body-default-s"
+                            gap="20">
+                            <Flex hide="s">
+                                { display.time && (
+                                    <TimeDisplay timeZone={person.location}/>
+                                )}
+                            </Flex>
+                        </Flex>
+                    </Flex>
+                    <div style={{ width: '225px', height: '1px',  margin: '8px 0' , backgroundColor: 'var(--neutral-alpha-medium)' }} />
+                    <Flex
+                        style={{
+                        height: "50px",
+                        }}>
+                    </Flex>
+                    <div style={{ width: '225px', height: '1px',  margin: '8px 0' , backgroundColor: 'var(--neutral-alpha-medium)' }} />
+                    <Flex
+                    style={{ width: '225px'}}
+                    fillWidth
                         direction="column"
-                        gap="4"
+                        gap="8"
+                        paddingLeft="8" 
                         textVariant="body-default-s"
                         justifyContent="start"
                         alignItems="start">
                         { routes['/'] && (
-                            <ToggleButton
+                            <ToggleButton4
                                 prefixIcon="home"
                                 href={`/${params?.locale}`}
                                 selected={pathname === "/"}>
                                 <Flex paddingX="2" hide="s">{home.label}</Flex>
-                            </ToggleButton>
+                            </ToggleButton4>
                         )}
                         { routes['/about'] && (
-                            <ToggleButton
+                            <ToggleButton4
                                 prefixIcon="person"
                                 href={`/${params?.locale}/about`}
                                 selected={pathname === "/about"}>
                                 <Flex paddingX="2" hide="s">{about.label}</Flex>
-                            </ToggleButton>
+                            </ToggleButton4>
                         )}
                         { routes['/work'] && (
-                            <ToggleButton
+                            <ToggleButton4
                                 prefixIcon="grid"
                                 href={`/${params?.locale}/work`}
                                 selected={pathname.startsWith('/work')}>
                                 <Flex paddingX="2" hide="s">{work.label}</Flex>
-                            </ToggleButton>
+                            </ToggleButton4>
                         )}
                         { routes['/blog'] && (
-                            <ToggleButton
+                            <ToggleButton4
                                 prefixIcon="book"
                                 href={`/${params?.locale}/blog`}
                                 selected={pathname.startsWith('/blog')}>
                                 <Flex paddingX="2" hide="s">{blog.label}</Flex>
-                            </ToggleButton>
+                            </ToggleButton4>
                         )}
                         { routes['/gallery'] && (
                             <ToggleButton
@@ -202,22 +240,12 @@ export const Header = () => {
                                 <Flex paddingX="2" hide="s">{gallery.label}</Flex>
                             </ToggleButton>
                         )} 
-                        <ToggleButton
-                            prefixIcon="settings" // You can change this icon as needed
-                            onClick={toggleOverlay}
-                            selected={isOverlayVisible} // Show overlay on click
-                        >
-                            
-                        </ToggleButton>
-                        
-                        {isOverlayVisible && (
+                        <div style={{ width: '225px', height: '1px',  margin: '8px 0' , backgroundColor: 'var(--neutral-alpha-medium)' }} />
+     
                             <Flex 
                                 className={`${styles.overlayCard} ${styles.absoluteOverlay}`}
-                                background="surface" 
-                                border="neutral-medium" 
-                                borderStyle="solid-1" 
-                                radius="m-4" 
-                                shadow="l"
+   
+
                                 padding="16"
                                 gap="8"
                                 direction="column"
@@ -226,28 +254,7 @@ export const Header = () => {
                                 
                                 {windowSize.width > 768 ? ( 
                                     <>
-                                        <Flex 
-                                        paddingBottom="16"
-                                        >
-                                            {routing.locales.length > 1 && 
-                                                <Flex
-                                                    
-                                                    background="neutral-medium" border="neutral-medium" borderStyle="solid-1" radius="m-4" shadow="l"
-                                                    padding="4" gap="2"
-                                                    justifyContent="center">
-                                                        {i18n && routing.locales.map((locale, index) => (
-                                                            <ToggleButton
-                                                                key={index}
-                                                                selected={params?.locale === locale}
-                                                                onClick={() => handleLanguageChange(locale)}
-                                                                className={isPending && 'pointer-events-none opacity-60' || ''}
-                                                            >
-                                                                {index === 1 ? 'සිං' : locale.toUpperCase()}
-                                                            </ToggleButton>
-                                                        ))}
-                                                </Flex>
-                                            }
-                                        </Flex>
+                                        
                                         <Switch2
                                             isChecked={config.style.theme === 'dark'}
                                             onToggle={() => handleThemeChange()}
@@ -270,20 +277,7 @@ export const Header = () => {
                                         {config.backlight.state === 'true' && (
                                             <ColorPalette/>
                                         )}
-                                        {/* Close Button */}
-                                        <Flex 
-                                        justifyContent="center"
-                                        paddingTop="8"
-                                        paddingBottom="4">
-                                            {/* @ts-nocheck */}
-                                            <ToggleButton
-                                                prefixIcon="close"
-                                                onClick={toggleOverlay}
-                                                selected={false}
-                                            >
-                                                <Flex paddingX="2" hide="s">Close</Flex>
-                                            </ToggleButton>
-                                        </Flex>
+                                        
                                     </>
                                 ) : (
                                     <>  
@@ -349,31 +343,35 @@ export const Header = () => {
                                         )}
                                 
                             </Flex>
-                        )}
+            
+                            <div style={{ width: '225px', height: '1px',  margin: '8px 0' , backgroundColor: 'var(--neutral-alpha-medium)' }} />
+                            <Flex 
+                                
+                                justifyContent="center"
+                                paddingBottom="16"
+                                >
+                                {routing.locales.length > 1 && 
+                                    <Flex
+                                        
+                                        background="neutral-medium" border="neutral-medium" borderStyle="solid-1" radius="m-4" shadow="l"
+                                        padding="4" gap="2"
+                                        justifyContent="center">
+                                            {i18n && routing.locales.map((locale, index) => (
+                                                <ToggleButton
+                                                    key={index}
+                                                    selected={params?.locale === locale}
+                                                    onClick={() => handleLanguageChange(locale)}
+                                                    className={isPending && 'pointer-events-none opacity-60' || ''}
+                                                >
+                                                    {index === 1 ? 'සිං' : locale.toUpperCase()}
+                                                </ToggleButton>
+                                            ))}
+                                    </Flex>
+                                }
+                            </Flex>          
                     </Flex>
                 </Flex>
-                <Flex
-                    hide="s"
-                    paddingLeft="12" 
-                    alignItems="center"
-                    textVariant="body-default-s">
-                    { display.location && (
-                        <>{person.location}</>
-                    )}
-                    </Flex>
-                    <Flex
-                        hide="s"
-                        paddingRight="12" fillWidth
-                        justifyContent="flex-start" alignItems="center"
-                        textVariant="body-default-s"
-                        gap="20">
-                        <Flex hide="s">
-                            { display.time && (
-                                <TimeDisplay timeZone={person.location}/>
-                            )}
-                        </Flex>
-                    </Flex>
-                </Flex>
+                
         </Flex>
     )
 }

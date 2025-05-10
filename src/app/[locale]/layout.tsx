@@ -22,6 +22,8 @@ import { renderContent } from "@/app/resources";
 import { useConfig } from '@/app/contexts/ConfigContext';
 import { Analytics } from "@vercel/analytics/react"
 import sttyles from '@/app/[locale]/app.module.scss'; // Import the CSS file for styling
+import '../../app/styles/globals.scss'; // Import global styles
+
 
 
 export async function generateMetadata(
@@ -124,10 +126,7 @@ export default async function RootLayout({
 						code.variable,
 						'dark:data-device-dark')}>
 					
-						<Flex style={{
-							minHeight: '100vh',
-							cursor: `url('/images/linux-mint-cursor.png')`
-						}}
+						<Flex 
 							as="body"
 							fillWidth margin="0" padding="0"
 							direction="column">

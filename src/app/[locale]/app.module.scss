@@ -1,3 +1,28 @@
-body {
-    cursor: url('/images/linux-mint-cursor.png'), auto;
+
+
+.landingImage {
+    // position: sticky;
+    position: absolute;
+    top: 0; // Position it right below the header
+    width:100vw;
+    height:100vh;
+    background-color: aqua;
+      z-index: -1;
+  overflow: hidden;
+}
+
+
+.coverImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlayImage {
+  position: absolute;
+  top: 100px; // start 100px below
+  left: 50%;
+  transform: translateX(-50%) scale(1); // center horizontally
+  transition: transform 0.3s ease-out;
+  will-change: transform;
 }

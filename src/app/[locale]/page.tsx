@@ -4,10 +4,12 @@ import { Heading, Flex, Text, Button,  Avatar, RevealFx } from '@/once-ui/compon
 import { Projects } from '@/components/work/Projects';
 
 import { baseURL, routes, renderContent } from '@/app/resources'; 
-import { Mailchimp } from '@/components';
+import { LandingPage, Mailchimp } from '@/components';
 import { Posts } from '@/components/blog/Posts';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
+import styles from './app.module.scss'
+
 
 export async function generateMetadata(
 	{params: {locale}}: { params: { locale: string }}
@@ -73,7 +75,15 @@ export default function Home(
 						},
 					}),
 				}}
-			/>
+			/>			
+			{/* <Flex
+			    className={styles.landingImage}
+				>
+				<img src="/images/sunrise.jpg" alt="Landing" className={styles.coverImage} />
+				<img src="/images/sunrise.jpg" alt="Overlay" className={styles.overlayImage} />
+			</Flex> */}
+				<LandingPage range={[1,1]} locale={locale}/>
+
 			<Flex
 				fillWidth
 				direction="column"
