@@ -34,11 +34,17 @@
 
 .overlayImage {
   position: absolute;
-  top: 100px;
+//   top: 70px;
   left: 50%;
-  transform: translateX(-50%) scale(1);
-  transition: transform 0.1s ease-out;
-  will-change: transform;
+  width: 500px;
+  height: 400px;
+  top: 60%;
+transform: translate(-50%, -50%) scale(50);// initial scale
+  opacity: 0; // hidden initially
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  will-change: transform, opacity;
+  z-index: 1000;
+
 }
 
 // .landingImage {

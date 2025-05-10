@@ -85,6 +85,7 @@ export default function Home(
 				<LandingPage range={[1,1]} locale={locale}/>
 
 			<Flex
+				style = {{paddingTop: '100vh'}}
 				fillWidth
 				direction="column"
 				paddingY="l" gap="m">
