@@ -12,10 +12,14 @@ interface ProjectsProps {
 
 export function LandingPage({ range, locale }: ProjectsProps) {
   const overlayRef = useRef<HTMLImageElement>(null);
+    const overlayTextRef = useRef<HTMLImageElement>(null);
+      const ladningImageRef = useRef<HTMLImageElement>(null);
+
+
   const [scrollY, setScrollY] = useState(0);
   const [locked, setLocked] = useState(false);
   const [zoomOutStarted, setZoomOutStarted] = useState(false);
-  const unlockThreshold = 500; // Where the zoom out ends
+  const unlockThreshold = 300; // Where the zoom out ends
   const reZoomStart = 300;     // Where zooming back in starts on scroll up
 
 
@@ -46,31 +50,69 @@ export function LandingPage({ range, locale }: ProjectsProps) {
 
   // Apply image transformation based on scrollY
   useEffect(() => {
-    const maxScroll = 500;
-    const startScale = 50;
-    const endScale = 1;
+  const maxScroll = 500;
+  const startScale = 20;
+  const endScale = 1;
+  const clampedScroll = Math.max(0, Math.min(scrollY, maxScroll));
+  const progress = clampedScroll / maxScroll;
+  const scale = startScale - (startScale - endScale) * progress;
+  const translateY = -50 + 50 * progress;
 
-    const clampedScroll = Math.max(0, Math.min(scrollY, maxScroll));
-    const progress = clampedScroll / maxScroll;
-    const scale = startScale - (startScale - endScale) * progress;
+  let fixedTimer: ReturnType<typeof setTimeout> | null = null;
+  let textTimer: ReturnType<typeof setTimeout> | null = null;
 
-      const translateY = -50 + 50 * progress;
-
-    if (overlayRef.current) {
+  if (overlayRef.current) {
     overlayRef.current.style.transform = `translate(-50%, ${translateY}%) scale(${scale})`;
-      overlayRef.current.style.opacity = clampedScroll > 30 ? '1' : '0';
+    overlayRef.current.style.opacity = clampedScroll > 30 ? '1' : '0';
+  }
+
+  if (ladningImageRef.current) {
+  if (clampedScroll < unlockThreshold) {
+    ladningImageRef.current.style.opacity = '1';
+  } else {
+    // Step 1: Fade out
+    ladningImageRef.current.style.opacity = '0';
+
+    // Step 2: After transition ends, change positioclean up
+  }
+}
+
+  if (overlayTextRef.current ) {
+    if (translateY === 0) {
+      textTimer = setTimeout(() => {
+        if (overlayTextRef.current && ladningImageRef.current) {
+          overlayTextRef.current.style.opacity = '1';
+          ladningImageRef.current.style.opacity = '0';
+        }
+      }, 300);
+    } else {
+      overlayTextRef.current.style.opacity = '0';
     }
-    
-  }, [scrollY]);
+  }
+
+  // Clean up both timers
+  return () => {
+    if (fixedTimer) clearTimeout(fixedTimer);
+    if (textTimer) clearTimeout(textTimer);
+  };
+}, [scrollY]);
 
   return (
     <Flex className={styles.landingImage}>
-      <img src="/images/sunrise.jpg" alt="Landing" className={styles.coverImage} />
+      <img 
+      ref={ladningImageRef}
+      src="/images/sunrise.png" alt="Landing" className={styles.coverImage} />
       <img
         ref={overlayRef}
         src="/images/backdrop.png"
         alt="Overlay"
         className={styles.overlayImage}
+      />
+      <img
+        ref={overlayTextRef}
+        src="/images/backdroptext.png"
+        alt="OverlayText"
+        className={styles.overlayText}
       />
     </Flex>
   );
