@@ -1,5 +1,10 @@
-'use client'
- 
+'use client';
+
+import { Flex, Heading, Text } from "@/once-ui/components";
+import dynamic from "next/dynamic";
+import animationData from '@/../public/lotties/404.json';
+import { Footer, Header, RouteGuard } from "@/components";
+
 export default function GlobalError({
   error,
   reset,
@@ -7,12 +12,17 @@ export default function GlobalError({
   error: Error & { digest?: string }
   reset: () => void
 }) {
+  
+            const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
+
   return (
-    <html>
-      <body>
-        <h2>Something went wrong! in global error</h2>
-        <button onClick={() => reset()}>Try again</button>
-      </body>
-    </html>
+        <>
+    <Flex fillWidth paddingY="128" justifyContent="center">
+                    
+      
+        <Lottie animationData={animationData} loop={true} />
+        
+     </Flex>
+     </>
   )
 }
