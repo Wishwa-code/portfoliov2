@@ -1,7 +1,6 @@
 import "@/once-ui/styles/index.scss";
 import "@/once-ui/tokens/index.scss";
 import { ConfigProvider } from '@/app/contexts/ConfigContext';
-
 import classNames from 'classnames';
 
 import { Flex, Background } from '@/once-ui/components'
@@ -165,6 +164,7 @@ export default async function RootLayout({
 								fillWidth
 								minHeight="16">
 							</Flex>
+							<RouteGuard>
 							<Header/>
 							<Flex
 								zIndex={0}
@@ -173,18 +173,16 @@ export default async function RootLayout({
 								<Flex
 									justifyContent="center"
 									fillWidth minHeight="0">
-									<RouteGuard>
-										{children}
-										<Analytics />
-									</RouteGuard>
+										
+											{children}
+											<Analytics />
+
 								</Flex>
 							</Flex>
 							<Footer/>
-							
+							</RouteGuard>
 						</Flex>
-					
 				</Flex>
-				
 			</NextIntlClientProvider>
 		</ConfigProvider>
 	);
