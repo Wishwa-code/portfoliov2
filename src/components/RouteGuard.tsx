@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import { usePathname } from '@/i18n/routing';
 import { routes, protectedRoutes } from '@/app/resources';
 import { Flex, Spinner, Input, Button, Heading } from '@/once-ui/components';
-import Lottie from "lottie-react";
-import animationData from '@/../../1myportfolio/public/lotties/boxes.json';
+import dynamic from "next/dynamic";
+import animationData from '@/../public/lotties/cofee.json';
 //  import box
 
 interface RouteGuardProps {
@@ -20,6 +20,8 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [error, setError] = useState<string | undefined>(undefined);
     const [loading, setLoading] = useState(true);
+
+    const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
     useEffect(() => {
         const performChecks = async () => {
@@ -81,7 +83,6 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
     if (loading) {
         return (
         <Flex fillWidth paddingY="128" justifyContent="center">
-            <Spinner />
             <Lottie animationData={animationData} loop={true} />
         </Flex>
         );
@@ -90,8 +91,7 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
     if (!isRouteEnabled) {
         return (
         <Flex fillWidth paddingY="128" justifyContent="center">
-            <Spinner />
-            <Lottie animationData={animationData} loop={true} />
+           <Lottie animationData={animationData} loop={true} />
         </Flex>
         );
     }
@@ -123,6 +123,13 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
     }
 
     return <>{children}</>;
+    //  return (
+    //     <Flex fillWidth paddingY="128" justifyContent="center">
+    //         <Spinner />
+    //         <Lottie animationData={animationData} loop={true} />
+    //     </Flex>
+    //     );
+    
 };
 
 export { RouteGuard };

@@ -1,24 +1,14 @@
 import { Flex, Heading, Text } from "@/once-ui/components";
+// import Lottie from "lottie-react";
+// import animationData from '@/../public/lotties/cofee.json';
 
 export default function NotFound() {
     return (
         <Flex
             as="section"
             direction="column" alignItems="center">
-            <Text
-                marginBottom="s"
-                variant="display-strong-xl">
-                404
-            </Text>
-            <Heading
-                marginBottom="l"
-                variant="display-strong-xs">
-                Page Not Found
-            </Heading>
-            <Text
-                onBackground="neutral-weak">
-                The page you are looking for does not exist.
-            </Text>
+            {/* <Lottie animationData={animationData} loop={true} /> */}
+            <p>page not found</p>
         </Flex>
     )
 }
