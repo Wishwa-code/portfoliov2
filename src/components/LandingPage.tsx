@@ -1,21 +1,35 @@
 'use client';
 
 import { getPosts } from '@/app/utils';
-import { Flex } from '@/once-ui/components';
 import { useEffect, useRef, useState } from 'react';
 import styles from './LandingPage.module.scss';
+import { useConfig } from '@/app/contexts/ConfigContext';
+import TextPressure from  '@/reactbits/textPressure/textpressure';
+import { Heading, Flex, Text, Button,  Avatar, RevealFx } from '@/once-ui/components';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { useTranslations } from 'next-intl';
+import { baseURL, routes, renderContent } from '@/app/resources'; 
+
+
 
 interface ProjectsProps {
   range?: [number, number?];
   locale: string;
 }
-
 export function LandingPage({ range, locale }: ProjectsProps) {
+
+  // setRequestLocale(locale);
+	const t = useTranslations();
+	const { home, about, person, newsletter } = renderContent(t);
+
   const overlayRef = useRef<HTMLImageElement>(null);
-    const overlayTextRef = useRef<HTMLImageElement>(null);
-      const ladningImageRef = useRef<HTMLImageElement>(null);
+  const overlayTextRef = useRef<HTMLImageElement>(null);
+  const ladningImageRef = useRef<HTMLImageElement>(null);
+  const textRef = useRef<HTMLImageElement>(null);
+  const aboutemeButtontRef = useRef<HTMLImageElement>(null);
 
 
+  const { config, setConfig } = useConfig();
   const [scrollY, setScrollY] = useState(0);
   const [locked, setLocked] = useState(false);
   const [zoomOutStarted, setZoomOutStarted] = useState(false);
@@ -66,12 +80,16 @@ export function LandingPage({ range, locale }: ProjectsProps) {
     overlayRef.current.style.opacity = clampedScroll > 30 ? '1' : '0';
   }
 
-  if (ladningImageRef.current) {
+  if (ladningImageRef.current && textRef.current && aboutemeButtontRef.current) {
   if (clampedScroll < unlockThreshold) {
     ladningImageRef.current.style.opacity = '1';
+    textRef.current.style.opacity = '1';
+    aboutemeButtontRef.current.style.opacity = '1'
   } else {
     // Step 1: Fade out
     ladningImageRef.current.style.opacity = '0';
+    textRef.current.style.opacity = '0';
+    aboutemeButtontRef.current.style.opacity = '0'
 
     // Step 2: After transition ends, change positioclean up
   }
@@ -98,10 +116,45 @@ export function LandingPage({ range, locale }: ProjectsProps) {
 }, [scrollY]);
 
   return (
+    <>
     <Flex className={styles.landingImage}>
-      <img 
-      ref={ladningImageRef}
-      src="/images/sunrise.png" alt="Landing" className={styles.coverImage} />
+                  
+      <Flex>
+        <Flex 
+         ref={textRef}
+          direction="column"
+          className={styles.landingNameContainer}>
+            <Flex 
+              style={{
+                marginLeft:'8vw',
+                marginTop: '26vh'
+                    }}>
+                <p > Wishwa </p>
+            </Flex>
+            <Flex className={styles.pressuretext}>
+              <TextPressure
+                text="Kankanamge"
+                flex={false}
+                alpha={false}
+                stroke={false}
+                width={false}
+                weight={true}
+                italic={true}
+                textColor={config.style.theme === 'dark' ? "#ffffff" : "#000000"}
+                strokeColor={config.style.theme === 'dark' ? "#ffffff" : "#000000"}
+                minFontSize={146}
+                scale={true}
+              />
+            </Flex>
+            
+        </Flex>
+        <img 
+        ref={ladningImageRef}
+        src={config.style.theme === 'dark' ? "/images/sunrise.png" : "/images/sunrise.png"} 
+        alt="Landing" 
+        className={config.style.theme === 'dark' ? styles.coverImage : styles.coverImage2} />
+      </Flex>
+      
       <img
         ref={overlayRef}
         src="/images/backdrop.png"
@@ -114,80 +167,32 @@ export function LandingPage({ range, locale }: ProjectsProps) {
         alt="OverlayText"
         className={styles.overlayText}
       />
+      
     </Flex>
+    <Flex 
+      ref={aboutemeButtontRef}
+      className={styles.aboutemebuutton}>
+      <Button
+        data-border="rounded"
+        href={`/en/about`}
+        variant="tertiary"
+        suffixIcon="chevronRight"
+        size="m">
+        <Flex
+          gap="8"
+          alignItems="center">
+          {about.avatar.display && (
+            <Avatar
+              style={{marginLeft: '-0.75rem', marginRight: '0.25rem'}}
+              src={person.avatar}
+              size="m"/>
+            )}
+            {t("about.title")}
+        </Flex>
+      </Button>
+    </Flex>
+    </>
   );
 }
 
 
-// 'use client'
-// import { getPosts } from '@/app/utils';
-// import { Flex } from '@/once-ui/components';
-// import { useEffect, useRef , useState} from 'react';
-// import styles from './LandingPage.module.scss'
-
-
-// interface ProjectsProps {
-//     range?: [number, number?];
-//     locale: string;
-// }
-
-// export function LandingPage({ range, locale }: ProjectsProps) {
-
-//     const overlayRef = useRef<HTMLImageElement>(null);
-//   const [scrollY, setScrollY] = useState(0);
-//   const [locked, setLocked] = useState(true); 
-
-//  useEffect(() => {
-//     if (locked) {
-//       document.body.style.overflow = 'hidden';
-//     } else {
-//       document.body.style.overflow = '';
-//     }
-
-//     const handleWheel = (e: WheelEvent) => {
-//       if (!locked) return;
-
-//       e.preventDefault();
-//       setScrollY((prev) => {
-//         const next = Math.min(prev + e.deltaY, 500);
-//         if (next >= 500) {
-//           setLocked(false); // unlock scroll
-//         }
-//         return next;
-//       });
-//     };
-
-//     window.addEventListener('wheel', handleWheel, { passive: false });
-//     return () => {
-//       window.removeEventListener('wheel', handleWheel);
-//       document.body.style.overflow = ''; // cleanup
-//     };
-//   }, [locked]);
-
-// useEffect(() => {
-//   const maxScroll = 500;
-//   const startScale = 50;
-//   const endScale = 1;
-
-//   const clampedScroll = Math.max(0, Math.min(scrollY, maxScroll));
-//   const progress = clampedScroll / maxScroll;
-//   const scale = startScale - (startScale - endScale) * progress;
-
-//   if (overlayRef.current) {
-//     overlayRef.current.style.transform = `translateX(-50%) scale(${scale})`;
-//     overlayRef.current.style.opacity = clampedScroll > 30 ? '1' : '0';
-//   }
-// }, [scrollY]);
-
-//     return (
-//     <Flex className={styles.landingImage}>
-//       <img src="/images/sunrise.jpg" alt="Landing" className={styles.coverImage} />
-//       <img
-//         ref={overlayRef}
-//         src="/images/backdrop.png"
-//         alt="Overlay"
-//         className={styles.overlayImage}
-//       />
-//     </Flex>
-//     );
-// }

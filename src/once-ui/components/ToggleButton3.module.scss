@@ -98,7 +98,8 @@
   right: 0;
   width: 34px;
   height: 9px;
-  background-color: rgb(255, 255, 255); // or your theme color
+    background:var(--neutral-on-background-strong);
+  color: var(--neutral-on-background-strong); // or your theme color
   transition: transform 0.3s ease;
 }
 
@@ -108,7 +109,9 @@
   right: 0;
   width: 34px;
   height: 9px;
-  background-color: rgb(255, 255, 255); // or your theme color
+  background:var(--neutral-on-background-strong);
+  color: var(--neutral-on-background-strong);
+
   transition: transform 0.3s ease;
 }
 

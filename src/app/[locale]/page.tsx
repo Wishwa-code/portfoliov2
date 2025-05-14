@@ -83,6 +83,7 @@ export default function Home(
 				<img src="/images/sunrise.jpg" alt="Overlay" className={styles.overlayImage} />
 			</Flex> */}
 				<LandingPage range={[1,1]} locale={locale}/>
+				
 
 			<Flex
 				style = {{paddingTop: '130vh'}}

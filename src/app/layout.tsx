@@ -32,6 +32,7 @@ import { Metadata } from "next";
 import { routing } from "@/i18n/routing";
 import { renderContent } from "@/app/resources";
 import '@/app/styles/globals.scss'; // Import global styles
+import localFont from 'next/font/local'
 
 
 
@@ -74,6 +75,13 @@ const primary = Inter({
 	variable: '--font-primary',
 	subsets: ['latin'],
 	display: 'swap',
+})
+
+
+const landing = localFont({
+  src: '../../public/fonts/Pricedown.otf',
+  variable: '--font-landing',
+display: 'swap',
 })
 
 type FontConfig = {
@@ -136,6 +144,7 @@ export default async function RootLayout({
                                 secondary ? secondary.variable : '',
                                 tertiary ? tertiary.variable : '',
                                 code.variable,
+								landing.variable,
                                 'dark:data-device-dark')}>
                             <Flex 
                                 as="body"

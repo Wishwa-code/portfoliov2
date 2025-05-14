@@ -24,12 +24,9 @@ export default function NotFound() {
     
   return (
     <>
-    <Flex fillWidth paddingY="128" justifyContent="center">
-                    
-      
-        <Lottie animationData={animationData} loop={true} />
-        
-     </Flex>
+      <Flex fillWidth paddingY="128" justifyContent="center">
+          <Lottie animationData={animationData} loop={true} />
+      </Flex>
      </>
   );
 }
