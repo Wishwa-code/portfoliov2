@@ -23,7 +23,7 @@
     },
     "about": {
         "label": "About",
-        "title": "About me",
+        "title": "View bio",
         "description": "Meet {name}, {role} from {location}",
         "intro": {
             "title": "Introduction",

@@ -9,6 +9,7 @@ import { Heading, Flex, Text, Button,  Avatar, RevealFx } from '@/once-ui/compon
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { baseURL, routes, renderContent } from '@/app/resources'; 
+import { Projects } from '@/components/work/Projects';
 
 
 
@@ -95,11 +96,13 @@ export function LandingPage({ range, locale }: ProjectsProps) {
   }
 }
 
-  if (overlayTextRef.current ) {
+  if (overlayTextRef.current && overlayRef.current) {
     if (translateY === 0) {
       textTimer = setTimeout(() => {
-        if (overlayTextRef.current && ladningImageRef.current) {
+        if (overlayTextRef.current && ladningImageRef.current && overlayRef.current) {
           overlayTextRef.current.style.opacity = '1';
+          overlayRef.current.style.opacity = '0';
+
           ladningImageRef.current.style.opacity = '0';
         }
       }, 300);
@@ -157,13 +160,13 @@ export function LandingPage({ range, locale }: ProjectsProps) {
       
       <img
         ref={overlayRef}
-        src="/images/backdrop.png"
+        src={config.style.theme === 'dark' ? "/images/backdrop-dark.png" : "/images/backdrop.png"}
         alt="Overlay"
         className={styles.overlayImage}
       />
       <img
         ref={overlayTextRef}
-        src="/images/backdroptext.png"
+        src={config.style.theme === 'dark' ? "/images/backdroptext.png" : "/images/backdrop-text-dark.png"}
         alt="OverlayText"
         className={styles.overlayText}
       />
@@ -191,9 +194,10 @@ export function LandingPage({ range, locale }: ProjectsProps) {
         </Flex>
       </Button>
     </Flex>
+    
     </>
   );
 }
 
 
-//just making a chage for git issue
+//just making a chage for git issuem 

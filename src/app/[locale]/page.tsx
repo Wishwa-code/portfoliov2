@@ -86,64 +86,33 @@ export default function Home(
 				
 
 			<Flex
-				style = {{paddingTop: '130vh'}}
+				style = {{paddingTop: '117vh'}}
 				fillWidth
 				direction="column"
 				paddingY="l" gap="m">
 					<Flex
 						direction="column"
 						fillWidth maxWidth="s" gap="m">
-						<RevealFx translateY="4">
-							<Heading
-								paddingBottom="4"
-								className="responsive-heading"
-								wrap="balance"
-								variant="display-strong-l">
-								{home.headline}
-							</Heading>
-						</RevealFx>
-						<RevealFx translateY="8" delay={0.2}>
-							<Text
-								wrap="balance"
-								onBackground="neutral-weak"
-								variant="body-default-l">
-								{home.subline}
-							</Text>
-						</RevealFx>
-						<RevealFx translateY="12" delay={0.4}>
-							<Button
-								data-border="rounded"
-								href={`/${locale}/about`}
-								variant="tertiary"
-								suffixIcon="chevronRight"
-								size="m">
-								<Flex
-									gap="8"
-									alignItems="center">
-									{about.avatar.display && (
-										<Avatar
-											style={{marginLeft: '-0.75rem', marginRight: '0.25rem'}}
-											src={person.avatar}
-											size="m"/>
-										)}
-										{t("about.title")}
-								</Flex>
-							</Button>
-						</RevealFx>
 					</Flex>
 				
 			</Flex>
-			<RevealFx translateY="16" delay={0.6}>
+			<RevealFx translateY="16" >
 				<Projects range={[1,1]} locale={locale}/>
 			</RevealFx>
 			{routes['/blog'] && (
-				<Flex fillWidth gap="24" mobileDirection="column">
+				<Flex 
+				alignItems='center'
+				marginTop='48'
+				justifyContent='center'
+				background="surface"
+				radius="l-4"
+				fillWidth gap="24" mobileDirection="column">
 					<Flex flex={1} paddingLeft="80">
 						<Heading as="h2" variant="display-strong-xs" wrap="balance">
 						Latest from the blog
 						</Heading>
 					</Flex>
-					<Flex flex={3} paddingLeft="80">
+					<Flex alignItems='center' flex={3} paddingLeft="80" paddingTop='20'>
 						<Posts range={[1,1]} columns="1" locale={locale}/>
 					</Flex>
 				</Flex>

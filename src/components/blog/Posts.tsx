@@ -31,7 +31,7 @@ export function Posts({
             { displayedBlogs.length > 0 && (
                 <Grid
                     columns={`repeat(${columns}, 1fr)`} mobileColumns="1col"
-                    fillWidth marginBottom="40" gap="m" paddingX="l">
+                    fillWidth marginBottom="20" gap="m" paddingX="l">
                     {displayedBlogs.map((post) => (
                         <SmartLink
                             style={{
