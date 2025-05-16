@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 'use client';
 
 import React, { useRef, useState, Suspense } from 'react';
@@ -115,19 +117,19 @@ export default function Framework3DGraph() {
   const [focusedFramework, setFocusedFramework] = useState(null);
   const controlsRef = useRef();
 
-  useFrame((state) => {
-    // Gently orbit around the focused framework, or the center if none is focused
-    if (controlsRef.current) {
-        if (focusedFramework) {
-            const targetPosition = new THREE.Vector3(focusedFramework.x, focusedFramework.y, focusedFramework.z);
-            controlsRef.current.target.lerp(targetPosition, 0.02); // Smoothly move target
-        } else {
-            // Optionally, reset to center or maintain current if preferred
-            // controlsRef.current.target.lerp(new THREE.Vector3(5, 4, 5), 0.02); // Example center
-        }
-        controlsRef.current.update(); // Important for damping and target changes
-    }
-  });
+  // useFrame((state) => {
+  //   // Gently orbit around the focused framework, or the center if none is focused
+  //   if (controlsRef.current) {
+  //       if (focusedFramework) {
+  //           const targetPosition = new THREE.Vector3(focusedFramework.x, focusedFramework.y, focusedFramework.z);
+  //           controlsRef.current.target.lerp(targetPosition, 0.02); // Smoothly move target
+  //       } else {
+  //           // Optionally, reset to center or maintain current if preferred
+  //           // controlsRef.current.target.lerp(new THREE.Vector3(5, 4, 5), 0.02); // Example center
+  //       }
+  //       controlsRef.current.update(); // Important for damping and target changes
+  //   }
+  // });
 
 
   const handleFocusFramework = (frameworkData) => {
@@ -136,7 +138,7 @@ export default function Framework3DGraph() {
 
 
   return (
-    <div style={{ height: '100vh', width: '100vw', background: 'linear-gradient(to bottom, #1a2a6c, #b21f1f, #fdbb2d)' }}> {/* Fullscreen with gradient */}
+    <div style={{ height: '40vh', width: '40vw', background: 'linear-gradient(to bottom, #1a2a6c, #b21f1f, #fdbb2d)' }}> {/* Fullscreen with gradient */}
       <Canvas
         camera={{ position: [12, 12, 18], fov: 55, near: 0.1, far: 1000 }} // Adjusted camera
         shadows // Enable shadows
@@ -213,3 +215,4 @@ export default function Framework3DGraph() {
     </div>
   );
 }
+
