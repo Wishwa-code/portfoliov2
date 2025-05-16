@@ -5,6 +5,9 @@ import styles from '@/components/about/about.module.scss'
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import  SendEmailButton from '../../../components/about/Handlemail';
+import {RotatingTextBox} from '@/components';
+import ScrollReveal from '@/reactbits/scrollreveal/scrollReveal';
+import ExperienceGraph from '@/reactbits/experienceGraph/experienceGraph';
 // import Link from 'next/link'
 
 export async function generateMetadata(
@@ -81,6 +84,12 @@ export default function About(
         window.location.href = mailto;
     };
 
+    const paragraph = `Creativity is intelligence having fun. 
+    Design is not just what it looks like and feels like. Design is how it works.
+    Creativity is intelligence having fun. Design is not just what it looks like and feels like. 
+    Design is how it works.Creativity is intelligence having fun. `;
+
+
     return (
         <Flex
             fillWidth maxWidth="m"
@@ -156,47 +165,56 @@ export default function About(
                     fillWidth flex={9} maxWidth={40} direction="column">
                     <Flex
                         id={about.intro.title}
-                        fillWidth minHeight="160"
+                        fillWidth 
                         direction="column" justifyContent="center"
-                        marginBottom="32">
+                        marginBottom="16">
                         {about.calendar.display && (
                             <Flex
-                                className={styles.blockAlign}
+                                marginBottom="l"
+
+                                >
+                            <Button
+                                data-border="rounded"
+                                href={about.calendar.link}
+                                variant="tertiary"
+                                suffixIcon="chevronRight"
                                 style={{
                                     backdropFilter: 'blur(var(--static-space-1))',
                                     border: '1px solid var(--brand-alpha-medium)',
                                     width: 'fit-content'
                                 }}
-                                alpha="brand-weak" radius="full"
-                                fillWidth padding="4" gap="8" marginBottom="m"
-                                alignItems="center">
-                                <Flex paddingLeft="12">
-                                    <Icon
-                                        name="calendar"
-                                        onBackground="brand-weak"/>
-                                </Flex>
-                                <Flex
-                                    paddingX="8">
-                                    Schedule a call
-                                </Flex>
-                                <IconButton
-                                    href={about.calendar.link}
-                                    data-border="rounded"
-                                    variant="tertiary"
-                                    icon="chevronRight"/>
+                                size="m">
+                                <Flex 
+                                direction="row"
+                                alignItems='center'>
+                                    <Flex paddingLeft="12">
+                                        <Icon
+                                            name="calendar"
+                                            onBackground="brand-weak"/>
+                                    </Flex>
+                                    <Flex
+                                        paddingX="8">
+                                        Schedule a call
+                                    </Flex>
+                                        </Flex>
+                                
+                            </Button>
                             </Flex>
                         )}
                         <Heading
                             className={styles.textAlign}
-                            variant="display-strong-xl">
+                            variant="display-strong-xl"
+                            marginBottom="24">
                             {person.name}
                         </Heading>
-                        <Text
+                        {/* <Text
                             className={styles.textAlign}
                             variant="display-default-xs"
-                            onBackground="neutral-weak">
+                            onBackground="neutral-weak"
+                            marginBottom="24">
                             {person.role}
-                        </Text>
+                        </Text> */}
+                        <RotatingTextBox locale={locale}/>
                         
                         {social.length > 0 && (
                             <Flex
@@ -218,18 +236,27 @@ export default function About(
                             </Flex>
                         )}
                     </Flex>
-
-                    { about.intro.display && (
-                        <Flex
+                    {/* <Flex
                             direction="column"
                             textVariant="body-default-l"
                             fillWidth gap="m" marginBottom="40">
                             {about.intro.description}
-                        </Flex>
+                        </Flex> */}
+
+                    { about.intro.display && (
+                    
+                        <ScrollReveal>
+                        {about.intro.description.props.children}
+                        </ScrollReveal>
                     )}
+
+                    <ExperienceGraph/>
+                    
+
                     { about.technical.display && (
                         <>
                             <Heading
+                                paddingTop='80'
                                 as="h2"
                                 id={about.technical.title}
                                 variant="display-strong-s" marginBottom="40">
@@ -241,7 +268,7 @@ export default function About(
                                 {about.technical.skills.map((skill, index) => (
                                     <Flex
                                         key={`${skill}-${index}`}
-                                        fillWidth gap="4"
+                                        fillWidth gap="2"
                                         direction="column">
                                         <Text
                                             variant="heading-strong-l">
