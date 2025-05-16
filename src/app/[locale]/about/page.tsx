@@ -250,7 +250,7 @@ export default function About(
                         </ScrollReveal>
                     )}
 
-                    <ExperienceGraph/>
+                    
                     
 
                     { about.technical.display && (
@@ -259,12 +259,13 @@ export default function About(
                                 paddingTop='80'
                                 as="h2"
                                 id={about.technical.title}
-                                variant="display-strong-s" marginBottom="40">
+                                variant="display-strong-s" marginBottom="4">
                                 {about.technical.title}
                             </Heading>
+                            <ExperienceGraph/>
                             <Flex
                                 direction="column"
-                                fillWidth gap="l" marginBottom="40">
+                                fillWidth gap="l" marginTop="8" marginBottom="40">
                                 {about.technical.skills.map((skill, index) => (
                                     <Flex
                                         key={`${skill}-${index}`}

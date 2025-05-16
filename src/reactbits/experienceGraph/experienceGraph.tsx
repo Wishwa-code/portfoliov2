@@ -2,7 +2,7 @@
 
 'use client';
 
-import React, { useRef, useState, Suspense } from 'react';
+import React, { useRef, useState, Suspense , useEffect} from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import {
   OrbitControls,
@@ -117,20 +117,6 @@ export default function Framework3DGraph() {
   const [focusedFramework, setFocusedFramework] = useState(null);
   const controlsRef = useRef();
 
-  // useFrame((state) => {
-  //   // Gently orbit around the focused framework, or the center if none is focused
-  //   if (controlsRef.current) {
-  //       if (focusedFramework) {
-  //           const targetPosition = new THREE.Vector3(focusedFramework.x, focusedFramework.y, focusedFramework.z);
-  //           controlsRef.current.target.lerp(targetPosition, 0.02); // Smoothly move target
-  //       } else {
-  //           // Optionally, reset to center or maintain current if preferred
-  //           // controlsRef.current.target.lerp(new THREE.Vector3(5, 4, 5), 0.02); // Example center
-  //       }
-  //       controlsRef.current.update(); // Important for damping and target changes
-  //   }
-  // });
-
 
   const handleFocusFramework = (frameworkData) => {
     setFocusedFramework(frameworkData);
@@ -138,10 +124,11 @@ export default function Framework3DGraph() {
 
 
   return (
-    <div style={{ height: '40vh', width: '40vw', background: 'linear-gradient(to bottom, #1a2a6c, #b21f1f, #fdbb2d)' }}> {/* Fullscreen with gradient */}
+    <div style={{ height: '50vh', width: '40vw', background:  'rgba(26, 42, 108, 0)' }}> {/* Fullscreen with gradient */}
       <Canvas
-        camera={{ position: [12, 12, 18], fov: 55, near: 0.1, far: 1000 }} // Adjusted camera
-        shadows // Enable shadows
+        // **3. ADJUST CAMERA POSITION AND FOV** for the new chart scale
+        camera={{ position: [0, 1, 12], fov: 50, near: 0.1, far: 1000 }}
+        shadows
       >
         <Suspense fallback={null}> {/* Suspense for async components like Environment */}
           {/* Enhanced Lighting */}
@@ -159,16 +146,8 @@ export default function Framework3DGraph() {
             shadow-camera-bottom={-10}
           />
           <pointLight position={[-10, -5, -10]} intensity={0.8} color="#ffccaa" />
-          <Environment preset="sunset" blur={0.5} /> {/* Realistic environment lighting and reflections */}
-          {/* <Sky sunPosition={[100, 20, 100]} /> */} {/* Optional: dynamic sky */}
 
-          <Sparkles // Add some subtle visual flair
-            count={100}
-            scale={8}
-            size={6}
-            speed={0.3}
-            color="#fff5b0"
-          />
+          <AxesAndLabels length={5} /> {/* Add the axes and labels */}
 
           <OrbitControls
             ref={controlsRef}
@@ -192,10 +171,10 @@ export default function Framework3DGraph() {
           ))}
 
           {/* Ground Plane (optional for better shadow reception) */}
-          <mesh rotation={[-Math.PI / 2, 0, 0]} position={[5, -1, 5]} receiveShadow>
+          {/* <mesh rotation={[-Math.PI / 2, 0, 0]} position={[5, -1, 5]} receiveShadow>
             <planeGeometry args={[30, 30]} />
             <meshStandardMaterial color="#333" roughness={0.8} metalness={0.2} />
-          </mesh>
+          </mesh> */}
 
           {/* Axes Helper (still useful for development/orientation) */}
           {/* <axesHelper args={[10]} /> */}
@@ -216,3 +195,82 @@ export default function Framework3DGraph() {
   );
 }
 
+function AxesAndLabels({ length = 5, experienceAxisLength = 5 }) { // length for X/Y, experienceAxisLength for Z
+    const [backendPriorityColor, setBackendPriorityColor] = useState('white'); // Default color
+
+    const lineMaterial = new THREE.LineBasicMaterial({ color: backendPriorityColor, linewidth: 2 });
+
+  // X and Y Axes (same as before)
+  const xAxisPoints = [new THREE.Vector3(-length, 0, 0), new THREE.Vector3(length, 0, 0)];
+  const yAxisPoints = [new THREE.Vector3(0, -length, 0), new THREE.Vector3(0, length, 0)];
+  const xAxisGeometry = new THREE.BufferGeometry().setFromPoints(xAxisPoints);
+  const yAxisGeometry = new THREE.BufferGeometry().setFromPoints(yAxisPoints);
+
+  // Z Axis (Positive part only, for experience)
+  const zAxisPoints = [new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, experienceAxisLength)];
+  const zAxisGeometry = new THREE.BufferGeometry().setFromPoints(zAxisPoints);
+
+  const labelOffset = 0.8;
+  const horizontalLabelOffset = 1.5;
+  const experienceLabelOffset = 0.8; // Offset for Z-axis label
+  const fontSize = 0.4;
+
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') { // Ensure this runs only in the browser
+      // Get the computed style of the root element (or any relevant element where the var is defined)
+      const computedStyle = getComputedStyle(document.documentElement);
+      const colorValue = computedStyle.getPropertyValue('--neutral-on-background-strong').trim();
+
+      if (colorValue) {
+        setBackendPriorityColor(colorValue);
+      }
+    }
+  }, []); 
+
+  return (
+    <>
+      {/* Axis Lines */}
+      <line geometry={xAxisGeometry} material={lineMaterial} color={backendPriorityColor}/>
+      <line geometry={yAxisGeometry} material={lineMaterial} />
+      <line geometry={zAxisGeometry} material={lineMaterial} /> {/* Add Z-axis line */}
+
+      {/* X and Y Axis Labels (same as before) */}
+      <Billboard position={[0, length + labelOffset, 0]}>
+        <Text fontSize={fontSize} color={backendPriorityColor} anchorX="center" anchorY="middle">
+          Frontend Priority
+        </Text>
+      </Billboard>
+      <Billboard position={[0, -(length + labelOffset), 0]}>
+        <Text fontSize={fontSize} color={backendPriorityColor} anchorX="center" anchorY="middle">
+          Backend Priority
+        </Text>
+      </Billboard>
+      <Billboard position={[-(length + horizontalLabelOffset), 0, 0]}>
+        <Text fontSize={fontSize} color={backendPriorityColor} anchorX="center" anchorY="middle" textAlign="center">
+          Minimal{'\n'}Primitives
+        </Text>
+      </Billboard>
+      <Billboard position={[length + horizontalLabelOffset, 0, 0]}>
+        <Text fontSize={fontSize} color={backendPriorityColor} anchorX="center" anchorY="middle" textAlign="center">
+          Batteries{'\n'}Included
+        </Text>
+      </Billboard>
+
+      {/* Z Axis Labels (Experience) */}
+      {/* "No Experience" at Origin (0,0,0) */}
+      <Billboard position={[0.3, 0.3, -0.3]} > {/* Slightly offset from origin for visibility */}
+        <Text fontSize={fontSize * 0.8} color={backendPriorityColor} anchorX="left" anchorY="middle">
+          No Exp.
+        </Text>
+      </Billboard>
+
+      {/* "Max Experience" at the end of the positive Z-axis */}
+      <Billboard position={[0, 0, experienceAxisLength + experienceLabelOffset]}>
+        <Text fontSize={fontSize} color={backendPriorityColor} anchorX="center" anchorY="middle">
+          Max Experience
+        </Text>
+      </Billboard>
+    </>
+  );
+}
