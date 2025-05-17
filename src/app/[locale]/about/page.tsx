@@ -1,4 +1,4 @@
-import { Avatar, Button, Flex, Heading, Icon, IconButton, SmartImage, Tag, Text, SmartLink, DialogBox} from '@/once-ui/components';
+import { Avatar, Button, Flex, Heading, Icon, IconButton, SmartImage, Tag, Text, SmartLink, DialogBox, Tooltip} from '@/once-ui/components';
 import { baseURL, renderContent } from '@/app/resources';
 import TableOfContents from '@/components/about/TableOfContents';
 import styles from '@/components/about/about.module.scss'
@@ -8,6 +8,7 @@ import  SendEmailButton from '../../../components/about/Handlemail';
 import {RotatingTextBox} from '@/components';
 import ScrollReveal from '@/reactbits/scrollreveal/scrollReveal';
 import ExperienceGraph from '@/reactbits/experienceGraph/experienceGraph';
+import { TechnicalTitle } from '@/components/about/technicalSkillsTitle';
 // import Link from 'next/link'
 
 export async function generateMetadata(
@@ -255,13 +256,7 @@ export default function About(
 
                     { about.technical.display && (
                         <>
-                            <Heading
-                                paddingTop='80'
-                                as="h2"
-                                id={about.technical.title}
-                                variant="display-strong-s" marginBottom="4">
-                                {about.technical.title}
-                            </Heading>
+                            <TechnicalTitle locale={locale} />
                             <ExperienceGraph/>
                             <Flex
                                 direction="column"

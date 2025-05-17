@@ -1,5 +1,5 @@
 // @ts-nocheck
-
+//! GET COLOR FROM CONFIG PROVIDEER AND APPLY TO MAKE SURE THEME CHANGES ARE APPLIED
 'use client';
 
 import React, { useRef, useState, Suspense , useEffect} from 'react';
@@ -15,15 +15,18 @@ import {
 } from '@react-three/drei';
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import * as THREE from 'three'; // Import THREE for Vector3 and Color
+import { useConfig } from '@/app/contexts/ConfigContext';
 
 // Enhanced frameworks data with unique IDs and thematic colors
 const frameworks = [
-  { id: 'nextjs', name: 'Next.js', x: 1, y: 8, z: 6, color: '#0070f3', description: 'The React Framework for Production.' },
-  { id: 'flask', name: 'Flask', x: 1, y: 1, z: 7, color: '#3775A8', description: 'A micro web framework written in Python.' }, // Updated color for better visibility
-  { id: 'laravel', name: 'Laravel', x: 9, y: 6, z: 4, color: '#ff2d20', description: 'A PHP web framework with expressive, elegant syntax.' },
-  { id: 'rails', name: 'Rails', x: 9, y: 3, z: 6, color: '#CC0000', description: 'A web-application framework written in Ruby.' },
-  { id: 'django', name: 'Django', x: 9, y: 2, z: 8, color: '#092e20', description: 'A high-level Python Web framework.' },
-  { id: 'phoenix', name: 'Phoenix', x: 7, y: 4, z: 5, color: '#FD4F00', description: 'A productive web framework that does not compromise speed and maintainability.' },
+  { id: 'nextjs', name: 'Next.js', x: -3, y: 3, z: 0, color: '#000000', description: 'E-commerce(prod), Portfolio' },
+  { id: 'flask', name: 'Flask', x: -4, y: -4, z: 0, color: '#4FB3C5', description: 'Book Reviewing web platform, Slack Clone.' }, // Updated color for better visibility
+  { id: 'laravel', name: 'Laravel', x: 5, y: 1, z: 0, color: '#F53003', description: 'Hotel Management Application(prod)' },
+  { id: 'django', name: 'Django', x: 4.4, y: -4, z: 0, color: '#0C4B33', description: 'E-commerce backend(prod), Online Classroom backend' },
+  { id: 'react', name: 'React.js', x: -5, y: 6, z: 0, color: '#58C4DC', description: 'AI research assistant frontend, Online Classroom frontend, Table reservation platform(prod)' },
+  { id: 'flutter', name: 'Flutter', x: 4, y: 4, z: 0, color: '#7E41F2', description: 'Travel iternary planning mobile app(prod), Cargo Management Dekstop App(prod), POS-desktop app(prod), Medical Appoinment Management mobile app' },
+  { id: 'gin', name: 'Gin', x: -2, y: -4, z: 1, color: '#F4D91E', description: 'E-commerce backend(prod)' },
+  { id: 'reactNative', name: 'ReactNative', x: -5, y: 5, z:0, color: '#58C4DC', description: 'Handcrafts marketplace app' },
 ];
 
 // A more sophisticated Dot component
@@ -116,6 +119,7 @@ function Dot({ id, name, x, y, z, color, description, onFocus }) {
 export default function Framework3DGraph() {
   const [focusedFramework, setFocusedFramework] = useState(null);
   const controlsRef = useRef();
+  const { config, setConfig } = useConfig();
 
 
   const handleFocusFramework = (frameworkData) => {
@@ -127,7 +131,7 @@ export default function Framework3DGraph() {
     <div style={{ height: '50vh', width: '40vw', background:  'rgba(26, 42, 108, 0)' }}> {/* Fullscreen with gradient */}
       <Canvas
         // **3. ADJUST CAMERA POSITION AND FOV** for the new chart scale
-        camera={{ position: [0, 1, 12], fov: 50, near: 0.1, far: 1000 }}
+        camera={{ position: [8, 6, 10], fov: 50, near: 0.01, far: 10000 }}
         shadows
       >
         <Suspense fallback={null}> {/* Suspense for async components like Environment */}
@@ -197,8 +201,10 @@ export default function Framework3DGraph() {
 
 function AxesAndLabels({ length = 5, experienceAxisLength = 5 }) { // length for X/Y, experienceAxisLength for Z
     const [backendPriorityColor, setBackendPriorityColor] = useState('white'); // Default color
+      const { config, setConfig } = useConfig();
 
-    const lineMaterial = new THREE.LineBasicMaterial({ color: backendPriorityColor, linewidth: 2 });
+
+    const lineMaterial = new THREE.LineBasicMaterial({ color: config.style.theme === 'dark' ? "#ffffff" : "#000000", linewidth: 2 });
 
   // X and Y Axes (same as before)
   const xAxisPoints = [new THREE.Vector3(-length, 0, 0), new THREE.Vector3(length, 0, 0)];
@@ -231,28 +237,28 @@ function AxesAndLabels({ length = 5, experienceAxisLength = 5 }) { // length for
   return (
     <>
       {/* Axis Lines */}
-      <line geometry={xAxisGeometry} material={lineMaterial} color={backendPriorityColor}/>
+      <line geometry={xAxisGeometry} material={lineMaterial} />
       <line geometry={yAxisGeometry} material={lineMaterial} />
       <line geometry={zAxisGeometry} material={lineMaterial} /> {/* Add Z-axis line */}
 
       {/* X and Y Axis Labels (same as before) */}
       <Billboard position={[0, length + labelOffset, 0]}>
-        <Text fontSize={fontSize} color={backendPriorityColor} anchorX="center" anchorY="middle">
+        <Text fontSize={fontSize} color={config.style.theme === 'dark' ? "#ffffff" : "#000000"} anchorX="center" anchorY="middle">
           Frontend Priority
         </Text>
       </Billboard>
       <Billboard position={[0, -(length + labelOffset), 0]}>
-        <Text fontSize={fontSize} color={backendPriorityColor} anchorX="center" anchorY="middle">
+        <Text fontSize={fontSize} color={config.style.theme === 'dark' ? "#ffffff" : "#000000"} anchorX="center" anchorY="middle">
           Backend Priority
         </Text>
       </Billboard>
       <Billboard position={[-(length + horizontalLabelOffset), 0, 0]}>
-        <Text fontSize={fontSize} color={backendPriorityColor} anchorX="center" anchorY="middle" textAlign="center">
+        <Text fontSize={fontSize} color={config.style.theme === 'dark' ? "#ffffff" : "#000000"} anchorX="center" anchorY="middle" textAlign="center">
           Minimal{'\n'}Primitives
         </Text>
       </Billboard>
       <Billboard position={[length + horizontalLabelOffset, 0, 0]}>
-        <Text fontSize={fontSize} color={backendPriorityColor} anchorX="center" anchorY="middle" textAlign="center">
+        <Text fontSize={fontSize} color={config.style.theme === 'dark' ? "#ffffff" : "#000000"} anchorX="center" anchorY="middle" textAlign="center">
           Batteries{'\n'}Included
         </Text>
       </Billboard>
@@ -260,14 +266,14 @@ function AxesAndLabels({ length = 5, experienceAxisLength = 5 }) { // length for
       {/* Z Axis Labels (Experience) */}
       {/* "No Experience" at Origin (0,0,0) */}
       <Billboard position={[0.3, 0.3, -0.3]} > {/* Slightly offset from origin for visibility */}
-        <Text fontSize={fontSize * 0.8} color={backendPriorityColor} anchorX="left" anchorY="middle">
+        <Text fontSize={fontSize * 0.8} color={config.style.theme === 'dark' ? "#ffffff" : "#000000"} anchorX="left" anchorY="middle">
           No Exp.
         </Text>
       </Billboard>
 
       {/* "Max Experience" at the end of the positive Z-axis */}
       <Billboard position={[0, 0, experienceAxisLength + experienceLabelOffset]}>
-        <Text fontSize={fontSize} color={backendPriorityColor} anchorX="center" anchorY="middle">
+        <Text fontSize={fontSize} color={config.style.theme === 'dark' ? "#ffffff" : "#000000"} anchorX="center" anchorY="middle">
           Max Experience
         </Text>
       </Billboard>

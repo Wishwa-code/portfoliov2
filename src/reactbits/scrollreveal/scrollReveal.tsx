@@ -3,6 +3,7 @@
 'use client';
 
 import React, { useEffect, useState, useRef, ReactNode } from 'react';
+import { useConfig } from '@/app/contexts/ConfigContext';
 
 type Props = {
   children: string;
@@ -12,6 +13,8 @@ export default function ScrollReveal({ children }: Props) {
   const words = children.split(/(\s+|\.)/g);
   const [revealedCount, setRevealedCount] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+    const { config, setConfig } = useConfig();
+  
 
   const WORDS_PER_SCROLL = 4;
 
@@ -49,6 +52,8 @@ export default function ScrollReveal({ children }: Props) {
     };
   }, [revealedCount, words.length]);
 
+   
+
   return (
     <div
       ref={containerRef}
@@ -74,7 +79,12 @@ export default function ScrollReveal({ children }: Props) {
           <span
             key={i}
             style={{
-              color: i < revealedCount ? '#000000' : 'var(--neutral-on-background-weak)',
+              color: i < revealedCount ? 
+                   config.style.theme === 'dark' ? 
+                      '#ffffff' : '#000000' 
+                  : config.style.theme === 'dark' ? 
+                      'var(--neutral-solid-weak)': 'var(--neutral-on-background-weak)',
+                      
               transition: 'color 0.3s ease',
               marginRight: '0.01rem',
             }}
@@ -86,3 +96,4 @@ export default function ScrollReveal({ children }: Props) {
     </div>
   );
 }
+              // color: i < revealedCount ? '#000000' : 'var(--neutral-on-background-weak)',

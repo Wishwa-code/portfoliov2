@@ -10,6 +10,7 @@ type TooltipProps = {
     prefixIcon?: string;
     suffixIcon?: string;
     className?: string;
+      onClick?: () => void;
 };
 
 const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(({
@@ -17,18 +18,26 @@ const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(({
     prefixIcon,
     suffixIcon,
     className,
+    onClick,
 }, ref) => {
     return (
         <Flex
             ref={ref}
+            onClick={onClick}
             style={{ whiteSpace: 'nowrap', userSelect: 'none' }}
             gap="4"
             zIndex={1}
-            background="surface"
-            paddingY="4"
-            paddingX="8"
+            // background="surface"
+            // paddingY="4"
+            // paddingX="8"
             radius="s"
-            border="neutral-medium"
+            // border="neutral-medium"
+            background="brand-weak" 
+            border="brand-strong" 
+            height='4'
+            padding="8"
+            marginBottom='12'
+            marginLeft='8'
             borderStyle="solid-1"
             alignItems="center"
             role="tooltip"
