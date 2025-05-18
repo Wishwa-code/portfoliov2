@@ -10,6 +10,8 @@ import ScrollReveal from '@/reactbits/scrollreveal/scrollReveal';
 import ExperienceGraph from '@/reactbits/experienceGraph/experienceGraph';
 import { TechnicalTitle } from '@/components/about/technicalSkillsTitle';
 import { Libraries } from '@/components/about/librariesList';
+import { Languages } from '@/components/about/languagesList';
+
 
 // import Link from 'next/link'
 
@@ -87,10 +89,6 @@ export default function About(
         window.location.href = mailto;
     };
 
-    const paragraph = `Creativity is intelligence having fun. 
-    Design is not just what it looks like and feels like. Design is how it works.
-    Creativity is intelligence having fun. Design is not just what it looks like and feels like. 
-    Design is how it works.Creativity is intelligence having fun. `;
 
 
     return (
@@ -274,7 +272,8 @@ export default function About(
                             <TechnicalTitle locale={locale} />
                             <ExperienceGraph/>
                             <Libraries locale={locale}/>
-                            <Flex
+                            <Languages locale={locale}/>
+                            {/* <Flex
                                 direction="column"
                                 fillWidth gap="l" marginTop="32" marginBottom="40">
                                 {about.technical.skills.map((skill, index) => (
@@ -314,22 +313,26 @@ export default function About(
                                         )}
                                     </Flex>
                                 ))}
-                            </Flex>
+                            </Flex> */}
                         </>
                     )}
-
-{ about.studies.display && (
+                    <Flex direction='column' alignItems='center' >
+                    { about.studies.display && (
                         <>
                             <Heading
+                                paddingTop='80'
                                 as="h2"
                                 id={about.studies.title}
                                 variant="display-strong-s"
+                                style={{width: '33.5vw'}}
                                 marginBottom="m">
                                 {about.studies.title}
                             </Heading>
                             <Flex
                                 direction="column"
-                                fillWidth gap="l" marginBottom="40">
+                                fillWidth gap="l" marginBottom="40" 
+                                style={{marginLeft: '20vw'}}
+                                >
                                 {about.studies.institutions.map((institution, index) => (
                                     <Flex
                                         key={`${institution.name}-${index}`}
@@ -374,8 +377,11 @@ export default function About(
                         <>
                             <Heading
                                 as="h2"
+                                                                paddingTop='80'
+
                                 id={about.work.title}
                                 variant="display-strong-s"
+                                style={{width: '33.5vw'}}
                                 marginBottom="m">
                                 {about.work.title}
                             </Heading>
@@ -447,7 +453,7 @@ export default function About(
                             </Flex>
                         </>
                     )}
-
+                </Flex>
                   
 
                     

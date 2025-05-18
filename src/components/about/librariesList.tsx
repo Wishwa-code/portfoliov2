@@ -22,7 +22,6 @@ const frameworks: FrameworkItem[] = [
   { name: 'Rive', icon: '/logos/rive.svg', tooWhite: true },
   { name: 'Motion', icon: '/logos/framermotion.png', tooWhite: true },
   { name: 'Tailwind', icon: '/logos/Tailwind.svg' },
-  { name: 'Sass', icon: '/logos/sass-original.svg' },
 
   { name: 'Once UI', icon: '/logos/onceui.png', tooWhite: true },
 
@@ -80,7 +79,7 @@ export function Libraries({ locale }: CardsProps) {
 
   return (
     <>
-      <Flex direction="row" alignItems="center" justifyContent="start" marginBottom="4">
+      <Flex direction="row" alignItems="center" justifyContent="start" marginBottom="4" paddingTop='12'>
         <Text variant="heading-strong-l">Libraries</Text>
         <Tooltip onClick={() => setIsOpen(true)}  prefixIcon="info" label="𝒊"  />
         <Dialog

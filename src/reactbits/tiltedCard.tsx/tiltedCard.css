@@ -40,7 +40,7 @@
   left: 0;
   object-fit:contain;
   padding:2px;
-  border-radius: 15px;
+  /* border-radius: 15px; */
   will-change: transform;
   transform: translateZ(0);
 }
