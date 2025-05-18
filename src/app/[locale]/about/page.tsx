@@ -9,6 +9,8 @@ import {RotatingTextBox} from '@/components';
 import ScrollReveal from '@/reactbits/scrollreveal/scrollReveal';
 import ExperienceGraph from '@/reactbits/experienceGraph/experienceGraph';
 import { TechnicalTitle } from '@/components/about/technicalSkillsTitle';
+import { Libraries } from '@/components/about/librariesList';
+
 // import Link from 'next/link'
 
 export async function generateMetadata(
@@ -130,112 +132,125 @@ export default function About(
             )} */}
             <Flex
                 fillWidth
-                mobileDirection="column" justifyContent="center">
-                { about.avatar.display && (
-                    <Flex
-                        minWidth="160" paddingX="l" paddingBottom="xl" gap="m"
-                        flex={3} direction="column" alignItems="center">
-                        <Avatar
-                            src={person.avatar}
-                            size="xl"/>
-                        <Flex
-                            gap="8"
-                            alignItems="center">
-                            <Icon
-                                onBackground="accent-weak"
-                                name="globe"/>
-                            {person.location}
-                        </Flex>
-                        { person.languages.length > 0 && (
-                            <Flex
-                                wrap
-                                gap="8">
-                                {person.languages.map((language, index) => (
-                                    <Tag
-                                        key={index}
-                                        size="l">
-                                        {language}
-                                    </Tag>
-                                ))}
-                            </Flex>
-                        )}
-                    </Flex>
-                )}
+                mobileDirection="column" justifyContent="start">
+                
                 <Flex
                     className={styles.blockAlign}
-                    fillWidth flex={9} maxWidth={40} direction="column">
+                    fillWidth flex={9}  direction="column">
                     <Flex
-                        id={about.intro.title}
-                        fillWidth 
-                        direction="column" justifyContent="center"
-                        marginBottom="16">
-                        {about.calendar.display && (
+                       direction="row"
+                       justifyContent='center'>
+                        { about.avatar.display && (
+                        <Flex
+                            minWidth="160" paddingX="l" paddingBottom="xl" gap="m"
+                            flex={3} direction="column" alignItems="center">
+                            <Avatar
+                                src={person.avatar}
+                                size="xl"/>
                             <Flex
-                                marginBottom="l"
+                                gap="8"
+                                alignItems="center">
+                                <Icon
+                                    onBackground="accent-weak"
+                                    name="globe"/>
+                                {person.location}
+                            </Flex>
+                            { person.languages.length > 0 && (
+                                <Flex
+                                    wrap
+                                    gap="8">
+                                    {person.languages.map((language, index) => (
+                                        <Tag
+                                            key={index}
+                                            size="l">
+                                            {language}
+                                        </Tag>
+                                    ))}
+                                </Flex>
+                            )}
+                        </Flex>
+                        )}
+                    
+                        <Flex
+                            id={about.intro.title}
+                             flex={6} 
+                            direction="column" justifyContent="center"
+                            marginBottom="16">
+                            {about.calendar.display && (
+                                <Flex
+                                    marginBottom="l"
 
-                                >
-                            <Button
-                                data-border="rounded"
-                                href={about.calendar.link}
-                                variant="tertiary"
-                                suffixIcon="chevronRight"
-                                style={{
-                                    backdropFilter: 'blur(var(--static-space-1))',
-                                    border: '1px solid var(--brand-alpha-medium)',
-                                    width: 'fit-content'
-                                }}
-                                size="m">
-                                <Flex 
-                                direction="row"
-                                alignItems='center'>
-                                    <Flex paddingLeft="12">
-                                        <Icon
-                                            name="calendar"
-                                            onBackground="brand-weak"/>
-                                    </Flex>
-                                    <Flex
-                                        paddingX="8">
-                                        Schedule a call
-                                    </Flex>
+                                    >
+                                <Button
+                                    data-border="rounded"
+                                    href={about.calendar.link}
+                                    variant="tertiary"
+                                    suffixIcon="chevronRight"
+                                    style={{
+                                        backdropFilter: 'blur(var(--static-space-1))',
+                                        border: '1px solid var(--brand-alpha-medium)',
+                                        width: 'fit-content'
+                                    }}
+                                    size="m">
+                                    <Flex 
+                                    direction="row"
+                                    alignItems='center'>
+                                        <Flex paddingLeft="12">
+                                            <Icon
+                                                name="calendar"
+                                                onBackground="brand-weak"/>
                                         </Flex>
-                                
-                            </Button>
-                            </Flex>
-                        )}
-                        <Heading
-                            className={styles.textAlign}
-                            variant="display-strong-xl"
-                            marginBottom="24">
-                            {person.name}
-                        </Heading>
-                        {/* <Text
-                            className={styles.textAlign}
-                            variant="display-default-xs"
-                            onBackground="neutral-weak"
-                            marginBottom="24">
-                            {person.role}
-                        </Text> */}
-                        <RotatingTextBox locale={locale}/>
-                        
-                        {social.length > 0 && (
-                            <Flex
-                                paddingTop="20" paddingBottom="8" gap="8" wrap>
-                                {social.map((item) => (
-                                    item.link && (
-                                        <Button
-                                            key={item.name}
-                                            href={item.link}
-                                            prefixIcon={item.icon}
-                                            label={item.name}
-                                            size="s"
-                                            variant="tertiary"/>
-                                    )
-                                ))}                           
-                                 <DialogBox title="Hello there 🫰">
-                                    Content goes here
-                                </DialogBox>
-                            </Flex>
-                        )}
+                                        <Flex
+                                            paddingX="8">
+                                            Schedule a call
+                                        </Flex>
+                                            </Flex>
+                                    
+                                </Button>
+                                </Flex>
+                            )}
+                            <Heading
+                                className={styles.textAlign}
+                                variant="display-strong-xl"
+                                marginBottom="24">
+                                {person.name}
+                            </Heading>
+                            {/* <Text
+                                className={styles.textAlign}
+                                variant="display-default-xs"
+                                onBackground="neutral-weak"
+                                marginBottom="24">
+                                {person.role}
+                            </Text> */}
+                            <RotatingTextBox locale={locale}/>
+                            
+                            {social.length > 0 && (
+                                <Flex
+                                    paddingTop="20" marginBottom="40" gap="8" wrap>
+                                    {social.map((item) => (
+                                        item.link && (
+                                            <Button
+                                                key={item.name}
+                                                href={item.link}
+                                                prefixIcon={item.icon}
+                                                label={item.name}
+                                                size="s"
+                                                variant="tertiary"/>
+                                        )
+                                    ))}                           
+                                    <DialogBox title="Hello there 🫰">
+                                        Content goes here
+                                    </DialogBox>
+                                </Flex>
+                            )}
+                            { about.intro.display && (
+                    
+                                <ScrollReveal>
+                                {about.intro.description.props.children}
+                                </ScrollReveal>
+                            )}
+
+                        </Flex>
                     </Flex>
                     {/* <Flex
                             direction="column"
@@ -244,23 +259,24 @@ export default function About(
                             {about.intro.description}
                         </Flex> */}
 
-                    { about.intro.display && (
                     
-                        <ScrollReveal>
-                        {about.intro.description.props.children}
-                        </ScrollReveal>
-                    )}
-
                     
                     
 
                     { about.technical.display && (
-                        <>
+                        <>  <Heading
+                                    paddingTop='80'
+                                    as="h2"
+                                    id={about.technical.title}
+                                    variant="display-strong-s" marginBottom="4">
+                                    {about.technical.title}
+                            </Heading>
                             <TechnicalTitle locale={locale} />
                             <ExperienceGraph/>
+                            <Libraries locale={locale}/>
                             <Flex
                                 direction="column"
-                                fillWidth gap="l" marginTop="8" marginBottom="40">
+                                fillWidth gap="l" marginTop="32" marginBottom="40">
                                 {about.technical.skills.map((skill, index) => (
                                     <Flex
                                         key={`${skill}-${index}`}
@@ -365,7 +381,7 @@ export default function About(
                             </Heading>
                             <Flex
                                 direction="column"
-                                fillWidth gap="l" marginBottom="40">
+                                fillWidth maxWidth={40} gap="l" marginBottom="40">
                                 {about.work.experiences.map((experience, index) => (
                                     <Flex
                                         key={`${experience.company}-${experience.role}-${index}`}

@@ -128,10 +128,10 @@ export default function Framework3DGraph() {
 
 
   return (
-    <div style={{ height: '50vh', width: '40vw', background:  'rgba(26, 42, 108, 0)' }}> {/* Fullscreen with gradient */}
+    <div style={{ height: '70vh', width: '100%', background:  'rgba(26, 42, 108, 0)' ,cursor: 'grab'}}> {/* Fullscreen with gradient */}
       <Canvas
         // **3. ADJUST CAMERA POSITION AND FOV** for the new chart scale
-        camera={{ position: [8, 6, 10], fov: 50, near: 0.01, far: 10000 }}
+        camera={{ position: [0, 2, 25], fov: 34, near: 0.001, far: 1000 }}
         shadows
       >
         <Suspense fallback={null}> {/* Suspense for async components like Environment */}
@@ -158,12 +158,15 @@ export default function Framework3DGraph() {
             enableDamping // Smooth camera movement
             dampingFactor={0.05}
             autoRotate={!focusedFramework} // Auto-rotate when no framework is focused
-            autoRotateSpeed={0.3}
+            autoRotateSpeed={0.29}
             maxPolarAngle={Math.PI / 1.6} // Prevent looking too far up or down
             minDistance={5} // Min zoom
             maxDistance={50} // Max zoom
-            target={focusedFramework ? new THREE.Vector3(focusedFramework.x, focusedFramework.y, focusedFramework.z) : new THREE.Vector3(5, 4, 5)} // Initial target centered around data
-          />
+            target={
+                focusedFramework
+                  ? new THREE.Vector3(focusedFramework.x, focusedFramework.y, focusedFramework.z)
+                  : new THREE.Vector3(0, 0.5, 0) // <- Raise the default center of orbit here
+              }          />
 
           {/* Render Dots */}
           {frameworks.map((fw) => (

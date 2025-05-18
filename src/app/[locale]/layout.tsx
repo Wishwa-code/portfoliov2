@@ -109,6 +109,7 @@ export default async function RootLayout({
 				
 				<Flex
 					as="html" lang="en"
+					style={{ scrollBehavior: 'smooth' }}
 					background="page"
 					data-neutral={style.neutral} 
 					data-brand={style.brand}

@@ -126,11 +126,11 @@ const createI18nContent = (t) => {
             display: true, // set to false to hide this section
             title: t("about.technical.title"),
             skills: [
-                {
-                    title: 'Particularly interested in',
-                    description: <>{t("about.technical.skills.Particularly interested in.description")}</>,
-                    images: []
-                },
+                // {
+                //     title: 'Particularly interested in',
+                //     description: <>{t("about.technical.skills.Particularly interested in.description")}</>,
+                //     images: []
+                // },
                 {
                     title: 'Libraries',
                     description: <>{t("about.technical.skills.Libraries.description")}</>,

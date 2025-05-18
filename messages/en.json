@@ -59,11 +59,11 @@
         "technical": {
             "title": "Technical skills",
             "skills": {
-                "Particularly interested in": {
-                    "description": "go, gin, next.Js, kotlin multi platform, general software design, software development process, agile, performance, scalability, multithreading, security, distributed and cloud computing"
-                },
                 "Libraries": {
                     "description": "django, flask, express.Js, spring boot, flutter, gin, prisma, next.js, react, vue, react native, typeScript, selenium, sci-kit learn, open CV, rive, framer, intl.js, three.js, PDF.js,"
+                },
+                "Particularly interested in": {
+                    "description": "go, gin, next.Js, kotlin multi platform, general software design, software development process, agile, performance, scalability, multithreading, security, distributed and cloud computing"
                 },
                 "Computer Languages": {
                     "description": "typeScript(JS), dart, java, python, C/C++/C#, rust, go, PHP, SQL, HTML, CSS, Sass, JSON, YAML, TOML, CSV, R"

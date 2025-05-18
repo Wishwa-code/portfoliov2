@@ -3,7 +3,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useConfig } from '@/app/contexts/ConfigContext';
-import { Heading, Flex, Tooltip, Dialog, Input,  Button} from '@/once-ui/components';
+import { Heading, Flex,Text, Tooltip, Dialog, Input,  Button} from '@/once-ui/components';
 
 import { useTranslations } from 'next-intl';
 import { baseURL, routes, renderContent } from '@/app/resources'; 
@@ -36,13 +36,12 @@ const [isOpen, setIsOpen] = useState(false);
             direction='row'
             justifyContent='start'
             alignItems='end'>
-            <Heading
-            paddingTop='80'
-            as="h2"
-            id={about.technical.title}
-            variant="display-strong-s" marginBottom="4">
-            {about.technical.title}
-            </Heading>
+            <Text 
+                  paddingTop='20'
+                  align='end'
+                  variant="heading-strong-l">
+                  Frameworks
+            </Text>
             <Tooltip onClick={() => setIsOpen(true)}  prefixIcon="info" label="𝒊"  />
                 <Dialog
                 isOpen={isOpen}
