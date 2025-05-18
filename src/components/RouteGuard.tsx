@@ -82,16 +82,26 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
 
     if (loading) {
         return (
-        <Flex fillWidth paddingY="128" justifyContent="center">
-            <Lottie animationData={animationData} loop={true} />
+        <Flex fillWidth style={{height:'100vh'}}   justifyContent="center" alignItems="center">
+            <Flex 
+            style={{width:'40vw'}} 
+            paddingY="128" 
+            justifyContent="center">
+                <Lottie animationData={animationData} loop={true} />
+            </Flex>
         </Flex>
         );
     }
 
     if (!isRouteEnabled) {
         return (
-        <Flex fillWidth paddingY="128" justifyContent="center">
-           <Lottie animationData={animationData} loop={true} />
+        <Flex fillWidth style={{height:'100vh'}}   justifyContent="center" alignItems="center">
+            <Flex 
+            style={{width:'40vw'}} 
+            paddingY="128" 
+            justifyContent="center">
+                <Lottie animationData={animationData} loop={true} />
+            </Flex>
         </Flex>
         );
     }
@@ -124,9 +134,13 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
 
     return <>{children}</>;
     //  return (
-    //     <Flex fillWidth paddingY="128" justifyContent="center">
-    //         <Spinner />
-    //         <Lottie animationData={animationData} loop={true} />
+    //     <Flex fillWidth style={{height:'100vh'}}   justifyContent="center" alignItems="center">
+    //         <Flex 
+    //         style={{width:'40vw'}} 
+    //         paddingY="128" 
+    //         justifyContent="center">
+    //             <Lottie animationData={animationData} loop={true} />
+    //         </Flex>
     //     </Flex>
     //     );
     

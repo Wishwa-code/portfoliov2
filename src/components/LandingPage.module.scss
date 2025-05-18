@@ -21,24 +21,12 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 140vh;
-  z-index: 100;
+  height: 160vh;
+  z-index: 5000;
   overflow:hidden;
 }
 
-// .coverImage {
-//   width: 100%;
-//   height: 100vh;
-//   object-fit: cover;
-//    position: absolute;
-//   top: 50vh;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   transform-origin: center;
-//   transition: transform 0.4s ease-out, opacity 0.4s ease-out;
-//   will-change: transform;
-//   z-index: 900;
-// }
+
 .coverImage2 {
   width: 35%;
   height: 100vh;
@@ -83,10 +71,11 @@
 
 .aboutemebuutton{
   position:absolute;
-  top:68%;
+  top:78%;
   left:29%;
   font-family: var(--font-family-landing);
-  z-index: 2000;
+  z-index: 6000;
+  color: var(--neutral-on-background-medium)
 }
 
 .overlayImage {
@@ -101,7 +90,7 @@
   opacity: 0; // hidden initially
   transition: transform 0.4s ease-out, opacity 0.4s ease-out;
   will-change: transform, opacity;
-  z-index: 1500;
+  z-index: 5000;
 }
 
 .overlayText {
@@ -119,3 +108,16 @@
   z-index: 1600;
 }
 
+// .coverImage {
+//   width: 100%;
+//   height: 100vh;
+//   object-fit: cover;
+//    position: absolute;
+//   top: 50vh;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   transform-origin: center;
+//   transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+//   will-change: transform;
+//   z-index: 900;
+// }

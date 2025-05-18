@@ -17,6 +17,7 @@ interface ProjectsProps {
   range?: [number, number?];
   locale: string;
 }
+
 export function LandingPage({ range, locale }: ProjectsProps) {
 
   // setRequestLocale(locale);
@@ -98,6 +99,13 @@ export function LandingPage({ range, locale }: ProjectsProps) {
 
   if (overlayTextRef.current && overlayRef.current) {
     if (translateY === 0) {
+
+      setTimeout(() => {
+        if (overlayRef.current) {
+          overlayRef.current.style.opacity = '0';
+        }
+      }, 200);
+
       textTimer = setTimeout(() => {
         if (overlayTextRef.current && ladningImageRef.current && overlayRef.current) {
           overlayTextRef.current.style.opacity = '1';
@@ -110,6 +118,19 @@ export function LandingPage({ range, locale }: ProjectsProps) {
       overlayTextRef.current.style.opacity = '0';
     }
   }
+
+//   if (overlayRef.current && overlayTextRef.current) {
+//   // Fade overlayRef out from scrollY 200 to 500 (example range)
+//   const fadeStart = 200;
+//   const fadeEnd = 500;
+//   const fadeProgress = Math.min(Math.max((clampedScroll - fadeStart) / (fadeEnd - fadeStart), 0), 1);
+//   const overlayOpacity = 1 - fadeProgress;
+
+//   overlayRef.current.style.opacity = `${overlayOpacity}`;
+
+//   // Fade in overlayText when zoom ends
+//   overlayTextRef.current.style.opacity = clampedScroll >= unlockThreshold ? '1' : '0';
+// }
 
   // Clean up both timers
   return () => {
@@ -180,13 +201,18 @@ export function LandingPage({ range, locale }: ProjectsProps) {
         href={`/en/about`}
         variant="tertiary"
         suffixIcon="chevronRight"
+        style={{
+          color: 'var(--brand-on-background-weak)',
+           letterSpacing: '0.05em',
+           wordSpacing: '0.08em',
+        }}
         size="m">
         <Flex
           gap="8"
           alignItems="center">
           {about.avatar.display && (
             <Avatar
-              style={{marginLeft: '-0.75rem', marginRight: '0.25rem'}}
+              style={{marginLeft: '-0.75rem', marginRight: '0.25rem',   color: '#000000'}}
               src={person.avatar}
               size="m"/>
             )}
