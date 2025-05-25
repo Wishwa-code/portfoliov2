@@ -19,14 +19,16 @@ import { useConfig } from '@/app/contexts/ConfigContext';
 
 // Enhanced frameworks data with unique IDs and thematic colors
 const frameworks = [
-  { id: 'nextjs', name: 'Next.js', x: -3, y: 3, z: 0, color: '#000000', description: 'E-commerce(prod), Portfolio' },
-  { id: 'flask', name: 'Flask', x: -4, y: -4, z: 0, color: '#4FB3C5', description: 'Book Reviewing web platform, Slack Clone.' }, // Updated color for better visibility
-  { id: 'laravel', name: 'Laravel', x: 5, y: 1, z: 0, color: '#F53003', description: 'Hotel Management Application(prod)' },
-  { id: 'django', name: 'Django', x: 4.4, y: -4, z: 0, color: '#0C4B33', description: 'E-commerce backend(prod), Online Classroom backend' },
-  { id: 'react', name: 'React.js', x: -5, y: 6, z: 0, color: '#58C4DC', description: 'AI research assistant frontend, Online Classroom frontend, Table reservation platform(prod)' },
-  { id: 'flutter', name: 'Flutter', x: 4, y: 4, z: 0, color: '#7E41F2', description: 'Travel iternary planning mobile app(prod), Cargo Management Dekstop App(prod), POS-desktop app(prod), Medical Appoinment Management mobile app' },
-  { id: 'gin', name: 'Gin', x: -2, y: -4, z: 1, color: '#F4D91E', description: 'E-commerce backend(prod)' },
-  { id: 'reactNative', name: 'ReactNative', x: -5, y: 5, z:0, color: '#58C4DC', description: 'Handcrafts marketplace app' },
+  { id: 'nextjs', name: 'Next.js', x: -2, y: 3, z: 3, color: '#000000', description: 'E-commerce(prod), Portfolio' },
+  { id: 'flask', name: 'Flask', x: -4, y: -4, z: 3, color: '#4FB3C5', description: 'Book Reviewing web platform, Slack Clone.' }, // Updated color for better visibility
+  { id: 'laravel', name: 'Laravel', x: 5, y: 1, z: 2, color: '#F53003', description: 'Hotel Management Application(prod)' },
+  { id: 'django', name: 'Django', x: 4.4, y: -4, z: 5, color: '#0C4B33', description: 'E-commerce backend(prod), Online Classroom backend' },
+  { id: 'react', name: 'React.js', x: -5, y: 6, z: 5, color: '#58C4DC', description: 'AI research assistant frontend, Online Classroom frontend, Table reservation platform(prod)' },
+  { id: 'flutter', name: 'Flutter', x: 4, y: 4, z: 5, color: '#7E41F2', description: 'Travel iternary planning mobile app(prod), Cargo Management Dekstop App(prod), POS-desktop app(prod), Medical Appoinment Management mobile app' },
+  { id: 'gin', name: 'Gin', x: -2, y: -3, z: 3, color: '#F4D91E', description: 'E-commerce backend(prod)' },
+  { id: 'reactNative', name: 'ReactNative', x: -5, y: 5, z:2, color: '#58C4DC', description: 'Handcrafts marketplace app' },
+  { id: 'ExpressJs', name: 'ExpressJs', x: -3, y: -4, z:1, color: '#1B619A', description: 'Blog Platform backend' },
+  { id: 'SpringBoot', name: 'Spring Boot', x: 5, y: -3.5, z:2, color: '#6CB52D', description: 'URL Shortener backend' },
 ];
 
 // A more sophisticated Dot component
@@ -268,16 +270,12 @@ function AxesAndLabels({ length = 5, experienceAxisLength = 5 }) { // length for
 
       {/* Z Axis Labels (Experience) */}
       {/* "No Experience" at Origin (0,0,0) */}
-      <Billboard position={[0.3, 0.3, -0.3]} > {/* Slightly offset from origin for visibility */}
-        <Text fontSize={fontSize * 0.8} color={config.style.theme === 'dark' ? "#ffffff" : "#000000"} anchorX="left" anchorY="middle">
-          No Exp.
-        </Text>
-      </Billboard>
+
 
       {/* "Max Experience" at the end of the positive Z-axis */}
       <Billboard position={[0, 0, experienceAxisLength + experienceLabelOffset]}>
         <Text fontSize={fontSize} color={config.style.theme === 'dark' ? "#ffffff" : "#000000"} anchorX="center" anchorY="middle">
-          Max Experience
+          Experience
         </Text>
       </Billboard>
     </>

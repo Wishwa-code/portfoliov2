@@ -67,7 +67,7 @@ export default function Home(
 						image: `${baseURL}/og?title=${encodeURIComponent(home.title)}`,
 						publisher: {
 							'@type': 'Person',
-							name: person.name,
+							name: person.firstName,
 							image: {
 								'@type': 'ImageObject',
 								url: `${baseURL}${person.avatar}`,

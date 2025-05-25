@@ -7,6 +7,7 @@ const createI18nContent = (t) => {
         lastName:  t("person.lastName"),
         get name() {
             return `${this.firstName} ${this.lastName}`;
+            // return 'Wishwa';
         },
         role:      t("person.role"),
         avatar:    '/images/avatar.jpg',
@@ -156,6 +157,12 @@ const createI18nContent = (t) => {
                     credentialID: <>{t(`about.certificates.institutions.Business Analytics.credentialID`)}</>,
                     link: <>{t(`about.certificates.institutions.Business Analytics.link`)}</>,
                     label: <>{t(`about.certificates.institutions.Business Analytics.label`)}</>,
+                },
+                {
+                    name: <>{t(`about.certificates.institutions.Agents Course.name`)}</>,
+                    credentialID: <>{t(`about.certificates.institutions.Agents Course.credentialID`)}</>,
+                    link: <>{t(`about.certificates.institutions.Agents Course.link`)}</>,
+                    label: <>{t(`about.certificates.institutions.Agents Course.label`)}</>,
                 },
             ]
         },

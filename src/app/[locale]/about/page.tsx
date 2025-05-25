@@ -407,11 +407,13 @@ export default function About(
                                             //@ts-ignore
                                             variant="heading-default-s">{institution.faculty}
                                         </Text> */}
+                                        { (institution.credentialID  != '-') && 
                                         <Text
                                             variant="heading-default-xs"
                                             onBackground="neutral-weak">
-                                            Credential ID :{institution.credentialID}
+                                            Credential ID : {institution.credentialID}
                                         </Text>
+                                        }
                                         <SmartLink
                                             suffixIcon="chevronRight"
                                             style={{margin: '0', width: 'fit-content',padding: '0'}}

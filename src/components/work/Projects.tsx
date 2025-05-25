@@ -2,6 +2,7 @@ import { getPosts } from '@/app/utils';
 import { Flex } from '@/once-ui/components';
 
 import { ProjectCard } from '@/components';
+import Threads from '@/reactbits/thread/threads';
 
 interface ProjectsProps {
     range?: [number, number?];
@@ -21,7 +22,7 @@ export function Projects({ range, locale }: ProjectsProps) {
 
     return (
         <Flex
-            fillWidth gap="l" marginBottom="40" paddingX="l"
+            fillWidth gap="l" marginBottom="80" paddingX="l"
             direction="column">
             {displayedProjects.map((post) => (
                 <ProjectCard
@@ -33,7 +34,12 @@ export function Projects({ range, locale }: ProjectsProps) {
                     content={post.content}
                     sourcelabel={post.metadata.sourcelabel}
                     sourcelink ={post.metadata.sourcelink}
+                    sourcelabel2={post.metadata.sourcelabel2}
+                    sourcelink2 ={post.metadata.sourcelink2}
                     avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}/>
+                    
+                    
+                    
             ))}
         </Flex>
     );

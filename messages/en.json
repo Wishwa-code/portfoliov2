@@ -21,7 +21,7 @@
     },
     "home": {
         "label": "Home",
-        "title": "{name}'s Portfolio",
+        "title": "Wishwa's Portfolio",
         "description": "Portfolio website showcasing my work as a {role}",
         "headline": "Software Engineer",
         "subline": "I'm Wishwa, a full stack software engineer building sustainable and impactful solutions by combining the precision of engineering with the creativity of design."
@@ -32,7 +32,7 @@
         "description": "Meet {name}, {role} from {location}",
         "intro": {
             "title": "Introduction",
-            "description": "Wishwa is a software engineer with experience building client/server desktop, web and mobile applications, middleware systems and database primarily based on the java platform. Wishwa has a keen interest in learning and working with Go, multithreaded applications, the Internet's WebAssembly adaptation, and Linux."
+            "description": "Hello there ! I am wishwa  and i mostly live in the web but when duty calls ready to connect my interfaces with databases using django or go. If its not web, most probably i am delivering my interfaces to every screen using flutter or building AI agents. Always ready to tackle new problems using latest technologies and deliver exceptional products."
         },
         "work": {
             "title": "Work Experience",
@@ -41,13 +41,13 @@
                     "name": "Webs R Us",
                     "timeframe": "Aug 2024 - February 2025",
                     "role": "Full Stack Developer",
-                    "achievements": "Designed and developed travel application for creating itineraries and booking hotels through booking.com API.;Developed application in offline first approach to ensure users are capable of utilizing all the features provided by the application in low coverage areas.;Developed functionality to share itineraries and view live changes made by other users using supabase realtime features.;Developed backend web service using GIN(go) framework to ensure all the write operations are sent through backend RESTful web service including necessary api calls to provide route optimization and budget calculations features."
+                    "achievements": "Designed and developed travel application for creating itineraries and booking hotels through booking.com API.;Developed application in offline first approach to ensure users are capable of utilizing all the features provided by the application in low coverage areas.;Developed functionality to share itineraries and view live changes made by other users using supabase realtime features.;Designed and implemented a backend service using Gin, integrating two simulated databases to separate read and write operations, and configured automated database backups to a remote server."
                 },
                 "WAD": {
                     "name": "We are designers",
                     "timeframe": "Jul 2022 - Jun 2023",
                     "role": "Quality Assurance Intern",
-                    "achievements": "Worked for both mobile and web development teams.;Wrote automated tests using Selenium, performed UI testing and cross browser compatibility testing, and performance testing throughout the SDLC for 2 wordpress and laravel websites of well established Sri Lankan organizations and 4 single-page websites.;Designed and wrote test cases for mobile and tablet version of booking and reservation application which currently has 200 clients and Sri Lanka's First Buy 1 Get 1 Deals  App from a well known Sri Lankan trade partnership which currently has 10,000+ downloads and average 4.4 rating in google play store.;Used JMeter to perform load testing on laravel applications.;Collaborated with team members and project stakeholders to ensure timely and accurate delivery of software products.;Managed bug fixing process using Mantis bug tracker software."
+                    "achievements": "Worked for both mobile and web development teams.;Automated testing using selenium and jest to identify issues in key workflows, cross-browser compatibility, responsiveness and accessibility throughout the SDLC for e-commerce systems with wordpress enterprise websites and custom e-commerce and backend interfaces.;Designed and wrote test cases using dart and flutter for mobile and tablet applications of german booking and reservation platform which currently has over 200 clients and Sri Lanka's First Buy 1 Get 1 Deals App from a well known Sri Lankan trade partnership which currently has 10,000+ downloads and average 4.4 rating in google play store.;Used JMeter to load test and measure performance of different applications/server/protocol types.;Collaborated with team members and project stakeholders to ensure timely and accurate delivery of software products.;Managed bug fixing process using Mantis bug tracker software."
                 }
             }
         },
@@ -82,6 +82,12 @@
                 "Business Analytics": {
                     "name": "Google Data Analytics Professional Certificate",
                     "credentialID": "DVGKS8YBTGU4",
+                    "link": "https://www.coursera.org/account/accomplishments/professional-cert/DVGKS8YBTGU4",
+                    "label": "View Credential"
+                },
+                "Agents Course": {
+                    "name": "Hugging Face Agents Course",
+                    "credentialID": "wishwakankanamg",
                     "link": "https://www.coursera.org/account/accomplishments/professional-cert/DVGKS8YBTGU4",
                     "label": "View Credential"
                 }

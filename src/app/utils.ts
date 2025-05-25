@@ -18,6 +18,8 @@ type Metadata = {
     team: Team[];
     sourcelabel: string;
     sourcelink: string;
+    sourcelabel2: string;
+    sourcelink2: string;
     tag: string;
 };
 
@@ -45,6 +47,8 @@ function readMDXFile(filePath: string) {
         team: data.team || [],
         sourcelabel: data.sourcelabel || [],
         sourcelink: data.sourcelink || [],
+        sourcelabel2: data.sourcelabel2 || [],
+        sourcelink2: data.sourcelink2 || [],
         tag: data.tag || '',
     };
 
