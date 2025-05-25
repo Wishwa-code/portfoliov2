@@ -50,7 +50,7 @@ export function Languages({ locale }: CardsProps) {
         <Dialog
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-        title="Wrote my first html when i was in grade 8 and learned c, php and javascript in collage. Mostly have written javascript,dart and java for work. Also read the rust book recently(2024) seems quite groundbreaking with LLMs and stuff. "
+        title="Wrote my first hello world in html when i was in grade 8 and learned c, php and javascript in collage. Mostly have written javascript,dart and java for work. Also read the rust book recently(2024) seems quite groundbreaking with LLMs and stuff. "
         >
             <Flex fillWidth gap="12" marginTop="0" alignItems='end' justifyContent='end'>
                

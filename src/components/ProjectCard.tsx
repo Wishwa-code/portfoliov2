@@ -13,6 +13,8 @@ interface ProjectCardProps {
     avatars: { src: string }[];
     sourcelabel: string;
     sourcelink: string;
+    sourcelabel2: string,
+    sourcelink2: string,
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -23,7 +25,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     description,
     avatars,
     sourcelabel,
-    sourcelink
+    sourcelink,
+    sourcelabel2,
+    sourcelink2,
+    
 }) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
@@ -66,6 +71,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     return (
         <Flex
             fillWidth gap="m"
+            paddingBottom="160"
             direction="column">
             <Flex onClick={handleImageClick}>
             <RevealFx
@@ -87,10 +93,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                         }}/>
                 </RevealFx>
             </Flex>
-            {images.length > 1 && (
+            {images.length > 0 && (
                 <Flex
                     gap="4" paddingX="s"
-                    fillWidth maxWidth={32}
+                    fillWidth 
                     justifyContent="center">
                     {images.map((_, index) => (
                         <Flex
@@ -111,10 +117,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             )}
             <Flex
                 mobileDirection="column"
-                fillWidth paddingX="l" paddingTop="xs" paddingBottom="m" gap="l">
+                fillWidth paddingRight="s" paddingTop="xs" paddingBottom="m" gap="l">
                 {title && (
                     <Flex
-                        flex={5}>
+                        flex={6}>
                         <Heading
                             as="h2"
                             wrap="balance"
@@ -125,7 +131,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 )}
                 {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
                     <Flex
-                        flex={7} direction="column"
+                        flex={4} direction="column"
                         gap="s">
                         {avatars?.length > 0 && (
                             <AvatarGroup
@@ -146,8 +152,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                         gap="s">
                         {content?.trim() && (
                             <SmartLink
-                                suffixIcon="rightarrow"
-                                style={{margin: '0', width: 'fit-content'}}
+                                prefixIcon="rightarrow"
+                                style={{paddingLeft: '0', margin: '0', width: 'fit-content'}}
                                 href={href}>
                                     <Text
                                         variant="body-default-s">
@@ -158,14 +164,25 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                         )}
                             {/* <a href="https://github.com/Wishwa-code/Ceylon2World">Visit Repo</a> */}
                             <SmartLink
-                                suffixIcon="link"
-                                style={{margin: '0', width: 'fit-content'}}
+                                prefixIcon="link"
+                                style={{paddingLeft: '0',margin: '0', width: 'fit-content'}}
                                 href={sourcelink}>
                                     <Text
                                         variant="body-default-s">
                                        {sourcelabel}
                                     </Text>
                             </SmartLink>
+                            {typeof sourcelabel2 === 'string' && sourcelabel2.trim() && (
+                                <SmartLink
+                                prefixIcon="link"
+                                style={{paddingLeft: '0',margin: '0', width: 'fit-content'}}
+                                href={sourcelink2}>
+                                    <Text
+                                        variant="body-default-s">
+                                       {sourcelabel2}
+                                    </Text>
+                            </SmartLink>
+                            )}
                         </Flex>
                     </Flex>
                 )}

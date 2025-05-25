@@ -2,14 +2,15 @@ import React from 'react';
 
 import { Heading, Flex, Text, Button,  Avatar, RevealFx } from '@/once-ui/components';
 import { Projects } from '@/components/work/Projects';
+import { Certificates2 } from '@/components/about/Certificates2';
+
+import { ProjectCard } from '@/components';
 
 import { baseURL, routes, renderContent } from '@/app/resources'; 
-import { LandingPage, Mailchimp } from '@/components';
+import { Mailchimp } from '@/components';
 import { Posts } from '@/components/blog/Posts';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
-import styles from './app.module.scss'
-
 
 export async function generateMetadata(
 	{params: {locale}}: { params: { locale: string }}
@@ -49,7 +50,7 @@ export default function Home(
 ) {
 	setRequestLocale(locale);
 	const t = useTranslations();
-	const { home, about, person, newsletter } = renderContent(t);
+	const { home, about, person, newsletter, certificate2} = renderContent(t);
 	return (
 		<Flex
 			maxWidth="m" fillWidth gap="xl"
@@ -67,7 +68,7 @@ export default function Home(
 						image: `${baseURL}/og?title=${encodeURIComponent(home.title)}`,
 						publisher: {
 							'@type': 'Person',
-							name: person.firstName,
+							name: person.name,
 							image: {
 								'@type': 'ImageObject',
 								url: `${baseURL}${person.avatar}`,
@@ -75,49 +76,47 @@ export default function Home(
 						},
 					}),
 				}}
-			/>			
-			{/* <Flex
-			    className={styles.landingImage}
-				>
-				<img src="/images/sunrise.jpg" alt="Landing" className={styles.coverImage} />
-				<img src="/images/sunrise.jpg" alt="Overlay" className={styles.overlayImage} />
-			</Flex> */}
-				<LandingPage range={[1,1]} locale={locale}/>
-				
-
+			/>
 			<Flex
-				style = {{paddingTop: '117vh'}}
 				fillWidth
 				direction="column"
-				paddingY="l" gap="m">
+				paddingTop="l" gap="m"
+                paddingBottom='0'
+                style={{paddingBottom: '0px'}} 
+                >
 					<Flex
 						direction="column"
-						fillWidth maxWidth="s" gap="m">
+						fillWidth maxWidth="s" gap="xs">
+							<Heading
+								wrap="balance"
+								variant="display-strong-s">
+								{certificate2.title}
+							</Heading>
+							<Text
+								wrap="balance"
+								onBackground="neutral-weak"
+								variant="body-default-l">
+								{certificate2.description}
+							</Text>
+							<Text
+                                paddingBottom='s'
+                                style={{ width: '400px' }} 
+								wrap="balance"
+								onBackground="neutral-weak"
+								variant="body-default-s">
+								{certificate2.program}
+							</Text>
+                            <Button
+                                key={certificate2.link}
+                                href={certificate2.link}
+                                label={certificate2.buttonname}
+                                size="s"
+                                variant="tertiary"
+                            />
 					</Flex>
 				
 			</Flex>
-			<RevealFx translateY="16" >
-				<Projects range={[1,1]} locale={locale}/>
-			</RevealFx>
-			{routes['/blog'] && (
-				<Flex 
-				alignItems='center'
-				marginTop='48'
-				justifyContent='center'
-				background="surface"
-				radius="l-4"
-				fillWidth gap="24" mobileDirection="column">
-					<Flex flex={1} paddingLeft="80">
-						<Heading as="h2" variant="display-strong-xs" wrap="balance">
-						Latest from the blog
-						</Heading>
-					</Flex>
-					<Flex alignItems='center' flex={3} paddingLeft="80" paddingTop='20'>
-						<Posts range={[1,1]} columns="1" locale={locale}/>
-					</Flex>
-				</Flex>
-			)}
-			{/* <Projects range={[2]} locale={locale}/> */}
+            <Certificates2 range={[1,1]} locale={locale}/>
 			{ newsletter.display &&
 				<Mailchimp newsletter={newsletter} />
 			}
