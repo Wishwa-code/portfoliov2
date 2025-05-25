@@ -51,8 +51,26 @@
             "institutions": {
                 "University of Westminster": {
                     "name": "University of Westminster",
-                    "faculty": "School of Computer Science and Engineering",
-                    "description": "ව්‍යාපාර තොරතුරු පද්ධති අධ්‍යයනය කරන ලදි."
+                    "faculty": "Bsc. In Business Information Systems",
+                    "description": "Major: Business Strategy and IT | Minor: Digital Marketing",
+                    "label": "අක්ත පත්‍ර"
+                }
+            }
+        },
+        "certificates": {
+            "title": "සහතික",
+            "institutions": {
+                "Business Intelligence": {
+                    "name": "Google Business Intelligence Professional Certificate",
+                    "credentialID": "UPQ2LBTXLZ7P",
+                    "link": "https://www.coursera.org/account/accomplishments/professional-cert/UPQ2LBTXLZ7P",
+                    "label": "අක්ත පත්‍ර"
+                },
+                "Business Analytics": {
+                    "name": "Google Data Analytics Professional Certificate",
+                    "credentialID": "DVGKS8YBTGU4",
+                    "link": "https://www.coursera.org/account/accomplishments/professional-cert/DVGKS8YBTGU4",
+                    "label": "අක්ත පත්‍ර"
                 }
             }
         },

@@ -19,7 +19,7 @@ export async function generateMetadata(
     {params: {locale}}: { params: { locale: string }}
 ) {
     const t = await getTranslations();
-    const {person, about, social } = renderContent(t);
+    const {person, about, social, } = renderContent(t);
 	const title = about.title;
 	const description = about.description;
 	const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
@@ -74,6 +74,7 @@ export default function About(
             display: about.studies.display,
             items: about.studies.institutions.map(institution => institution.name)
         },
+        
         { 
             title: about.technical.title,
             display: about.technical.display,
@@ -360,7 +361,62 @@ export default function About(
                                             suffixIcon="chevronRight"
                                             style={{margin: '0', width: 'fit-content',padding: '0'}}
                                             //@ts-ignore
-                                            href="about/uow">
+                                            href={institution.link}>
+                                                
+                                                <Text 
+                                                //@ts-ignore
+                                                variant="body-default-s">{institution.label}
+                                                </Text>
+                                        </SmartLink>
+                                    </Flex>
+                                ))}
+                            </Flex>
+                        </>
+                    )}
+                    { about.certificates.display && (
+                        <>
+                            <Heading
+                                paddingTop='80'
+                                as="h2"
+                                id={about.certificates.title}
+                                variant="display-strong-s"
+                                style={{width: '33.5vw'}}
+                                marginBottom="m">
+                                {about.certificates.title}
+                            </Heading>
+                            <Flex
+                                direction="column"
+                                fillWidth gap="l" marginBottom="40" 
+                                style={{marginLeft: '20vw'}}
+                                >
+                                {about.certificates.institutions.map((institution, index) => (
+                                    <Flex
+                                        key={`${institution.name}-${index}`}
+                                        fillWidth gap="4"
+                                        direction="column">
+                                        <Text
+                                            //@ts-ignore
+                                            id={institution.name}
+                                            //@ts-ignore
+                                            variant="heading-strong-l">
+                                            {institution.name}
+                                        </Text>
+                                        {/* <Text
+                                            //@ts-ignore
+                                            id={institution.faculty}
+                                            //@ts-ignore
+                                            variant="heading-default-s">{institution.faculty}
+                                        </Text> */}
+                                        <Text
+                                            variant="heading-default-xs"
+                                            onBackground="neutral-weak">
+                                            Credential ID :{institution.credentialID}
+                                        </Text>
+                                        <SmartLink
+                                            suffixIcon="chevronRight"
+                                            style={{margin: '0', width: 'fit-content',padding: '0'}}
+                                            //@ts-ignore
+                                            href={institution.link}>
                                                 
                                                 <Text 
                                                 //@ts-ignore
@@ -454,9 +510,6 @@ export default function About(
                         </>
                     )}
                 </Flex>
-                  
-
-                    
                 </Flex>
             </Flex>
         </Flex>

@@ -14,6 +14,11 @@
         "description": "School of Computer Science and Engineering",
         "program": "Business Information Systems with Upper Second Class Honours"
     },
+    "certificate2": {
+        "title": "Evotech education",
+        "description": "Advanced Java Programming",
+        "program": "Distinction"
+    },
     "home": {
         "label": "Home",
         "title": "{name}'s Portfolio",
@@ -51,8 +56,34 @@
             "institutions": {
                 "University of Westminster": {
                     "name": "University of Westminster",
-                    "faculty": "School of Computer Science and Engineering",
-                    "description": "Studied Business Information Systems."
+                    "faculty": "Bsc. In Business Information Systems",
+                    "description": "Major: Business Strategy and IT | Minor: Digital Marketing",
+                    "link": "about/uow",
+                    "label": "View Credential"
+                },
+                "Java Programming Master": {
+                    "name": "Evotech education",
+                    "faculty": "Advanced Java Programming",
+                    "description": "Java Programming",
+                    "link": "about/evotech",
+                    "label": "View Credential"
+                }
+            }
+        },
+        "certificates": {
+            "title": "Certificates",
+            "institutions": {
+                "Business Intelligence": {
+                    "name": "Google Business Intelligence Professional Certificate",
+                    "credentialID": "UPQ2LBTXLZ7P",
+                    "link": "https://www.coursera.org/account/accomplishments/professional-cert/UPQ2LBTXLZ7P",
+                    "label": "View Credential"
+                },
+                "Business Analytics": {
+                    "name": "Google Data Analytics Professional Certificate",
+                    "credentialID": "DVGKS8YBTGU4",
+                    "link": "https://www.coursera.org/account/accomplishments/professional-cert/DVGKS8YBTGU4",
+                    "label": "View Credential"
                 }
             }
         },

@@ -46,7 +46,8 @@
             "institutions": {
                 "University of Westminster": {
                     "name": "University of Westminster",
-                    "description": "ව්‍යාපාර තොරතුරු පද්ධති අධ්‍යයනය කරන ලදි."
+                    "description": "ව්‍යාපාර තොරතුරු පද්ධති අධ්‍යයනය කරන ලදි.",
+                    "label": "අක්ත පත්‍ර"
                 }
             }
         },

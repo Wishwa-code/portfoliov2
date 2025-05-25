@@ -13,6 +13,7 @@ const routes = {
     '/':              true,
     '/about':         true,
     '/about/uow':     true,
+    '/about/evotech':     true,
     '/about/email':   true,
     '/work':          true,
     '/blog':          true,

@@ -24,6 +24,16 @@ const createI18nContent = (t) => {
 
     }
 
+    const certificate2 = {
+        display: true,
+        title: <>{t("certificate2.title")}</>,
+        description: <>{t("certificate2.description")}</>,
+        program: <>{t("certificate2.program")}</>,
+        link: 'https://evotecheducation.com/',
+        buttonname: 'Evotech'
+
+    }
+
     const newsletter = {
         display: false,
         title: <>{t("newsletter.title", {firstName: person.firstName})}</>,
@@ -118,7 +128,34 @@ const createI18nContent = (t) => {
                     name: <>{t(`about.studies.institutions.University of Westminster.name`)}</>,
                     faculty: <>{t(`about.studies.institutions.University of Westminster.faculty`)}</>,
                     description: <>{t(`about.studies.institutions.University of Westminster.description`)}</>,
-                    label: 'certificate'
+                    label: <>{t(`about.studies.institutions.University of Westminster.label`)}</>,
+                    link: <>{t(`about.studies.institutions.University of Westminster.link`)}</>,
+                },
+                {
+                    name: <>{t(`about.studies.institutions.Java Programming Master.name`)}</>,
+                    faculty: <>{t(`about.studies.institutions.Java Programming Master.faculty`)}</>,
+                    description: <>{t(`about.studies.institutions.Java Programming Master.description`)}</>,
+                    label: <>{t(`about.studies.institutions.Java Programming Master.label`)}</>,
+                    link: <>{t(`about.studies.institutions.Java Programming Master.link`)}</>,
+
+                },
+            ]
+        },
+        certificates: {
+            display: true, // set to false to hide this section
+            title: t("about.certificates.title"),
+            institutions: [
+                {
+                    name: <>{t(`about.certificates.institutions.Business Intelligence.name`)}</>,
+                    credentialID: <>{t(`about.certificates.institutions.Business Intelligence.credentialID`)}</>,
+                    link: <>{t(`about.certificates.institutions.Business Intelligence.link`)}</>,
+                    label: <>{t(`about.certificates.institutions.Business Intelligence.label`)}</>,
+                },
+                {
+                    name: <>{t(`about.certificates.institutions.Business Analytics.name`)}</>,
+                    credentialID: <>{t(`about.certificates.institutions.Business Analytics.credentialID`)}</>,
+                    link: <>{t(`about.certificates.institutions.Business Analytics.link`)}</>,
+                    label: <>{t(`about.certificates.institutions.Business Analytics.label`)}</>,
                 },
             ]
         },
@@ -280,7 +317,8 @@ const createI18nContent = (t) => {
         blog,
         work,
         gallery,
-        certificate
+        certificate,
+        certificate2
     }
 };
 

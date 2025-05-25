@@ -22,6 +22,16 @@ const certificate = {
 
 }
 
+ const certificate2 = {
+        display: true,
+    title: 'UOW',
+    description: 'cetificate description',
+    program: 'certificate program',
+    link: 'https://www.westminster.ac.uk/',
+    buttonname: 'UOW'
+
+    }
+
 const newsletter = {
     display: true,
     title: <>Subscribe to {person.firstName}'s Newsletter</>,
@@ -128,6 +138,23 @@ const about = {
             }
         ]
     },
+    certificates: {
+            display: true, // set to false to hide this section
+            title: "certificates",
+            institutions: [
+                {
+                    name: "Google Business Intelligence Professional Certificate",
+                    credentialID: "UPQ2LBTXLZ7P",
+                    link: "https://www.coursera.org/account/accomplishments/professional-cert/UPQ2LBTXLZ7P",
+                    label: "අක්ත පත්‍ර" },
+                {
+                    name: "Google Business Intelligence Professional Certificate",
+                    credentialID: "UPQ2LBTXLZ7P",
+                    link: "https://www.coursera.org/account/accomplishments/professional-cert/UPQ2LBTXLZ7P",
+                    label: "අක්ත පත්‍ර" 
+                },
+            ]
+        },
     technical: {
         display: true, // set to false to hide this section
         title: 'Technical skills',
@@ -261,4 +288,4 @@ const gallery = {
     ]
 }
 
-export { person, social, newsletter, home, about, blog, work, gallery, certificate };
+export { person, social, newsletter, home, about, blog, work, gallery, certificate,certificate2 };
