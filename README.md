@@ -51,7 +51,7 @@ Add a new .mdx file to src/app/[locale]/blog/posts or src/app/[locale]/work/proj
 - Enable or disable pages for blog, work, gallery and about / CV
 - Generate and display social links automatically
 - Set up password protection for URLs
-
+ 
 ## **Localization (NEW)**
 - Magic Portfolio now supports localization with the next-intl library
 - See more info in resources/config.js

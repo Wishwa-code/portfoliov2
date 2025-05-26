@@ -223,7 +223,7 @@ export default function About(
                             </Text> */}
                             <RotatingTextBox locale={locale}/>
                             
-                            {social.length > 0 && (
+                            {/* {social.length > 0 && (
                                 <Flex
                                     paddingTop="20" marginBottom="40" gap="8" wrap>
                                     {social.map((item) => (
@@ -241,7 +241,11 @@ export default function About(
                                         Content goes here
                                     </DialogBox>
                                 </Flex>
-                            )}
+                            )} */}
+                            <Flex 
+                            height="40">
+
+                            </Flex>
                             { about.intro.display && (
                     
                                 <ScrollReveal>

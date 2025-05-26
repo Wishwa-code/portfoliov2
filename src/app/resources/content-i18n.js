@@ -52,12 +52,12 @@ const createI18nContent = (t) => {
         {
             name: 'LinkedIn',
             icon: 'linkedin',
-            link: 'https://www.linkedin.com/in/wishwa-kankanamge/',
+            link: 'https://www.linkedin.com/in/wishwa-kankanamge-2404051b5/',
         },
         {
-            name: 'X',
-            icon: 'x',
-            link: '',
+            name: 'Resume',
+            icon: 'cv',
+            link: 'https://drive.google.com/file/d/1Pt1qND1S-kxdRcx6IjDaZcus8LVYeCwx/view?usp=sharing',
         },
         {
             name: 'Email',

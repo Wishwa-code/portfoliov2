@@ -14,6 +14,7 @@ interface Switch2Props extends Omit<InteractiveDetailsProps, 'onClick'> {
     ariaLabel?: string;
     iconChecked?: string;
     iconUnchecked?: string;
+     style?: React.CSSProperties;
 }
 
 const Switch2 = forwardRef<HTMLDivElement, Switch2Props>(({
@@ -24,6 +25,7 @@ const Switch2 = forwardRef<HTMLDivElement, Switch2Props>(({
     ariaLabel = 'Toggle switch',
     iconChecked,
     iconUnchecked,
+    style,
     ...interactiveDetailsProps
 }, ref) => {
     const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -43,6 +45,7 @@ const Switch2 = forwardRef<HTMLDivElement, Switch2Props>(({
             className={classNames(styles.container, className, {
                 [styles.reverse]: reverse,
             })}
+            style={style}
             onClick={onToggle}
             role="switch"
             aria-checked={isChecked}

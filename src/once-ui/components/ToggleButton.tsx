@@ -32,7 +32,7 @@ const ToggleButton = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPro
     selected,
     size = 'm',
     align = 'center',
-    width = 'fit',
+    width = '80%',
     weight = 'default',
     truncate = false,
     prefixIcon,

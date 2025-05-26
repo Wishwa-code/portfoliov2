@@ -18,6 +18,8 @@ import { useTranslations } from "next-intl";
 import { i18n } from "@/app/resources/config";
 import { useConfig } from '@/app/contexts/ConfigContext';
 import ColorPalette from '@/components/Colorpalette'
+import { color } from "framer-motion";
+import GlassIcons from "@/reactbits/glassIcons/glassIcons";
 
 type TimeDisplayProps = {
     timeZone: string;
@@ -63,11 +65,37 @@ export const Header = () => {
     const params = useParams();
     const [isOverlayVisible, setOverlayVisible] = useState(false);
     const [isMenuVisible, setMenuVisible] = useState(false);
-    const { config, setConfig } = useConfig();
+    const {config, setConfig } = useConfig();
     const [windowSize, setWindowSize] = useState({
         width: typeof window !== 'undefined' ? window.innerWidth : 0,
         height: typeof window !== 'undefined' ? window.innerHeight : 0,
     });
+
+    const colorLabelFromBacklight = (backlight: string): string => {
+        console.log('color for buttons',backlight);
+        if (backlight === 'rgba(0, 0, 0, 0)') return 'gray';
+        else if (backlight === 'rgba(0, 0, 255, 0.2)') return 'blue';
+        else if (backlight === 'rgba(75, 0, 130, 0.27)') return 'indigo';
+        else if (backlight === 'rgba(255, 0, 255, 0.27)') return 'purple';
+        else if (backlight === 'rgba(222, 152, 136, 0.2)') return 'brown'; // Close to skin tone / red-orange
+        else if (backlight === 'rgba(255, 0, 0, 0.24)') return 'red';
+        else if (backlight === 'rgba(255, 166, 0, 0.24)') return 'orange';
+        else if (backlight === 'rgba(255, 255, 0, 0.24)') return 'yellow'; // Yellow treated like orange
+        else if (backlight === 'rgba(80, 200, 120, 0.24)') return 'green';
+        else if (backlight === 'rgba(0, 255, 255, 0.17)') return 'cyan'; // Cyan close to blue
+        else return 'blue'; // default fallback
+    };
+
+    const colorLabel = colorLabelFromBacklight(config.backlight.color);
+
+
+    const items = [
+        { icon: 'github', color: colorLabel, label: 'Github' ,link:'https://github.com/Wishwa-code'},
+        { icon: 'linkedin', color: colorLabel, label: 'Linkedin',link:'https://www.linkedin.com/in/wishwa-kankanamge/' },
+        { icon: 'email' , color: colorLabel, label: 'Email' ,link:'mailto:wishwakankankanmge129@gmail.com'},
+        { icon: 'cv', color: colorLabel, label: 'Resume' ,link:'https://drive.google.com/file/d/1Pt1qND1S-kxdRcx6IjDaZcus8LVYeCwx/view?usp=sharing'},
+
+        ];
 
     function handleLanguageChange(locale: string) {
         const nextLocale = locale as Locale;
@@ -151,7 +179,7 @@ export const Header = () => {
                     borderStyle="solid-1" 
                     // topRadius="xs" 
                     shadow="l"
-                    padding="4"
+                    // padding="4"
                     justifyContent="start"
                     >
                     <Flex
@@ -190,16 +218,18 @@ export const Header = () => {
                         height: "50px",
                         }}>
                     </Flex>
-                    <div style={{ width: '225px', height: '1px',  margin: '8px 0' , backgroundColor: 'var(--neutral-alpha-medium)' }} />
+                    <div style={{ width: '225px', height: '1px',  margin: '8px 0 ' , backgroundColor: 'var(--neutral-alpha-medium)' }} />
                     <Flex
-                    style={{ width: '225px'}}
+                    // style={{ width: '225px'}}
                     fillWidth
                         direction="column"
-                        gap="8"
-                        paddingLeft="8" 
+                        gap="12"
+                        // paddingLeft="8" 
+                        paddingTop="4" 
+                        paddingBottom="8" 
                         textVariant="body-default-s"
                         justifyContent="start"
-                        alignItems="start">
+                        alignItems="center">
                         { routes['/'] && (
                             <ToggleButton4
                                 prefixIcon="home"
@@ -240,13 +270,13 @@ export const Header = () => {
                                 <Flex paddingX="2" hide="s">{gallery.label}</Flex>
                             </ToggleButton>
                         )} 
-                        <div style={{ width: '225px', height: '1px',  margin: '8px 0' , backgroundColor: 'var(--neutral-alpha-medium)' }} />
+                        </Flex>
+                        <div style={{ width: '225px', height: '1px',  margin: '4px 0' , backgroundColor: 'var(--neutral-alpha-medium)' }} />
      
                             <Flex 
                                 className={`${styles.overlayCard} ${styles.absoluteOverlay}`}
-   
-
-                                padding="16"
+                                padding="0"
+                                paddingTop="8" 
                                 gap="8"
                                 direction="column"
                                 justifyContent="center"
@@ -263,9 +293,21 @@ export const Header = () => {
                                             ariaLabel="Toggle switch example"
                                             className="custom-switch-class"
                                             label="Switch Label"
+                                            style={{
+                                                backgroundImage: config.style.theme === 'dark'
+                                                    ? "url('/images/utils/dark_bg.gif')"
+                                                    : "url('/images/utils/light_bg.gif')",
+                                                backgroundSize: 'cover',
+                                                backgroundPosition: 'center',
+                                                backgroundRepeat: 'no-repeat',
+                                                height: '100px',
+                                                marginBottom: '7px',
+                                                // backgroundColor: config.style.theme === 'dark' ? 'black' : 'white',
+                                            }}
+                                            
                                         />
                             
-                                        <Switch2
+                                        {/* <Switch2
                                             isChecked={config.backlight.state === 'true'}
                                             onToggle={() => handleColorChange(config.backlight.state === 'true' ? 'false' : 'true', 'state')}
                                             iconChecked="spotlighton"
@@ -273,18 +315,22 @@ export const Header = () => {
                                             ariaLabel="Toggle switch example"
                                             className="custom-switch-class"
                                             label="Switch Label"
-                                        />
-                                        {config.backlight.state === 'true' && (
+                                        /> */}
+                                        <Flex
+                                        marginBottom="8"
+                                        >
                                             <ColorPalette/>
-                                        )}
+
+                                        </Flex>
+                                        
                                         
                                     </>
                                 ) : (
                                     <>  
-                                        {config.backlight.state === 'true' && (
+                                        
                                             <ColorPalette/>
-                                        )}
-                                        <Switch2
+                                        
+                                        {/* <Switch2
                                                 isChecked={config.backlight.state === 'true'}
                                                 onToggle={() => handleColorChange(config.backlight.state === 'true' ? 'false' : 'true', 'state')}
                                                 iconChecked="spotlighton"
@@ -292,7 +338,7 @@ export const Header = () => {
                                                 ariaLabel="Toggle switch example"
                                                 className="custom-switch-class"
                                                 label="Switch Label"
-                                        />
+                                        /> */}
                                         <Switch2
                                         isChecked={config.style.theme === 'dark'}
                                         onToggle={() => handleThemeChange()}
@@ -310,7 +356,7 @@ export const Header = () => {
                                                     
                                                     background="neutral-medium" 
                                                     border="neutral-medium" borderStyle="solid-1" radius="m-4" shadow="l"
-                                                    padding="4" gap="2"
+                                                    padding="4" gap="2" fillWidth
                                                     justifyContent="center">
                                                         {i18n && routing.locales.map((locale, index) => (
                                                             <ToggleButton
@@ -318,6 +364,10 @@ export const Header = () => {
                                                                 selected={params?.locale === locale}
                                                                 onClick={() => handleLanguageChange(locale)}
                                                                 className={isPending && 'pointer-events-none opacity-60' || ''}
+                                                                style={{
+                                                                    width : '100%'
+                                                                    // backgroundColor: config.style.theme === 'dark' ? 'black' : 'white',
+                                                                }}
                                                             >
                                                                 {index === 1 ? 'සිං' : locale.toUpperCase()}
                                                             </ToggleButton>
@@ -345,31 +395,32 @@ export const Header = () => {
                             </Flex>
             
                             <div style={{ width: '225px', height: '1px',  margin: '8px 0' , backgroundColor: 'var(--neutral-alpha-medium)' }} />
-                            <Flex 
-                                
-                                justifyContent="center"
-                                paddingBottom="16"
-                                >
+                            
                                 {routing.locales.length > 1 && 
                                     <Flex
-                                        
-                                        background="neutral-medium" border="neutral-medium" borderStyle="solid-1" radius="m-4" shadow="l"
-                                        padding="4" gap="2"
-                                        justifyContent="center">
+                                        style={{ borderColor: 'var(--neutral-alpha-medium)' }}
+                                        background="transparent"  borderStyle="solid-1" 
+                                        padding="8" gap="2"  margin="12"
+                                        justifyContent="center" alignItems="center">
                                             {i18n && routing.locales.map((locale, index) => (
                                                 <ToggleButton
                                                     key={index}
                                                     selected={params?.locale === locale}
                                                     onClick={() => handleLanguageChange(locale)}
                                                     className={isPending && 'pointer-events-none opacity-60' || ''}
+                                                    style={{
+                                                                    width : '80%'
+                                                                    // backgroundColor: config.style.theme === 'dark' ? 'black' : 'white',
+                                                                }}
                                                 >
                                                     {index === 1 ? 'සිං' : locale.toUpperCase()}
                                                 </ToggleButton>
                                             ))}
                                     </Flex>
                                 }
-                            </Flex>          
-                    </Flex>
+                                <GlassIcons items={items} className="custom-class"/>
+                                  
+                    
                 </Flex>
                 
         </Flex>

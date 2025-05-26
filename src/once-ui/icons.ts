@@ -48,6 +48,7 @@ import {
 
 import { 
 	TbBulb,
+	TbFileCv,
 	TbBulbOff } from "react-icons/tb";
 
 export const iconLibrary: Record<string, IconType> = {
@@ -87,5 +88,6 @@ export const iconLibrary: Record<string, IconType> = {
 	rightarrow:HiArrowLongRight,
 	desktop:HiComputerDesktop,
 	browser:FaFirefoxBrowser,
-    whatsapp:FaWhatsapp
+    whatsapp:FaWhatsapp,
+	cv:TbFileCv,
 };
