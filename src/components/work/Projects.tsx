@@ -1,5 +1,5 @@
 import { getPosts } from '@/app/utils';
-import { Flex } from '@/once-ui/components';
+import { Flex,  RevealFx } from '@/once-ui/components';
 
 import { ProjectCard } from '@/components';
 import Threads from '@/reactbits/thread/threads';
@@ -25,20 +25,25 @@ export function Projects({ range, locale }: ProjectsProps) {
             fillWidth gap="l" marginBottom="80" paddingX="l"
             direction="column">
             {displayedProjects.map((post) => (
-                <ProjectCard
-                    key={post.slug}
-                    href={`work/${post.slug}`}
-                    images={post.metadata.images}
-                    title={post.metadata.title}
-                    description={post.metadata.summary}
-                    content={post.content}
-                    sourcelabel={post.metadata.sourcelabel}
-                    sourcelink ={post.metadata.sourcelink}
-                    sourcelabel2={post.metadata.sourcelabel2}
-                    sourcelink2 ={post.metadata.sourcelink2}
-                    avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}/>
+                <RevealFx 
+                    translateY="16"
+                    speed = 'fast'
+                     >
+                
+                    <ProjectCard
+                        key={post.slug}
+                        href={`work/${post.slug}`}
+                        images={post.metadata.images}
+                        title={post.metadata.title}
+                        description={post.metadata.summary}
+                        content={post.content}
+                        sourcelabel={post.metadata.sourcelabel}
+                        sourcelink ={post.metadata.sourcelink}
+                        sourcelabel2={post.metadata.sourcelabel2}
+                        sourcelink2 ={post.metadata.sourcelink2}
+                        avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}/>
                     
-                    
+                </RevealFx>    
                     
             ))}
         </Flex>

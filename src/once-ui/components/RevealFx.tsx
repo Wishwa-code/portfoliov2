@@ -131,7 +131,9 @@ const RevealFx = forwardRef<HTMLSpanElement, RevealFxProps>(({
 	}, [ref]);
 
 	// Choose the actual delay to use
-	const revealDelay = delay * 1000;
+	// const revealDelay = delay * 1000;
+	const revealDelay = 0;
+
 
 	// Intersection observer logic
 	useEffect(() => {
