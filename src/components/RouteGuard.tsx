@@ -12,6 +12,8 @@ interface RouteGuardProps {
     children: React.ReactNode;
 }
 
+// just adding commetn to make commit
+
 const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
     const pathname = usePathname();
     const [isRouteEnabled, setIsRouteEnabled] = useState(false);
