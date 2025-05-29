@@ -2,6 +2,9 @@ import "@/once-ui/styles/index.scss";
 import "@/once-ui/tokens/index.scss";
 import { ConfigProvider } from '@/app/contexts/ConfigContext';
 import classNames from 'classnames';
+import GSAPWrapper from "../../gsap/GSAWrapper";
+
+
 
 import { Flex, Background } from '@/once-ui/components'
 import { Background as NewBackground} from '@/once-ui/components/NewBackground/NewBackground'
@@ -20,7 +23,7 @@ import { routing } from "@/i18n/routing";
 import { renderContent } from "@/app/resources";
 import { useConfig } from '@/app/contexts/ConfigContext';
 import { Analytics } from "@vercel/analytics/react"
-import sttyles from '@/app/[locale]/app.module.scss'; // Import the CSS file for styling
+// import sttyles from '@/app/[locale]/app.module.scss'; // Import the CSS file for styling
 import '../../app/styles/globals.scss'; // Import global styles
 
 
@@ -109,7 +112,7 @@ export default async function RootLayout({
 				
 				<Flex
 					as="html" lang="en"
-					style={{ scrollBehavior: 'smooth' }}
+					// style={{ scrollBehavior: 'smooth' }}
 					background="page"
 					data-neutral={style.neutral} 
 					data-brand={style.brand}
@@ -125,11 +128,14 @@ export default async function RootLayout({
 						tertiary ? tertiary.variable : '',
 						code.variable,
 						'dark:data-device-dark')}>
+						<GSAPWrapper />	
 					
 						<Flex 
 							as="body"
 							fillWidth margin="0" padding="0"
 							direction="column">
+								<div id="smooth-wrapper">
+    								<div id="smooth-content">
 							<Background
 								mask={{
 									cursor: neweffects.mask.cursor,
@@ -166,7 +172,7 @@ export default async function RootLayout({
 								minHeight="16">
 							</Flex>
 							<RouteGuard>
-							<Header/>
+							
 							<Flex
 								zIndex={0}
 								fillWidth paddingY="l" paddingX="l"
@@ -182,6 +188,9 @@ export default async function RootLayout({
 							</Flex>
 							<Footer/>
 							</RouteGuard>
+							</div>
+  							</div>
+							<Header/>
 						</Flex>
 				</Flex>
 			</NextIntlClientProvider>
