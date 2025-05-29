@@ -78,7 +78,7 @@ function Dot({ id, name, x, y, z, color, description, onFocus }) {
           color={color}
           metalness={0.3}
           roughness={0.4}
-          emissive="black" // Will be changed on hover/active
+          // emissive="black" // Will be changed on hover/active
           transparent // Needed for opacity changes if any
         />
       </mesh>
@@ -191,9 +191,9 @@ export default function Framework3DGraph() {
           {/* Post-processing Effects */}
           <EffectComposer>
             <Bloom
-              luminanceThreshold={0.4} // Only bright objects bloom
-              luminanceSmoothing={0.9}
-              intensity={0.6} // Bloom intensity
+              luminanceThreshold={0.9} // Only bright objects bloom
+              luminanceSmoothing={0.2}
+              intensity={0.1} // Bloom intensity
               mipmapBlur
             />
             {/* Add other effects like DepthOfField, Vignette, etc. if desired */}

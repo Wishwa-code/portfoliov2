@@ -5,6 +5,8 @@ import { Flex, Text, Tooltip, Dialog, Icon, Button,Grid  } from '@/once-ui/compo
 import { useTranslations } from 'next-intl';
 import { renderContent } from '@/app/resources';
 import TiltedCard from '@/reactbits/tiltedCard.tsx/tiltedCard';
+import GSAPWrapper from "@/gsap/GSAWrapper";
+
 
 interface CardsProps {
   locale: string;
@@ -73,6 +75,15 @@ const frameworks: FrameworkItem[] = [
 
 ];
 
+   const wrappers = [
+    { className: "box box-a gradient-green", dataLag: "0.5" },
+    { className: "box box-b gradient-purple", dataLag: "1.0"},
+    { className: "box box-c gradient-orange", dataLag: "1.5" },
+    { className: "box box-d gradient-orange", dataLag: "2.0" },
+    { className: "box box-e gradient-orange", dataLag: "2.5" },
+    { className: "box box-f gradient-orange", dataLag: "3.0" },
+  ];
+
 export function Libraries({ locale }: CardsProps) {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations();
@@ -94,7 +105,8 @@ export function Libraries({ locale }: CardsProps) {
             </Flex>
         </Dialog>
       </Flex>
-
+      <GSAPWrapper />	
+      
       <Grid
         fillWidth
         columns="4"
@@ -109,34 +121,40 @@ export function Libraries({ locale }: CardsProps) {
           placeItems: 'center',
         }}
       >
-        {frameworks.map((fw, idx) => (
+        {frameworks.map((fw, idx) => {
+            const wrapper = wrappers[idx % wrappers.length]; // Rotate through the wrappers
+            return (
+              <div 
+                style={{padding:'0px', margin:'0px'}} 
+                className={wrapper.className} 
+                data-lag={wrapper.dataLag}>
+                  <TiltedCard
 
-            <TiltedCard
+                    key={idx}
+                    imageSrc={fw.icon}
+                    altText={fw.name}
+                    captionText={fw.name}
+                    containerHeight="120px"
+                    containerWidth="75px"
+                    imageHeight="75px"
+                    imageWidth="75px"
+                    rotateAmplitude={18}
+                    scaleOnHover={1.5}
+                    showMobileWarning={false}
+                    showTooltip={false}
+                    displayOverlayContent={true}
+                    tooWhite={fw.tooWhite}
+                    tooBlack={fw.tooBlack}
 
-              key={idx}
-              imageSrc={fw.icon}
-              altText={fw.name}
-              captionText={fw.name}
-              containerHeight="120px"
-              containerWidth="75px"
-              imageHeight="75px"
-              imageWidth="75px"
-              rotateAmplitude={18}
-              scaleOnHover={1.5}
-              showMobileWarning={false}
-              showTooltip={false}
-              displayOverlayContent={true}
-              tooWhite={fw.tooWhite}
-              tooBlack={fw.tooBlack}
-
-              overlayContent={
-                <p className="tilted-card-demo-text">
-                  {fw.name}
-                </p>
-              }
-            />
-
-        ))}
+                    overlayContent={
+                      <p className="tilted-card-demo-text">
+                        {fw.name}
+                      </p>
+                    }
+                  />
+              </div>
+        );
+        })}
       </Grid>
     </>
   );
