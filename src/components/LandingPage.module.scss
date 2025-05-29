@@ -62,20 +62,21 @@
 
 .pressuretext{
   position:absolute;
-  top:36%;
+  top:34%;
   left:29%;
-  font-family: var(--font-family-landing);
-  font-size: 12.9rem;
+  // font-family: var(--font-family-landing);
+  // font-size: 12.9rem;
   z-index:55;
 }
 
 .aboutemebuutton{
   position:absolute;
-  top:78%;
+  top:25%;
   left:29%;
   font-family: var(--font-family-landing);
   z-index: 6000;
-  color: var(--neutral-on-background-medium)
+  color: var(--neutral-on-background-medium);
+  z-index: 8000;
 }
 
 .overlayImage {

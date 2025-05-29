@@ -167,7 +167,7 @@ export function LandingPage({ range, locale }: ProjectsProps) {
                 textColor={config.style.theme === 'dark' ? "#ffffff" : "#000000"}
                 strokeColor={config.style.theme === 'dark' ? "#ffffff" : "#000000"}
                 minFontSize={146}
-                scale={true}
+                scale={false}
               />
             </Flex>
             

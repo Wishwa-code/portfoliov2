@@ -14,6 +14,7 @@ import { baseURL, effects, style, neweffects } from '@/app/resources'
 
 import { Inter } from 'next/font/google'
 import { Source_Code_Pro } from 'next/font/google';
+import localFont from 'next/font/local'
 
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
@@ -71,6 +72,12 @@ type FontConfig = {
     variable: string;
 };
 
+const landing = localFont({
+  src: '../../../public/fonts/Pricedown.otf',
+  variable: '--font-landing',
+display: 'swap',
+})
+
 /*
 	Replace with code for secondary and tertiary fonts
 	from https://once-ui.com/customize
@@ -127,6 +134,7 @@ export default async function RootLayout({
 						secondary ? secondary.variable : '',
 						tertiary ? tertiary.variable : '',
 						code.variable,
+						landing.variable,
 						'dark:data-device-dark')}>
 						<GSAPWrapper />	
 					

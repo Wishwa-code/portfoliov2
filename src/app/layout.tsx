@@ -81,7 +81,7 @@ const primary = Inter({
 const landing = localFont({
   src: '../../public/fonts/Pricedown.otf',
   variable: '--font-landing',
-display: 'swap',
+ display: 'swap',
 })
 
 type FontConfig = {
