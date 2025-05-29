@@ -11,6 +11,8 @@ import { DisplayProps } from "../interfaces";
 import styles from "./Background.module.scss";
 import classNames from "classnames";
 import { useConfig } from "@/app/contexts/ConfigContext";
+import { Canvas } from "@react-three/fiber";
+import { SpotlightShader } from "@/components/SpotlightShader";
 
 function setRef<T>(ref: React.Ref<T> | undefined, value: T | null) {
   if (typeof ref === "function") {
@@ -94,7 +96,6 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
     const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
     const [smoothPosition, setSmoothPosition] = useState({ x: 0, y: 0 });
     const backgroundRef = useRef<HTMLDivElement>(null);
-
     const { config, setConfig } = useConfig(); // Destructure both config and setConfig
     
     useEffect(() => {
@@ -103,7 +104,7 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
       // You can also update the config if needed like this:
       // setConfig(prev => ({
       //   ...prev,
-      //   style: { ...prev.style, theme: 'light' }
+      //   style: { ...prev.style, theme: 'light' }Q
       // }));
     }, [config]);
 
@@ -211,7 +212,7 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
         { config != null && config.backlight?.state === 'true' && (
           <Flex
             position="absolute"
-            className={styles.gradient}
+            // className={styles.gradient}
             opacity={gradient.opacity / 100} // Convert opacity from 0-100 to 0-1
             pointerEvents="none"
             style={{
@@ -220,11 +221,17 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
               width: "1600px", // Use pixel values for width
               height: "1600px", // Use pixel values for height
                 // Set border radius to 50% for a circular shape
-              background: `radial-gradient(circle,${config.backlight.color} 0%,hsla(140, 52.20%, 54.90%, 0.00) 70%, rgba(80, 200, 120, 0) 100%)`, // Radial gradient with emerald color
               transform: `rotate(${gradient.tilt != null ? gradient.tilt : 0}deg)`, // Directly set tilt
-              transformOrigin: 'center', // Set transform origin to center for proper rotation
+              transformOrigin: 'center',
+              zIndex: -1000, // Set transform origin to center for proper rotation
+              // background: `radial-gradient(circle,${config.backlight.color} 0%,hsla(140, 52.20%, 54.90%, 0.00) 70%, rgba(80, 200, 120, 0) 100%)`, // Radial gradient with emerald color
             }}
-          />
+            >
+               <Canvas>
+                <SpotlightShader color={config.backlight.color}/>
+              </Canvas>
+          </Flex>
+            
         )}
         {children}
       </Flex>
