@@ -76,7 +76,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             <Flex onClick={handleImageClick}>
             <RevealFx
                     style={{width: '100%'}}
-                    delay={0.4}
+                    delay={0}
                     trigger={isTransitioning}
                     speed="fast">
                     <SmartImage
@@ -85,6 +85,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                         alt={title}
                         aspectRatio="16 / 9"
                         src={images[activeIndex]}
+                        objectFit="contain"
                         style={{
                             border: '1px solid var(--neutral-alpha-weak)',
                             ...(images.length > 1 && {

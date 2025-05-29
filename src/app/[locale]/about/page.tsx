@@ -1,7 +1,7 @@
 import { Avatar, Button, Flex, Heading, Icon, IconButton, SmartImage, Tag, Text, SmartLink, DialogBox, Tooltip} from '@/once-ui/components';
 import { baseURL, renderContent } from '@/app/resources';
 import TableOfContents from '@/components/about/TableOfContents';
-import styles from '@/components/about/about.module.scss'
+import styles from '@/components/about/about.module.scss';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import  SendEmailButton from '../../../components/about/Handlemail';
@@ -321,7 +321,7 @@ export default function About(
                             </Flex> */}
                         </>
                     )}
-                    <Flex direction='column' alignItems='center' >
+                    <Flex direction='column' alignItems='center' style={{zIndex: '1000'}} >
                     { about.studies.display && (
                         <>
                             <Heading

@@ -179,20 +179,20 @@ export function LandingPage({ range, locale }: ProjectsProps) {
         </Flex>
         <img 
         ref={ladningImageRef}
-        src={config.style.theme === 'dark' ? "/images/sunrise.png" : "/images/sunrise.png"} 
+        src={config.style.theme === 'dark' ? "/images/sunrise.webp" : "/images/sunrise.webp"} 
         alt="Landing" 
         className={config.style.theme === 'dark' ? styles.coverImage : styles.coverImage2} />
       </Flex>
       
       <img
         ref={overlayRef}
-        src={config.style.theme === 'dark' ? "/images/backdrop-dark.png" : "/images/backdrop.png"}
+        src={config.style.theme === 'dark' ? "/images/backdrop-dark.webp" : "/images/backdrop.webp"}
         alt="Overlay"
         className={styles.overlayImage}
       />
       <img
         ref={overlayTextRef}
-        src={config.style.theme === 'dark' ? "/images/backdroptext.png" : "/images/backdrop-text-dark.png"}
+        src={config.style.theme === 'dark' ? "/images/backdroptext.webp" : "/images/backdrop-text-dark.webp"}
         alt="OverlayText"
         className={styles.overlayText}
       />
