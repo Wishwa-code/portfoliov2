@@ -10,6 +10,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { baseURL, routes, renderContent } from '@/app/resources'; 
 import { Projects } from '@/components/work/Projects';
+import GSAPTextWrapper from "@/gsap/GSAPSpliitext";
 
 
 
@@ -142,7 +143,7 @@ export function LandingPage({ range, locale }: ProjectsProps) {
   return (
     <>
     <Flex className={styles.landingImage}>
-                  
+       <GSAPTextWrapper />	           
       <Flex>
         <Flex 
          ref={textRef}
@@ -152,8 +153,12 @@ export function LandingPage({ range, locale }: ProjectsProps) {
               style={{
                 marginLeft:'8vw',
                 marginTop: '26vh'
-                    }}>
-                <p > Wishwa </p>
+                    }}>  
+                <div className="container">
+                  <div className="text">
+                    Wishwa
+                  </div>
+                </div>
             </Flex>
             <Flex className={styles.pressuretext}>
               <TextPressure

@@ -7,7 +7,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
 
 import { Flex, ToggleButton , Switch2, ToggleButton3,ToggleButton4} from "@/once-ui/components"
-import styles from '@/components/Header.module.scss'
+import styles from './Header.module.scss'
 
 import { routes, display } from '@/app/resources'
 

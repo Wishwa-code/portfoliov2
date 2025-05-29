@@ -50,12 +50,13 @@ const GlassIcons: React.FC<GlassIconsProps> = ({ items, className }) => {
     <div className={`icon-btns ${className || ""}`}>
       {items.map((item, index) => (
         <a
-
-            href={item.link}
+          href={item.link}
           key={index}
           type="button"
           className={`icon-btn ${item.customClass || ""}`}
           aria-label={item.label}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <span
             className="icon-btn__back"
