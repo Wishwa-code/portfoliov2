@@ -182,6 +182,8 @@ export function LandingPage({ range, locale }: ProjectsProps) {
         ref={ladningImageRef}
         src={config.style.theme === 'dark' ? "/images/sunrise.webp" : "/images/sunrise.webp"} 
         alt="Landing" 
+        loading="eager"
+        priority={true}
         className={config.style.theme === 'dark' ? styles.coverImage : styles.coverImage2} 
         width={600}
         height={900}/>
@@ -194,6 +196,7 @@ export function LandingPage({ range, locale }: ProjectsProps) {
         className={styles.overlayImage}
         width={550}
         height={550}
+        
       />
       <Image
         ref={overlayTextRef}

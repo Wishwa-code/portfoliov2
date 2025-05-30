@@ -78,6 +78,12 @@ const landing = localFont({
 display: 'swap',
 })
 
+const compressor = localFont({
+  src: '../../../public/fonts/Compressa.woff2',
+  variable: '--font-compressor',
+ display: 'swap',
+})
+
 /*
 	Replace with code for secondary and tertiary fonts
 	from https://once-ui.com/customize
@@ -135,6 +141,7 @@ export default async function RootLayout({
 						tertiary ? tertiary.variable : '',
 						code.variable,
 						landing.variable,
+						compressor.variable,
 						'dark:data-device-dark')}>
 						<GSAPWrapper />	
 					

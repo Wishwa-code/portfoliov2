@@ -28,7 +28,7 @@
 
 
 .coverImage2 {
-  width: 35%;
+  width: auto;
   height: 100vh;
   object-fit: cover;
   position: absolute;
@@ -41,7 +41,7 @@
   z-index: 900;
 }
 .coverImage {
-  width: 35%;
+  width: auto;
   height: 100vh;
   object-fit: cover;
   position: absolute;
@@ -86,6 +86,7 @@
   // width: 500px;
   // height: 400px;
   width: 100vw;
+  height:auto;
   top: 50%;
   transform: translate(-50%, -50%) scale(50);// initial scale
   opacity: 0; // hidden initially
@@ -97,6 +98,8 @@
 .overlayText {
   position: absolute;
   width: 100vw;
+    height:auto;
+
 //   top: 70px;
   left: -0.15%;
   // width: 500px;

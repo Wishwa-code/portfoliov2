@@ -169,8 +169,7 @@ const TextPressure: React.FC<TextPressureProps> = ({
         >
             <style>{`
         @font-face {
-          font-family: '${fontFamily}';
-          src: url('${fontUrl}');
+          font-family: var(--font-family-compressa);
           font-style: normal;
         }
 
@@ -203,7 +202,7 @@ const TextPressure: React.FC<TextPressureProps> = ({
                 ref={titleRef}
                 className={`text-pressure-title ${dynamicClassName}`}
                 style={{
-                    fontFamily,
+                    fontFamily:'var(--font-family-compressa)',
                     textTransform: 'uppercase',
                     fontSize: fontSize,
                     lineHeight,

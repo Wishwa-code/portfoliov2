@@ -14,7 +14,7 @@ export default function GSAPTextWrapper() {
     });
     // Example GSAP animation
     // gsap.to(".box", { x: 360 });
-    gsap.from(split.words, {
+    gsap.from(split.chars, {
       yPercent:"random([-100,100])",
       rotation:"random(-30,30)",
       autoAlpha: 0,
