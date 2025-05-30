@@ -11,6 +11,7 @@ import { useTranslations } from 'next-intl';
 import { baseURL, routes, renderContent } from '@/app/resources'; 
 import { Projects } from '@/components/work/Projects';
 import GSAPTextWrapper from "@/gsap/GSAPSpliitext";
+import Image from 'next/image';
 
 
 
@@ -177,24 +178,30 @@ export function LandingPage({ range, locale }: ProjectsProps) {
             </Flex>
             
         </Flex>
-        <img 
+        <Image
         ref={ladningImageRef}
         src={config.style.theme === 'dark' ? "/images/sunrise.webp" : "/images/sunrise.webp"} 
         alt="Landing" 
-        className={config.style.theme === 'dark' ? styles.coverImage : styles.coverImage2} />
+        className={config.style.theme === 'dark' ? styles.coverImage : styles.coverImage2} 
+        width={600}
+        height={900}/>
       </Flex>
       
-      <img
+      <Image
         ref={overlayRef}
         src={config.style.theme === 'dark' ? "/images/backdrop-dark.webp" : "/images/backdrop.webp"}
         alt="Overlay"
         className={styles.overlayImage}
+        width={550}
+        height={550}
       />
-      <img
+      <Image
         ref={overlayTextRef}
         src={config.style.theme === 'dark' ? "/images/backdroptext.webp" : "/images/backdrop-text-dark.webp"}
         alt="OverlayText"
         className={styles.overlayText}
+         width={1500}
+        height={550}
       />
       
     </Flex>

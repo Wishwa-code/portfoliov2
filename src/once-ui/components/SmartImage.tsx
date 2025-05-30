@@ -1,8 +1,9 @@
-'use client';
+ 'use client';
 
 import React, { CSSProperties, useState, useRef, useEffect } from 'react';
 import Image, { ImageProps } from 'next/image';
 import classNames from 'classnames';
+
 
 import { Flex, Skeleton } from '@/once-ui/components';
 

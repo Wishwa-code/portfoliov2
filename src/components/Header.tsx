@@ -285,27 +285,40 @@ export const Header = () => {
                                 {windowSize.width > 768 ? ( 
                                     <>
                                         
-                                        <Switch2
-                                            isChecked={config.style.theme === 'dark'}
-                                            onToggle={() => handleThemeChange()}
-                                            iconChecked="dark"
-                                            iconUnchecked="light"
-                                            ariaLabel="Toggle switch example"
-                                            className="custom-switch-class"
-                                            label="Switch Label"
-                                            style={{
-                                                backgroundImage: config.style.theme === 'dark'
-                                                    ? "url('/images/utils/dark_bg.gif')"
-                                                    : "url('/images/utils/light_bg.gif')",
-                                                backgroundSize: 'cover',
-                                                backgroundPosition: 'center',
-                                                backgroundRepeat: 'no-repeat',
-                                                height: '100px',
-                                                marginBottom: '7px',
-                                                // backgroundColor: config.style.theme === 'dark' ? 'black' : 'white',
-                                            }}
-                                            
-                                        />
+                                        <div style={{ position: 'relative', height: '100px', marginBottom: '7px', overflow: 'hidden' }}>
+                                            <video
+                                                autoPlay
+                                                loop
+                                                muted
+                                                playsInline
+                                                style={{
+                                                    position: 'absolute',
+                                                    top: 0,
+                                                    left: 0,
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    objectFit: 'cover',
+                                                    zIndex: 0,
+                                                }}
+                                                src={config.style.theme === 'dark'
+                                                    ? "/images/utils/dark_bg.mp4"
+                                                    : "/images/utils/light_bg.mp4"}
+                                            />
+                                            <Switch2
+                                                isChecked={config.style.theme === 'dark'}
+                                                onToggle={handleThemeChange}
+                                                iconChecked="dark"
+                                                iconUnchecked="light"
+                                                ariaLabel="Toggle switch example"
+                                                className="custom-switch-class"
+                                                label="Switch Label"
+                                                style={{
+                                                    position: 'relative',
+                                                    zIndex: 1, 
+                                                    marginTop: '25px', // ensure it's above the video
+                                                }}
+                                            />
+                                        </div>
                             
                                         {/* <Switch2
                                             isChecked={config.backlight.state === 'true'}
