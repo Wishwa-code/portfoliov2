@@ -5,6 +5,7 @@
 
 import { useParams } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
+import dynamic from 'next/dynamic';
 
 import { Flex, ToggleButton , Switch2, ToggleButton3,ToggleButton4} from "@/once-ui/components"
 import styles from './Header.module.scss'
@@ -21,42 +22,9 @@ import ColorPalette from '@/components/Colorpalette'
 import { color } from "framer-motion";
 import GlassIcons from "@/reactbits/glassIcons/glassIcons";
 
-type TimeDisplayProps = {
-    timeZone: string;
-    locale?: string;  // Optionally allow locale, defaulting to 'en-GB'
-};
+// Dynamically import TimeDisplay with SSR disabled
+const TimeDisplay = dynamic(() => import('./TimeDisplay'), { ssr: false });
 
-const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = 'en-GB' }) => {
-    const [currentTime, setCurrentTime] = useState('');
-
-    useEffect(() => {
-        const updateTime = () => {
-            const now = new Date();
-            const options: Intl.DateTimeFormatOptions = {
-                timeZone,
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: false,
-            };
-            const timeString = new Intl.DateTimeFormat(locale, options).format(now);
-            setCurrentTime(timeString);
-        };
-
-        updateTime();
-        const intervalId = setInterval(updateTime, 1000);
-
-        return () => clearInterval(intervalId);
-    }, [timeZone, locale]);
-
-    return (
-        <>
-            {currentTime}
-        </>
-    );
-};
-
-export default TimeDisplay;
 
 export const Header = () => {
     const router = useRouter();
@@ -70,6 +38,10 @@ export const Header = () => {
         width: typeof window !== 'undefined' ? window.innerWidth : 0,
         height: typeof window !== 'undefined' ? window.innerHeight : 0,
     });
+    const [showVideo, setShowVideo] = useState(false);
+
+
+    
 
     const colorLabelFromBacklight = (backlight: string): string => {
         console.log('color for buttons',backlight);
@@ -118,6 +90,9 @@ export const Header = () => {
     useEffect(() => {
         console.log('Current theme from config:', config.style.theme);
         document.documentElement.setAttribute('data-theme', config.style.theme);
+        if (window.innerWidth > 768) {
+            setShowVideo(true);
+        }
   
       }, [config]);
 
@@ -163,7 +138,6 @@ export const Header = () => {
                 
             <ToggleButton3
                 className={styles.menuButton}
-                prefixIcon="Menu"
                 onClick={toggleMenu}
                 selected={isMenuVisible}
             >
@@ -285,7 +259,7 @@ export const Header = () => {
                                 {windowSize.width > 768 ? ( 
                                     <>
                                         
-                                        <div style={{ position: 'relative', height: '100px', marginBottom: '7px', overflow: 'hidden' }}>
+                                        {showVideo && (<div style={{ position: 'relative', height: '100px', marginBottom: '7px', overflow: 'hidden' }}>
                                             <video
                                                 autoPlay
                                                 loop
@@ -318,17 +292,8 @@ export const Header = () => {
                                                     marginTop: '25px', // ensure it's above the video
                                                 }}
                                             />
-                                        </div>
-                            
-                                        {/* <Switch2
-                                            isChecked={config.backlight.state === 'true'}
-                                            onToggle={() => handleColorChange(config.backlight.state === 'true' ? 'false' : 'true', 'state')}
-                                            iconChecked="spotlighton"
-                                            iconUnchecked="spotlightoff"
-                                            ariaLabel="Toggle switch example"
-                                            className="custom-switch-class"
-                                            label="Switch Label"
-                                        /> */}
+                                        </div>)}
+          
                                         <Flex
                                         marginBottom="8"
                                         >
@@ -343,15 +308,7 @@ export const Header = () => {
                                         
                                             <ColorPalette/>
                                         
-                                        {/* <Switch2
-                                                isChecked={config.backlight.state === 'true'}
-                                                onToggle={() => handleColorChange(config.backlight.state === 'true' ? 'false' : 'true', 'state')}
-                                                iconChecked="spotlighton"
-                                                iconUnchecked="spotlightoff"
-                                                ariaLabel="Toggle switch example"
-                                                className="custom-switch-class"
-                                                label="Switch Label"
-                                        /> */}
+
                                         <Switch2
                                         isChecked={config.style.theme === 'dark'}
                                         onToggle={() => handleThemeChange()}

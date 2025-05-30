@@ -127,7 +127,7 @@ export default async function RootLayout({
 		<ConfigProvider>
                     <NextIntlClientProvider messages={messages}>
                         
-                        <Flex
+                        {/* <Flex
                             as="html" lang="en"
                             background="page"
                             data-neutral={style.neutral} 
@@ -149,11 +149,11 @@ export default async function RootLayout({
                             <Flex 
                                 as="body"
                                 fillWidth margin="0" padding="0"
-                                direction="column">
+                                direction="column"> */}
                                     {children}
-                            </Flex>
+                            {/* </Flex>
                             
-                </Flex>
+                </Flex> */}
 			</NextIntlClientProvider>
 		</ConfigProvider>
 	);

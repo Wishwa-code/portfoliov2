@@ -4,12 +4,13 @@ import { ConfigProvider } from '@/app/contexts/ConfigContext';
 import classNames from 'classnames';
 import GSAPWrapper from "../../gsap/GSAWrapper";
 
+import dynamic from 'next/dynamic';
 
 
 import { Flex, Background } from '@/once-ui/components'
 import { Background as NewBackground} from '@/once-ui/components/NewBackground/NewBackground'
 import { Column as NewColumn} from '@/once-ui/components/NewBackground/Column'
-import { Footer, Header, RouteGuard } from "@/components";
+import { Footer,  RouteGuard } from "@/components";
 import { baseURL, effects, style, neweffects } from '@/app/resources'
 
 import { Inter } from 'next/font/google'
@@ -118,6 +119,9 @@ export default async function RootLayout({
 	const messages = await getMessages();
 	const mode = (searchParams?.mode) || 'default';
 	console.log('mode', mode);
+	const Header = dynamic(() => import('@/components/Header').then(mod => mod.Header), {
+		ssr: false
+	});
 
 	return (
 		<ConfigProvider>
