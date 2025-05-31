@@ -19,7 +19,7 @@ interface LanguageItem {
 }
 
 const frameworks: LanguageItem[] = [
-  { name: 'Typescript', icon: '/logos/typescript.png' },
+  { name: 'Typescript', icon: '/logos/typescript.webp' },
   { name: 'Dart', icon: '/logos/Dart.svg' },
   { name: 'Go', icon: '/logos/Go.svg' },
   { name: 'Java', icon: '/logos/Java.svg' },
@@ -27,14 +27,14 @@ const frameworks: LanguageItem[] = [
   { name: 'C', icon: '/logos/C.svg' },
   { name: 'PHP', icon: '/logos/PHP.svg' },
   { name: 'Python', icon: '/logos/Python.svg' },
-  { name: 'SQL', icon: '/logos/sql.png' },
+  { name: 'SQL', icon: '/logos/sql.webp' },
 
   { name: 'HTML', icon: '/logos/HTML5.svg' },
   { name: 'CSS', icon: '/logos/CSS3.svg' },
   { name: 'Sass', icon: '/logos/sass-original.svg' },
   { name: 'JSON', icon: '/logos/json-original.svg' },
   { name: 'YAML', icon: '/logos/YAML.svg' },
-  { name: 'TOML', icon: '/logos/toml.png' },
+  { name: 'TOML', icon: '/logos/toml.webp' },
   { name: 'R', icon: '/logos/R.svg' },
 ];
 

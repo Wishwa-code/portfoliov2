@@ -22,10 +22,12 @@ interface FrameworkItem {
 const frameworks: FrameworkItem[] = [
   { name: 'Three.js', icon: '/logos/Three.svg', tooBlack: true },
   { name: 'Rive', icon: '/logos/rive.svg', tooWhite: true },
-  { name: 'Motion', icon: '/logos/framermotion.png', tooWhite: true },
+  { name: 'Motion', icon: '/logos/framermotion.webp', tooWhite: true },
+  { name: 'GSAP', icon: '/logos/gsap-white.svg', tooBlack: true },
+
 
   { name: 'Tailwind', icon: '/logos/Tailwind.svg' },
-  { name: 'Once UI', icon: '/logos/onceui.png', tooWhite: true },
+  { name: 'Once UI', icon: '/logos/onceui.webp', tooWhite: true },
   
   { name: 'LangChain', icon: '/logos/langchain.svg' },
   { name: 'Sci-kit learn', icon: '/logos/scikitlearn.svg' },
@@ -39,8 +41,8 @@ const frameworks: FrameworkItem[] = [
   { name: 'MongoDB', icon: '/logos/MongoDB.svg' },
   { name: 'Redis', icon: '/logos/redis-original.svg' },
 
-  { name: 'O Auth', icon: '/logos/oauth.png' },
-  { name: 'Clerk', icon: '/logos/clerk.png' },
+  { name: 'O Auth', icon: '/logos/oauth.webp' },
+  { name: 'Clerk', icon: '/logos/clerk.webp' },
   
 
 
@@ -48,9 +50,9 @@ const frameworks: FrameworkItem[] = [
 
   { name: 'Redux', icon: '/logos/redux-original.svg' },
   { name: 'React Context API', icon: '/logos/react-original.svg' },
-  { name: 'Riverpod', icon: '/logos/riverpod.png' },
-  { name: 'React/Tanstack Query', icon: '/logos/repo-dark.png' },
-  { name: 'SWR', icon: '/logos/swr.png' },
+  { name: 'Riverpod', icon: '/logos/riverpod.webp' },
+  { name: 'React/Tanstack Query', icon: '/logos/repo-dark.webp' },
+  { name: 'SWR', icon: '/logos/swr.webp' },
 
   { name: 'Selenium', icon: '/logos/Selenium.svg' },
   { name: 'Jest', icon: '/logos/Jest.svg' },
@@ -60,7 +62,7 @@ const frameworks: FrameworkItem[] = [
   { name: 'Sentry', icon: '/logos/sentry.svg',tooBlack: true },
   { name: 'Resend', icon: '/logos/resend-wordmark-white.svg', tooWhite: true },
   { name: 'Next-intl', icon: '/logos/next-inte.svg', tooBlack: true },
-    { name: 'Payhere', icon: '/logos/PayHere-Logo.png' },
+    { name: 'Payhere', icon: '/logos/PayHere-Logo.webp' },
     { name: 'Stripe', icon: '/logos/Stripe.svg' },
 
 
@@ -68,7 +70,7 @@ const frameworks: FrameworkItem[] = [
 
 
   { name: 'Vercel', icon: '/logos/vercel-original.svg' , tooBlack: true },
-  { name: 'Render', icon: '/logos/render.png' },
+  { name: 'Render', icon: '/logos/render.webp' },
   { name: 'AWS', icon: '/logos/amazonwebservices-original-wordmark.svg' },
 
 
