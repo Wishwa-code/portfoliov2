@@ -72,6 +72,7 @@ const ToggleButton2 = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
         className: `${styles.button} ${selected ? styles.selected : ''} ${styles[size]} ${styles[align]} ${styles[width]} ${className || ''}`,
         style: { ...style, backgroundColor, textDecoration: 'none' },
         'aria-pressed': selected,
+        'aria-label': label || 'Toggle Button',
         tabIndex: 0,
     };
 

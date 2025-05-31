@@ -23,11 +23,11 @@ const frameworks: FrameworkItem[] = [
   { name: 'Three.js', icon: '/logos/Three.svg', tooBlack: true },
   { name: 'Rive', icon: '/logos/rive.svg', tooWhite: true },
   { name: 'Motion', icon: '/logos/framermotion.webp', tooWhite: true },
-  { name: 'GSAP', icon: '/logos/gsap-white.svg', tooBlack: true },
+  { name: 'GSAP', icon: '/logos/gsap-white.svg', tooWhite: true },
 
 
   { name: 'Tailwind', icon: '/logos/Tailwind.svg' },
-  { name: 'Once UI', icon: '/logos/onceui.webp', tooWhite: true },
+  { name: 'Once UI', icon: '/logos/onceUI.webp', tooWhite: true },
   
   { name: 'LangChain', icon: '/logos/langchain.svg' },
   { name: 'Sci-kit learn', icon: '/logos/scikitlearn.svg' },

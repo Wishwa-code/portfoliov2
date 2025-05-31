@@ -71,7 +71,8 @@ const ToggleButton4 = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
     const commonProps = {
         className: `${styles.button} ${selected ? styles.selected : ''} ${styles[size]} ${styles[align]} ${styles[width]} ${className || ''}`,
         style: { ...style, textDecoration: 'none' },
-        'aria-pressed': selected,
+        ...(href ? {} : { 'aria-pressed': selected }), // Apply aria-pressed only if not a link
+        'aria-label': label || 'Toggle Button',
         tabIndex: 0,
     };
 

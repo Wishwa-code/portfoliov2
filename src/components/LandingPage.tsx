@@ -156,7 +156,7 @@ export function LandingPage({ range, locale }: ProjectsProps) {
                 marginTop: '26vh'
                     }}>  
                 <div className="container">
-                  <div className="text">
+                  <div className="text" role="heading" aria-level={1}>
                     Wishwa
                   </div>
                 </div>
@@ -221,7 +221,9 @@ export function LandingPage({ range, locale }: ProjectsProps) {
            letterSpacing: '0.05em',
            wordSpacing: '0.08em',
         }}
-        size="m">
+        size="m"
+        aria-label={t("about.title") || "About"} // Added aria-label for accessibility
+      >
         <Flex
           gap="8"
           alignItems="center">
@@ -241,4 +243,4 @@ export function LandingPage({ range, locale }: ProjectsProps) {
 }
 
 
-//just making a chage for git issuem 
+//just making a chage for git issuem

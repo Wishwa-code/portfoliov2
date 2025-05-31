@@ -277,21 +277,40 @@ export const Header = () => {
                                                 src={config.style.theme === 'dark'
                                                     ? "/images/utils/dark_bg.mp4"
                                                     : "/images/utils/light_bg.mp4"}
-                                            />
-                                            <Switch2
-                                                isChecked={config.style.theme === 'dark'}
-                                                onToggle={handleThemeChange}
-                                                iconChecked="dark"
-                                                iconUnchecked="light"
-                                                ariaLabel="Toggle switch example"
-                                                className="custom-switch-class"
-                                                label="Switch Label"
-                                                style={{
-                                                    position: 'relative',
-                                                    zIndex: 1, 
-                                                    marginTop: '25px', // ensure it's above the video
-                                                }}
-                                            />
+                                            >
+                                                    {config.style.theme === 'dark' ? (
+                                                        <track
+                                                        src="/captions_dark.vtt"
+                                                        kind="captions"
+                                                        srcLang="en"
+                                                        label="Dark Mode Captions"
+                                                        default
+                                                        />
+                                                    ) : (
+                                                        <track
+                                                        src="/captions_light.vtt"
+                                                        kind="captions"
+                                                        srcLang="en"
+                                                        label="Light Mode Captions"
+                                                        default
+                                                        />
+                                                    )}
+                                            </video>
+                                                    <Switch2
+                                                        isChecked={config.style.theme === 'dark'}
+                                                        onToggle={handleThemeChange}
+                                                        iconChecked="dark"
+                                                        iconUnchecked="light"
+                                                        ariaLabel="Toggle switch example"
+                                                        className="custom-switch-class"
+                                                        label="Switch Label"
+                                                        style={{
+                                                            position: 'relative',
+                                                            zIndex: 1, 
+                                                            marginTop: '25px', // ensure it's above the video
+                                                        }}
+                                                    />
+                                                   
                                         </div>)}
           
                                         <Flex

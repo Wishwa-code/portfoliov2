@@ -19,7 +19,7 @@ interface LanguageItem {
 }
 
 const frameworks: LanguageItem[] = [
-  { name: 'Typescript', icon: '/logos/typescript.webp' },
+  { name: 'Typescript', icon: '/logos/TypeScript.webp' },
   { name: 'Dart', icon: '/logos/Dart.svg' },
   { name: 'Go', icon: '/logos/Go.svg' },
   { name: 'Java', icon: '/logos/Java.svg' },
