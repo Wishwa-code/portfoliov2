@@ -30,13 +30,16 @@ const ParentComponent: React.FC = () => {
     const handleColorChange = (newColor: string, change: 'state' | 'color') => {
         console.log(`Changing backlight ${change} to:`, newColor);
 
+        // Remove alpha component from the color
+        const rgbColor = newColor.replace(/rgba?\((\d+,\s*\d+,\s*\d+),[^)]+\)/, 'rgb($1)');
+
         if (newColor === 'rgba(0, 0, 0, 0)') {
             const newState = !config.backlight.state;
             setConfig((prevConfig: any) => ({
                 ...prevConfig,
                 backlight: {
                     ...prevConfig.backlight,
-                    color: newColor,
+                    color: rgbColor, // Use the modified color
                     state: newState
                 }
             }));
@@ -45,7 +48,7 @@ const ParentComponent: React.FC = () => {
                 ...prevConfig,
                 backlight: {
                     ...prevConfig.backlight,
-                    [change]: newColor,
+                    color: rgbColor, // Use the modified color
                     state: 'true'
                 }
             }));

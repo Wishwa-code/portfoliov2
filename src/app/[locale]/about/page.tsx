@@ -362,8 +362,8 @@ export default function About(
                                             {institution.description}
                                         </Text>
                                         <SmartLink
-                                            suffixIcon="chevronRight"
-                                            style={{margin: '0', width: 'fit-content',padding: '0'}}
+                                            prefixIcon="rightarrow"
+                                            style={{margin: '0', width: 'fit-content',padding: '0',paddingTop:'5px'}}
                                             //@ts-ignore
                                             href={institution.link}>
                                                 
@@ -419,8 +419,8 @@ export default function About(
                                         </Text>
                                         }
                                         <SmartLink
-                                            suffixIcon="chevronRight"
-                                            style={{margin: '0', width: 'fit-content',padding: '0'}}
+                                            prefixIcon="link"
+                                            style={{margin: '0', width: 'fit-content',padding: '0',paddingTop:'5px'}}
                                             //@ts-ignore
                                             href={institution.link}>
                                                 
