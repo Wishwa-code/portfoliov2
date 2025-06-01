@@ -37,9 +37,15 @@ const gradientMapping: Record<string, string> = {
 };
 
 const GlassIcons: React.FC<GlassIconsProps> = ({ items, className }) => {
-        const { config, setConfig } = useConfig();
+        const { config } = useConfig();
     
   const getBackgroundStyle = (color: string): React.CSSProperties => {
+    if (!config.backlight.state) {
+      return { background: "transparent" };
+    }
+    if (config.backlight.color) {
+      return { background: config.backlight.color };
+    }
     if (gradientMapping[color]) {
       return { background: gradientMapping[color] };
     }
