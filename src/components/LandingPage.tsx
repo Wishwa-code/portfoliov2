@@ -237,6 +237,19 @@ export function LandingPage({ range, locale }: ProjectsProps) {
         </Flex>
       </Button>
     </Flex>
+
+    {/* Add the down arrow icon */}
+    {/* //!need to be implemented soon */}
+    {/* <div className={styles.downArrowContainer}>
+      <Image
+        src={"/gta_downarrow.svg"}
+        alt="Down Arrow"
+        width={34}
+        height={14}
+        className={styles.downArrow}
+        style={{ color: config.backlight.color }} // Dynamically set the color
+      />
+    </div> */}
     
     </>
   );

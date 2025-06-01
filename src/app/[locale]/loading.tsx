@@ -14,9 +14,14 @@ export default function Loading() {
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
     
   return (
-          <Flex fillWidth paddingY="128" justifyContent="center">
-            <Lottie animationData={animationData} loop={true} />
-        </Flex>
+          <Flex fillWidth style={{height:'84vh'}}   justifyContent="center" alignItems="center">
+              <Flex 
+              style={{width:'40vw'}} 
+              paddingY="128" 
+              justifyContent="center">
+                  <Lottie animationData={animationData} loop={true} />
+              </Flex>
+          </Flex>
   );
 }
 

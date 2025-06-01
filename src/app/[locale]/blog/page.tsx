@@ -49,7 +49,8 @@ export default function Blog(
 	const { person, blog, newsletter } = renderContent(t);
     return (
         <Flex
-			fillWidth maxWidth="s"
+			fillWidth maxWidth="s" style={{ height: '84vh' }}
+			
 			direction="column">
             <script
 				type="application/ld+json"

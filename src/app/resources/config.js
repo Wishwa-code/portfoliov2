@@ -24,7 +24,7 @@ const routes = {
 // Set password in pages/api/authenticate.ts
 const protectedRoutes = {
     '/work/automate-design-handovers-with-a-figma-to-code-pipeline': true,
-    '/about/uow': true
+    '/about/uow': false
 }
 
 const effects = {
