@@ -95,6 +95,7 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
 
     const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
     const [smoothPosition, setSmoothPosition] = useState({ x: 0, y: 0 });
+    const [isMobile, setIsMobile] = useState(false);
     const backgroundRef = useRef<HTMLDivElement>(null);
     const { config, setConfig } = useConfig(); // Destructure both config and setConfig
     
@@ -209,29 +210,25 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
         }}
         {...rest}
       >
-        { config != null && config.backlight?.state === 'true' && (
+        { config != null && config.backlight?.state === 'true' && !isMobile && (
           <Flex
             position="absolute"
-            // className={styles.gradient}
-            opacity={gradient.opacity / 100} // Convert opacity from 0-100 to 0-1
+            opacity={gradient.opacity / 100}
             pointerEvents="none"
             style={{
-              left: `${smoothPosition.x-800}px`, // Use pixel values for left position
-              top: `${smoothPosition.y-800}px`, // Use pixel values for top position
-              width: "1600px", // Use pixel values for width
-              height: "1600px", // Use pixel values for height
-                // Set border radius to 50% for a circular shape
-              transform: `rotate(${gradient.tilt != null ? gradient.tilt : 0}deg)`, // Directly set tilt
+              left: `${smoothPosition.x-800}px`,
+              top: `${smoothPosition.y-800}px`,
+              width: "1600px",
+              height: "1600px",
+              transform: `rotate(${gradient.tilt != null ? gradient.tilt : 0}deg)`,
               transformOrigin: 'center',
-              zIndex: -1000, // Set transform origin to center for proper rotation
-              // background: `radial-gradient(circle,${config.backlight.color} 0%,hsla(140, 52.20%, 54.90%, 0.00) 70%, rgba(80, 200, 120, 0) 100%)`, // Radial gradient with emerald color
+              zIndex: -1000,
             }}
-            >
-               <Canvas>
-                <SpotlightShader color={config.backlight.color}/>
-              </Canvas>
+          >
+            <Canvas>
+              <SpotlightShader color={config.backlight.color}/>
+            </Canvas>
           </Flex>
-            
         )}
         {children}
       </Flex>

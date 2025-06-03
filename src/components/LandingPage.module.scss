@@ -103,9 +103,9 @@
   z-index: 8000;
   
   @media (max-width: 480px) {
-    top:29%;
+    top:24%;
     left:52%;
-    background-color: aqua;
+    color: var(--accent-background-medium);
   }
 }
 
