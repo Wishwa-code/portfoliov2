@@ -26,10 +26,10 @@
   will-change: transform;
 }
 .contentContainer {
-    padding-top: 117vh;
+    height: 124vh;
 
      @media (max-width: 480px) {
-      padding-top: 87vh;
+      height: 87vh;
   }
 }
 
