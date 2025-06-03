@@ -151,10 +151,7 @@ export function LandingPage({ range, locale }: ProjectsProps) {
           direction="column"
           className={styles.landingNameContainer}>
             <Flex 
-              style={{
-                marginLeft:'8vw',
-                marginTop: '26vh'
-                    }}>  
+              className={styles.landingNameText}>  
                 <div className="container">
                   <div className="text" role="heading" aria-level={1}>
                     Wishwa
@@ -184,7 +181,7 @@ export function LandingPage({ range, locale }: ProjectsProps) {
         alt="Landing" 
         loading="eager"
         priority={true}
-        className={config.style.theme === 'dark' ? styles.coverImage : styles.coverImage2} 
+        className={ styles.coverImage } 
         width={600}
         height={900}/>
       </Flex>
@@ -196,7 +193,6 @@ export function LandingPage({ range, locale }: ProjectsProps) {
         className={styles.overlayImage}
         width={550}
         height={550}
-        
       />
       <Image
         ref={overlayTextRef}
@@ -206,7 +202,6 @@ export function LandingPage({ range, locale }: ProjectsProps) {
          width={1500}
         height={550}
       />
-      
     </Flex>
     <Flex 
       ref={aboutemeButtontRef}

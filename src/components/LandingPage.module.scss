@@ -27,19 +27,7 @@
 }
 
 
-.coverImage2 {
-  width: auto;
-  height: 100vh;
-  object-fit: cover;
-  position: absolute;
-  // top: 50vh;
-  right: 0px;
-  // transform: translate(-50%, -50%);
-  transform-origin: center;
-  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
-  will-change: transform;
-  z-index: 900;
-}
+
 .coverImage {
   width: auto;
   height: 100vh;
@@ -52,12 +40,43 @@
   transition: transform 0.4s ease-out, opacity 0.4s ease-out;
   will-change: transform;
   z-index: 900;
+
+  /* Mobile styles */
+  @media (max-width: 480px) {
+    width: 100%;
+    height: 100vh;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    object-fit: cover;
+  }
+
+  /* Small mobile devices */
+  @media (max-width: 360px) {
+    height: 90vh;
+  }
 }
 
 .landingNameContainer{
   font-family: var(--font-family-landing);
   font-size: 12.9rem;
   z-index:1150;
+
+  /* Medium mobile devices */
+  @media (max-width: 480px) {
+    font-size: 4rem;
+  }
+}
+
+.landingNameText {
+  margin-left: 8vw;
+  margin-top: 26vh;
+
+
+  @media (max-width: 480px) {
+    margin-left: 8vw;
+    margin-top: 6vh;
+  }
 }
 
 .pressuretext{
@@ -67,6 +86,11 @@
   // font-family: var(--font-family-landing);
   // font-size: 12.9rem;
   z-index:55;
+
+  @media (max-width: 480px) {
+    top:9%;
+    left:15%;
+  }
 }
 
 .aboutemebuutton{
@@ -77,6 +101,12 @@
   z-index: 6000;
   color: var(--neutral-on-background-medium);
   z-index: 8000;
+  
+  @media (max-width: 480px) {
+    top:29%;
+    left:52%;
+    background-color: aqua;
+  }
 }
 
 .overlayImage {

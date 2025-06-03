@@ -195,6 +195,10 @@ const TextPressure: React.FC<TextPressureProps> = ({
 
         .text-pressure-title {
           color: ${textColor};
+          
+          @media (max-width: 480px) {
+            font-size: 4rem !important;
+          }
         }
       `}</style>
 
@@ -204,7 +208,7 @@ const TextPressure: React.FC<TextPressureProps> = ({
                 style={{
                     fontFamily:'var(--font-family-compressa)',
                     textTransform: 'uppercase',
-                    fontSize: fontSize,
+                    fontSize: fontSize + 'px',
                     lineHeight,
                     transform: `scale(1, ${scaleY})`,
                     transformOrigin: 'center top',
