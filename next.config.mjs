@@ -12,7 +12,7 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig = {
     pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
     compiler: {
-        removeConsole: true, // This will remove all console.* calls in production
+        removeConsole: false, // This will remove all console.* calls in production
     },
 };
 
