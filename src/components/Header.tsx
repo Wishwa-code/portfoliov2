@@ -7,7 +7,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
 import dynamic from 'next/dynamic';
 
-import { Flex, ToggleButton , Switch2, ToggleButton3,ToggleButton4} from "@/once-ui/components"
+import { Flex, ToggleButton , Switch2, Switch3, ToggleButton3,ToggleButton4} from "@/once-ui/components"
 import styles from './Header.module.scss'
 
 import { routes, display } from '@/app/resources'
@@ -65,7 +65,7 @@ export const Header = () => {
         { icon: 'github', color: colorLabel, label: 'Github' ,link:'https://github.com/Wishwa-code'},
         { icon: 'linkedin', color: colorLabel, label: 'Linkedin',link:'https://www.linkedin.com/in/wishwa-kankanamge/' },
         { icon: 'email' , color: colorLabel, label: 'Email' ,link:'mailto:wishwakankankanmge129@gmail.com'},
-        { icon: 'cv', color: colorLabel, label: 'Resume' ,link:'https://drive.google.com/file/d/1bo0R5J9_hs8jajr57JI_lF4VowXLGxcH/view?usp=sharing'},
+        { icon: 'cv', color: colorLabel, label: 'Resume' ,link:'https://drive.google.com/file/d/1XAtvQ5IHhnd4HCt4f4bsouC9b1px5OPK/view?usp=sharing'},
 
         ];
 
@@ -195,7 +195,7 @@ export const Header = () => {
                     <div style={{ width: '225px', height: '1px',  margin: '8px 0 ' , backgroundColor: 'var(--neutral-alpha-medium)' }} />
                     <Flex
                     // style={{ width: '225px'}}
-                    fillWidth
+                        fillWidth
                         direction="column"
                         gap="12"
                         // paddingLeft="8" 
@@ -209,7 +209,7 @@ export const Header = () => {
                                 prefixIcon="home"
                                 href={`/${params?.locale}`}
                                 selected={pathname === "/"}>
-                                <Flex paddingX="2" hide="s">{home.label}</Flex>
+                                <Flex paddingX="2" >{home.label}</Flex>
                             </ToggleButton4>
                         )}
                         { routes['/about'] && (
@@ -217,7 +217,7 @@ export const Header = () => {
                                 prefixIcon="person"
                                 href={`/${params?.locale}/about`}
                                 selected={pathname === "/about"}>
-                                <Flex paddingX="2" hide="s">{about.label}</Flex>
+                                <Flex paddingX="2" >{about.label}</Flex>
                             </ToggleButton4>
                         )}
                         { routes['/work'] && (
@@ -225,7 +225,7 @@ export const Header = () => {
                                 prefixIcon="grid"
                                 href={`/${params?.locale}/work`}
                                 selected={pathname.startsWith('/work')}>
-                                <Flex paddingX="2" hide="s">{work.label}</Flex>
+                                <Flex paddingX="2" >{work.label}</Flex>
                             </ToggleButton4>
                         )}
                         { routes['/blog'] && (
@@ -233,7 +233,7 @@ export const Header = () => {
                                 prefixIcon="book"
                                 href={`/${params?.locale}/blog`}
                                 selected={pathname.startsWith('/blog')}>
-                                <Flex paddingX="2" hide="s">{blog.label}</Flex>
+                                <Flex paddingX="2" >{blog.label}</Flex>
                             </ToggleButton4>
                         )}
                         { routes['/gallery'] && (
@@ -241,7 +241,7 @@ export const Header = () => {
                                 prefixIcon="gallery"
                                 href={`/${params?.locale}/gallery`}
                                 selected={pathname.startsWith('/gallery')}>
-                                <Flex paddingX="2" hide="s">{gallery.label}</Flex>
+                                <Flex paddingX="2" >{gallery.label}</Flex>
                             </ToggleButton>
                         )} 
                         </Flex>
@@ -323,63 +323,22 @@ export const Header = () => {
                                         
                                     </>
                                 ) : (
-                                    <>  
+                                    <>     
+                                        {/* <ColorPalette/> */}
+                                        <Switch3
+                                            isChecked={config.style.theme === 'dark'}
+                                            onToggle={() => handleThemeChange()}
+                                            iconChecked="dark"
+                                            iconUnchecked="light"
+                                            ariaLabel="Toggle switch example"
+                                            className="custom-switch-class"
+                                            label="Switch Label"
+                                            />
+                                            
+                                            
                                         
-                                            <ColorPalette/>
-                                        
-
-                                        <Switch2
-                                        isChecked={config.style.theme === 'dark'}
-                                        onToggle={() => handleThemeChange()}
-                                        iconChecked="dark"
-                                        iconUnchecked="light"
-                                        ariaLabel="Toggle switch example"
-                                        className="custom-switch-class"
-                                        label="Switch Label"
-                                        />
-                                        <Flex 
-                                        paddingTop="4"
-                                        >
-                                            {routing.locales.length > 1 && 
-                                                <Flex
-                                                    
-                                                    background="neutral-medium" 
-                                                    border="neutral-medium" borderStyle="solid-1" radius="m-4" shadow="l"
-                                                    padding="4" gap="2" fillWidth
-                                                    justifyContent="center">
-                                                        {i18n && routing.locales.map((locale, index) => (
-                                                            <ToggleButton
-                                                                key={index}
-                                                                selected={params?.locale === locale}
-                                                                onClick={() => handleLanguageChange(locale)}
-                                                                className={isPending && 'pointer-events-none opacity-60' || ''}
-                                                                style={{
-                                                                    width : '100%'
-                                                                    // backgroundColor: config.style.theme === 'dark' ? 'black' : 'white',
-                                                                }}
-                                                            >
-                                                                {index === 1 ? 'සිං' : locale.toUpperCase()}
-                                                            </ToggleButton>
-                                                        ))}
-                                                </Flex>
-                                            }
-                                        </Flex>
-                                        {/* Close Button */}
-                                        <Flex 
-                                        justifyContent="center"
-                                        paddingBottom="4"
-                                        paddingTop="8">
-                                            {/* @ts-nocheck */}
-                                            <ToggleButton
-                                                prefixIcon="close"
-                                                onClick={toggleOverlay}
-                                                selected={false}
-                                            >
-                                                <Flex paddingX="2" hide="s">Close</Flex>
-                                            </ToggleButton>
-                                        </Flex>
-                                            </>
-                                        )}
+                                    </>
+                                    )}
                                 
                             </Flex>
             

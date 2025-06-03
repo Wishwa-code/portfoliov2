@@ -57,7 +57,7 @@ const createI18nContent = (t) => {
         {
             name: 'Resume',
             icon: 'cv',
-            link: 'https://drive.google.com/file/d/1bo0R5J9_hs8jajr57JI_lF4VowXLGxcH/view?usp=sharing',
+            link: 'https://drive.google.com/file/d/1XAtvQ5IHhnd4HCt4f4bsouC9b1px5OPK/view?usp=sharing',
         },
         {
             name: 'Email',

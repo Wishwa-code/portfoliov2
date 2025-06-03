@@ -86,7 +86,7 @@ export default function Home(
 				
 
 			<Flex
-				style = {{paddingTop: '117vh'}}
+				className={styles.contentContainer}
 				fillWidth
 				direction="column"
 				paddingY="l" gap="m">

@@ -33,6 +33,11 @@
     // transform: translateX(-50%);
     z-index: 1000;
 
+    @media (max-width: 480px) {
+        top: 90px; // Adjust this value based on your header height
+        right:16px;
+    }
+
 }
 
 .menuContainer {

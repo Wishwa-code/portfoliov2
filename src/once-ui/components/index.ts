@@ -59,6 +59,7 @@ export { User } from './User';
 export type { UserProps } from './User';
 export { UserMenu } from './UserMenu';
 export { Switch2 } from './Switch2';
+export { Switch3 } from './Switch3';
 export { ToggleButton2 } from './ToggleButton2';
 export { ToggleButton3 } from './ToggleButton3';
 export { ToggleButton4 } from './ToggleButton4';
