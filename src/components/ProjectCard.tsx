@@ -3,6 +3,7 @@
 import { AvatarGroup, Flex, Heading, RevealFx, SmartImage, SmartLink, Text, Button } from "@/once-ui/components";
 import { useEffect, useState } from "react";
 import { useTranslations } from 'next-intl';
+import styles from './ProjectCard.module.scss'
 
 interface ProjectCardProps {
     href: string;
@@ -71,7 +72,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     return (
         <Flex
             fillWidth gap="m"
-            paddingBottom="160"
             direction="column">
             <Flex onClick={handleImageClick}>
             <RevealFx
@@ -134,11 +134,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                     <Flex
                         flex={4} direction="column"
                         gap="s">
+                            
                         {avatars?.length > 0 && (
-                            <AvatarGroup
+                            <Flex hide="s">
+                                <AvatarGroup
                                 avatars={avatars}
                                 size="m"
-                                reverseOrder/>
+                                reverseOrder />
+                            </Flex>
                         )}
                         {description?.trim() && (
                             <Text
@@ -188,6 +191,17 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                     </Flex>
                 )}
             </Flex>
+            <Flex
+				className={styles.projectCardGap }
+				fillWidth
+				direction="column"
+				paddingY="l" gap="m">
+					<Flex
+						direction="column"
+						fillWidth maxWidth="s" gap="m">
+					</Flex>
+				
+			</Flex>
         </Flex>
     );
 };

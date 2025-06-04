@@ -1,0 +1,7 @@
+.projectCardGap {
+    height: 15vh;
+
+     @media (max-width: 480px) {
+      height: 14vh;
+  }
+}

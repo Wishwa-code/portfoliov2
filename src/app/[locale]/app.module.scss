@@ -33,5 +33,23 @@
   }
 }
 
+.homeBlogGap {
+    height: 4vh;
+
+     @media (max-width: 480px) {
+      height: 5vh;
+  }
+}
+
+.blogLeftGap {
+    padding-left: 4vw;
+
+     @media (max-width: 480px) {
+          padding-left: 0vh;
+
+  }
+}
+
+
 
 //justt making a change to see whats wronf with this dev

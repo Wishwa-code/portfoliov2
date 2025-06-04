@@ -22,7 +22,7 @@ export function Projects({ range, locale }: ProjectsProps) {
 
     return (
         <Flex
-            fillWidth gap="l" marginBottom="80" paddingX="l"
+            fillWidth gap="l" paddingX="l"
             direction="column">
             {displayedProjects.map((post) => (
                 <RevealFx 

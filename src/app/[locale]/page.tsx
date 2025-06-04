@@ -89,7 +89,7 @@ export default function Home(
 				className={styles.contentContainer}
 				fillWidth
 				direction="column"
-				paddingY="l" gap="m">
+				paddingY="0" gap="m">
 					<Flex
 						direction="column"
 						fillWidth maxWidth="s" gap="m">
@@ -100,14 +100,26 @@ export default function Home(
 				<Projects range={[1,1]} locale={locale}/>
 			</RevealFx>
 			{routes['/blog'] && (
+				<>
+				<Flex
+					className={styles.homeBlogGap}
+					fillWidth
+					direction="column"
+					paddingY="l" gap="m">
+						<Flex
+							direction="column"
+							fillWidth maxWidth="s" gap="m">
+						</Flex>
+				</Flex>
+				
 				<Flex 
 				alignItems='center'
-				marginTop='48'
+				// marginTop='48'
 				justifyContent='center'
 				background="surface"
 				radius="l-4"
 				fillWidth gap="24" mobileDirection="column">
-					<Flex flex={1} paddingLeft="80">
+					<Flex flex={1} className={styles.blogLeftGap}>
 						<Heading as="h2" variant="display-strong-xs" wrap="balance">
 						Latest from the blog
 						</Heading>
@@ -116,6 +128,7 @@ export default function Home(
 						<Posts range={[1,1]} columns="1" locale={locale}/>
 					</Flex>
 				</Flex>
+				</>
 			)}
 			{/* <Projects range={[2]} locale={locale}/> */}
 			{ newsletter.display &&
