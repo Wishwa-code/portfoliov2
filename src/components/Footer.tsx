@@ -1,6 +1,8 @@
 import { renderContent } from "@/app/resources";
 import { Flex, IconButton, SmartLink, Text } from "@/once-ui/components"
 import { useTranslations } from "next-intl";
+import Link from 'next/link';
+
 // import { person, social } from '@/app/resources'
 
 export const Footer = () => {
@@ -18,18 +20,22 @@ export const Footer = () => {
             <Flex
                 fillWidth maxWidth="m" paddingY="8" paddingX="16"
                 justifyContent="space-between" alignItems="center">
-                <Text
-                    variant="body-default-s"
-                    onBackground="neutral-strong">
+                <Link
+                    href="/about"
+                    >
                     <Text
-                        onBackground="neutral-weak">
-                        © {currentYear} -
-                    </Text>
-                    <Text paddingX="4">
-                        {person.name}
-                    </Text>
+                        variant="body-default-s"
+                        onBackground="neutral-strong">
+                        <Text
+                            onBackground="neutral-weak">
+                            © {currentYear} -
+                        </Text>
+                        <Text paddingX="4">
+                            {person.name}
+                        </Text>
 
-                </Text>
+                    </Text>
+                </Link>
                 <Flex
                     gap="16">
                     {social.map((item) => (

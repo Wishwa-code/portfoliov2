@@ -42,7 +42,8 @@ import {
 	FaCloudSun,
 	FaMountainSun,
 	FaFirefoxBrowser,
-	FaWhatsapp
+	FaWhatsapp,
+	FaYoutube
 } from "react-icons/fa6";
 
 
@@ -90,4 +91,5 @@ export const iconLibrary: Record<string, IconType> = {
 	browser:FaFirefoxBrowser,
     whatsapp:FaWhatsapp,
 	cv:TbFileCv,
+	youtube:FaYoutube
 };

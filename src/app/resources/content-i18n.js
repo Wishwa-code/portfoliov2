@@ -49,6 +49,12 @@ const createI18nContent = (t) => {
             icon: 'github',
             link: 'https://github.com/Wishwa-code',
         },
+        
+        {
+            name: 'Youtube',
+            icon: 'youtube',
+            link: 'https://youtube.com/@boto8777?si=yXnnintTjRC6ScbW',
+        },
         {
             name: 'LinkedIn',
             icon: 'linkedin',
@@ -59,6 +65,7 @@ const createI18nContent = (t) => {
             icon: 'cv',
             link: 'https://drive.google.com/file/d/1XAtvQ5IHhnd4HCt4f4bsouC9b1px5OPK/view?usp=sharing',
         },
+        
         {
             name: 'Email',
             icon: 'email',
