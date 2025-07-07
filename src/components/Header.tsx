@@ -65,7 +65,7 @@ export const Header = () => {
         { icon: 'github', color: colorLabel, label: 'Github' ,link:'https://github.com/Wishwa-code'},
         { icon: 'linkedin', color: colorLabel, label: 'Linkedin',link:'https://www.linkedin.com/in/wishwa-kankanamge/' },
         { icon: 'email' , color: colorLabel, label: 'Email' ,link:'mailto:wishwakankankanmge129@gmail.com'},
-        { icon: 'cv', color: colorLabel, label: 'Resume' ,link:'https://drive.google.com/file/d/1fV8-D0TkFdAX-8dLCfTHpNPyHF6PBRkR/view?usp=sharing'},
+        { icon: 'cv', color: colorLabel, label: 'Resume' ,link:'https://drive.google.com/file/d/1ANRy4L4HowVBvFgukHL0Np_gAxisxY-C/view?usp=sharing'},
 
         ];
 
