@@ -154,6 +154,18 @@ const createI18nContent = (t) => {
             title: t("about.certificates.title"),
             institutions: [
                 {
+                    name: <>{t(`about.certificates.institutions.Web Programming with Python and Javascript.name`)}</>,
+                    credentialID: <>{t(`about.certificates.institutions.Web Programming with Python and Javascript.credentialID`)}</>,
+                    link: <>{t(`about.certificates.institutions.Web Programming with Python and Javascript.link`)}</>,
+                    label: <>{t(`about.certificates.institutions.Web Programming with Python and Javascript.label`)}</>,
+                },
+                {
+                    name: <>{t(`about.certificates.institutions.Agents Course.name`)}</>,
+                    credentialID: <>{t(`about.certificates.institutions.Agents Course.credentialID`)}</>,
+                    link: <>{t(`about.certificates.institutions.Agents Course.link`)}</>,
+                    label: <>{t(`about.certificates.institutions.Agents Course.label`)}</>,
+                },
+                {
                     name: <>{t(`about.certificates.institutions.Business Intelligence.name`)}</>,
                     credentialID: <>{t(`about.certificates.institutions.Business Intelligence.credentialID`)}</>,
                     link: <>{t(`about.certificates.institutions.Business Intelligence.link`)}</>,
@@ -164,13 +176,7 @@ const createI18nContent = (t) => {
                     credentialID: <>{t(`about.certificates.institutions.Business Analytics.credentialID`)}</>,
                     link: <>{t(`about.certificates.institutions.Business Analytics.link`)}</>,
                     label: <>{t(`about.certificates.institutions.Business Analytics.label`)}</>,
-                },
-                {
-                    name: <>{t(`about.certificates.institutions.Agents Course.name`)}</>,
-                    credentialID: <>{t(`about.certificates.institutions.Agents Course.credentialID`)}</>,
-                    link: <>{t(`about.certificates.institutions.Agents Course.link`)}</>,
-                    label: <>{t(`about.certificates.institutions.Agents Course.label`)}</>,
-                },
+                }
             ]
         },
         technical: {

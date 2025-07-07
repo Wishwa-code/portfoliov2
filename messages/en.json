@@ -73,6 +73,18 @@
         "certificates": {
             "title": "Certificates",
             "institutions": {
+                "Web Programming with Python and Javascript": {
+                    "name": "HarvardX CS50's Web Programming with Python and Javascript",
+                    "credentialID": "7928b2cd5c334fa5bb556217f0017578",
+                    "link": "https://courses.edx.org/certificates/7928b2cd5c334fa5bb556217f0017578",
+                    "label": "View Credential"
+                },
+                "Agents Course": {
+                    "name": "Hugging Face Agents Course",
+                    "credentialID": "wishwakankanamg",
+                    "link": "https://cdn-uploads.huggingface.co/production/uploads/noauth/oBiPkH6-PFkbHCe01_g-F.webp",
+                    "label": "View Credential"
+                },
                 "Business Intelligence": {
                     "name": "Google Business Intelligence Professional Certificate",
                     "credentialID": "UPQ2LBTXLZ7P",
@@ -84,13 +96,8 @@
                     "credentialID": "DVGKS8YBTGU4",
                     "link": "https://www.coursera.org/account/accomplishments/professional-cert/DVGKS8YBTGU4",
                     "label": "View Credential"
-                },
-                "Agents Course": {
-                    "name": "Hugging Face Agents Course",
-                    "credentialID": "wishwakankanamg",
-                    "link": "https://cdn-uploads.huggingface.co/production/uploads/noauth/oBiPkH6-PFkbHCe01_g-F.webp",
-                    "label": "View Credential"
                 }
+                
             }
         },
         "technical": {

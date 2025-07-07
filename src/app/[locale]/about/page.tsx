@@ -178,7 +178,6 @@ export default function About(
                             {about.calendar.display && (
                                 <Flex
                                     marginBottom="l"
-
                                     >
                                 <Button
                                     data-border="rounded"
