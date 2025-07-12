@@ -1,0 +1,49 @@
+---
+title: "Hodabass : AI agent developed to assist DIY builders in the brainstorming, planning, and visualization phases of their projects"
+publishedAt: "2025-07-10"
+summary: "I created hodabass agent at Huggingface Gradio & MCP hackthon. Hodabass can assist you to create 3d model of any DIY project idea. User interface is developed using Gradio. Trellis 3d model is hosted on modal infrastructure as serverless API endpoint built using Fast API. Mistral saga AI model is used for brainstorming phase, Mistral saga is a 24B parameter model trained on meticously curated datasets from across the middle east and south asia. Project plan is generated using OpenAI 4o moodel. Image is generated using Open AI Dall-e model."
+images:
+  - "/images/projects/project-00/hodabass-landing.webp"
+  - "/images/projects/project-00/logs.webp"
+  - "/images/projects/project-00/generated_image.webp"
+  - "/images/projects/project-00/generated_model.webp"
+  - "/images/projects/project-00/res-ipad.webp"
+  - "/images/projects/project-00/res-mobile.webp"
+
+sourcelabel: "View Live Demo"
+sourcelink: https://huggingface.co/spaces/Agents-MCP-Hackathon/DIY_assistant
+team:
+  - name: "John Doe"
+    role: "Software Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/company/once-ui/"
+---
+
+## Overview
+
+I created this hodabass agent at Huggingface Gradio & MCP hackthon. Hodabass can assist you to create 3d model of any DIY project idea at the moment using trellis 3d generation AI model. User interface developed using Gradio. Trellis 3d model is hosted on modal infrastructure as serverless API endpoint built using Fast API. Mistral saga AI model is used for brainstorming phase, Mistral saga is a 24B parameter model trained on meticously curated datasets from across the middle east and south asia. Project plan is generated using OpenAI 4o moodel. Image is generated using Open AI Dall-e model.
+
+## Key Features
+
+- **AI-Powered Brainstorming**:  Utilizes the Mistral-Saga model to help users explore and flesh out their initial DIY ideas in a conversational manner.
+- **Automated Project Planning**: Connects to ChatGPT-4o to generate a structured, step-by-step plan for the user's project based on the brainstorming session.
+- **2D Visual Concept Generation**:  Integrates with DALL-E 2 to create a 2D image of the final product, providing a clear visual reference.
+- **Image-to-3D Model Generation**: The generated 2D image is sent to a Trellis-Image-to-3D model, hosted as a serverless API on Modal, to produce a 3D visualization of the project.
+- **Intelligent Workflow Orchestration**: The entire multi-step process is managed by five interconnected LangGraph nodes, ensuring a smooth transition from one phase to the next.
+
+## Technologies Used
+
+- **AI Orchestration**: LangGraph
+- **User Interface**: Gradio
+- **AI Models**: Mistral-Saga, ChatGPT-4o, DALL-E 2, Trellis-Image-to-3D
+- **Infrastructure & Backend**: Modal (for serverless API hosting), Hugging Face (for model inference and cloud resources), FastAPI (for the API endpoint).
+
+## Challenges and Learnings
+
+I wrote complete article about the hackathon and published it in my blog: https://www.wishwa.dev/blog
+
+## Outcome
+
+A fully functional prototype of the Hodabass agent was successfully developed and demonstrated for the hackathon. The project serves as a strong proof-of-concept for how agentic AI can streamline complex, multi-step creative tasks. The final application showcases an end-to-end pipeline that takes a user's abstract idea and transforms it into a concrete 3D model, highlighting the exciting future of AI-powered assistance.
+
+---

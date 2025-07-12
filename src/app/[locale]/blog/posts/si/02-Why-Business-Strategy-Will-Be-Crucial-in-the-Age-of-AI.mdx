@@ -1,0 +1,42 @@
+---
+title: "Why Business Strategy Will Be Crucial in the Age of AI"
+publishedAt: "2024-07-11"
+summary: ""
+tag: "Journal"
+---
+I just finished the MCP Hackathon from Hugging Face, which started on June 2nd and was extended to June 10th. It was a great development experience, and I thought it would be valuable to write down my thoughts. Since we are still in the very early stages of AI adoption, I believe these reflections will be important to look back on once AI has taken its own course on Earth. First of all, I am very grateful to the Hugging Face community and the other partners who facilitated the event.
+
+I believe it provided opportunities for students and professionals from all around the world. It was a fantastic experience to communicate with developers globally, who patiently helped everyone, even with their "silly" questions.
+
+To get to the point, I think a significant problem for humanity today is excessive screen time. Our dopamine systems have been rewired to a point that pushes the limits of human biology. Imagine being a kid in the 2000s; we had no idea what a computer or a phone was. Every day when I woke up, I would wonder, "What am I really going to do today?" In contrast, kids today often have a pre-made schedule to follow throughout their day. This is a point that has been discussed by many people.
+
+So, agentic AI—or in other words, software that can talk to and listen to a user—will allow anyone to get things done just by speaking. Obviously, most forms of entertainment can't be replaced this way. Apart from that, I believe many interface systems will be completely revolutionized.
+
+So why is business strategy going to be so important? If coding becomes at least 50% automated by AI, then how you architect your system to perfectly align with your business strategy becomes critical. In my opinion, there are two possible paths: either rewriting entire applications to use a different architecture will become very easy, or we will have very large, complex systems requiring significant architectural decisions to ensure IT infrastructure and assets are well-organized to meet that 99.9% reliability.
+
+Either way, designing a system that is ready to adapt to the changing business landscape will be vital. I used to think that an AI agent was just a bunch of "if-else" conditions and GPT wrappers. But it's not; it is a very intelligent workflow that needs to be developed with accurate guardrails to deliver the best results. As of now, we haven't seen AI models capable of going further than our current understanding of them. Researchers say that we don't yet have the mathematics to understand exactly what is happening inside them. Models gained conversational behavior when the size of the dataset was increased, and researchers started finding different techniques to alter the results.
+
+By saying that, I am not trying to discredit the engineers behind this creation or the massive capacity of AI. But waiting for AGI is not the right approach to this invention. The question of "What is AGI?" has been debated for years, and different entities have their own definitions. Some even say that we already have AGI. I think there is a great misunderstanding in society regarding these terms. Sometimes I think, "Wow, humans tricked sand into thinking." On a serious note, I believe there is a lot of room to improve AI's capabilities, and many applications have not been invented yet. There is also the question of what would happen if we trained these models on videos.
+
+But taking action is the most realistic approach. So, I will proceed with the opinion that while there will be improvements in the models, building large systems with complex or agentic workflows is the future.
+
+Back to the topic: why will business strategy be so important in the age of Agentic AI? This time, unlike the eras of mobile, web, and social media, everyone is going to be very skeptical about these new systems. AI is revolutionary and can help people do a lot of things, but there's going to be one primary interface: the chat interface. Now we have to think about everything differently. AI agents need data and state to execute actions, and a simple chatbot that just executes actions won't be enough. The personality of your agent becomes the actual interface, and companies will have to rethink a lot of things about their values and how they operate. It's like having a special agent for every brand, capable of connecting to given MCP servers to fulfill its duties. The problem now is that we have to "tame" these LLMs without limiting their capabilities, all while delivering the desired experience or the personality of the chatbot.
+
+As I mentioned earlier, if coding were to become so accessible, combining that personality with your brand values while delivering value will be critical. This makes the system's architecture tightly coupled with business strategy. To say the least, this time, just putting beautiful animated cards on top of our data pipelines or databases won't be enough.
+
+Again, thank you very much to Hugging Face for the work they are doing. The fact that someone from a very small country can spin up an H200 and run the latest model released by the biggest corporations would be mind-blowing to someone from 10 years ago. To say a little bit about the agent I built: I wanted to build a DIY assistant agent, a kind of robot who sits next to you and helps you throughout each step of a process.
+
+This was the second time I had worked with LangGraph and Gradio. Also, it would be a crime not to mention how great Gradio is. At first, I was skeptical about it, but then I saw how the state works, and I was like, "Wow, this is different." I still haven't read the docs, but I managed to fix a few bugs here and there. I'm no expert on architecture of building front-end frameworks, but I think Gradio is going to be great.
+
+My project worked with just four main LangGraph nodes:
+- **AI Orchestration**: LangGraph
+
+- **Brainstorming node**: connected to Mistral-Saga
+
+- **Prompt planning node**: connected to ChatGPT-4o
+
+- **3D model generation node**: connected to Trellis-Image-to-3D through Modal and Dall-E 2 for image generation 
+
+All the services were provided by Hugging Face, including the Anthropic credits (which I ran out of), OpenAI credits, mistral credits, modal credits and,lack Forest Flux model through HF inference providers and etc. It's crazy; I mean, that much stuff is like heaven for developers like myself. All these ideas came to my head after trying to put things together for eight consecutive days. It was intense and overwhelming because sometimes when the models broke down, the whole workflow would break down. But since there was a lot of help from everyone, I was able to get through it. However, some of us are still stuck in the trenches. At one point, there was an OpenAI outage for the DALL-E endpoint, so I set up image generation to work with the Flux model by HF inference providers. It returned images as bytes, but I needed a public URL for the image to generate a 3D model. So, I used an old serverless Supabase function I had created to store images. Somehow, I had used a UUID for the image name, and the first time it worked, I got a threat warning from Cloudflare because my image name had some restricted characters, and I was banned. Luckily, the DALL-E 2 endpoint started working again a few hours before the demo, and I got it working before the deadline.
+
+These are very exciting times. Let's make sure AI will revolutionize the world to make everyone's lives better, for real this time.

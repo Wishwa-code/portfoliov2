@@ -31,8 +31,8 @@
         "title": "View bio",
         "description": "Meet {name}, {role} from {location}",
         "intro": {
-            "title": "Introduction",
-            "description": "Hello there ! I am wishwa  and i mostly live in the web but when duty calls ready to connect my interfaces with databases using django or go. If its not web, most probably i am delivering my interfaces to every screen using flutter or building AI agents. Always ready to tackle new problems using latest technologies and deliver exceptional products."
+            "title": "Introduction", 
+            "description": "Hello there, I am Wishwa. I love to build applications that empower people and bridge critical social gaps. I specialize in using front-end frameworks to build performant user interfaces that allow users to achieve their goals effortlessly. Lately, I have started learning about AI systems and exploring how to adapt my front-end skills to thrive in the age of AI."
         },
         "work": {
             "title": "Work Experience",

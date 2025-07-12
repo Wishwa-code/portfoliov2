@@ -68,77 +68,64 @@ export function LandingPage({ range, locale }: ProjectsProps) {
 
   // Apply image transformation based on scrollY
   useEffect(() => {
-  const maxScroll = 500;
-  const startScale = 20;
-  const endScale = 1;
-  const clampedScroll = Math.max(0, Math.min(scrollY, maxScroll));
-  const progress = clampedScroll / maxScroll;
-  const scale = startScale - (startScale - endScale) * progress;
-  const translateY = -50 + 50 * progress;
+	const maxScroll = 450;
+	const startScale = 20;
+	const endScale = 1;
+	const clampedScroll = Math.max(0, Math.min(scrollY, maxScroll));
+	const progress = clampedScroll / maxScroll;
+	const scale = startScale - (startScale - endScale) * progress;
+	const translateY = -50 + 50 * progress;
 
-  let fixedTimer: ReturnType<typeof setTimeout> | null = null;
-  let textTimer: ReturnType<typeof setTimeout> | null = null;
+	let fixedTimer: ReturnType<typeof setTimeout> | null = null;
+	let textTimer: ReturnType<typeof setTimeout> | null = null;
 
-  if (overlayRef.current) {
-    overlayRef.current.style.transform = `translate(-50%, ${translateY}%) scale(${scale})`;
-    overlayRef.current.style.opacity = clampedScroll > 30 ? '1' : '0';
-  }
+	if (overlayRef.current) {
+		overlayRef.current.style.transform = `translate(-50%, ${translateY}%) scale(${scale})`;
+		overlayRef.current.style.opacity = clampedScroll > 30 ? '1' : '0';
+	}
 
-  if (ladningImageRef.current && textRef.current && aboutemeButtontRef.current) {
-  if (clampedScroll < unlockThreshold) {
-    ladningImageRef.current.style.opacity = '1';
-    textRef.current.style.opacity = '1';
-    aboutemeButtontRef.current.style.opacity = '1'
-  } else {
-    // Step 1: Fade out
-    ladningImageRef.current.style.opacity = '0';
-    textRef.current.style.opacity = '0';
-    aboutemeButtontRef.current.style.opacity = '0'
+	if (ladningImageRef.current && textRef.current && aboutemeButtontRef.current) {
+		if (clampedScroll < unlockThreshold) {
+		ladningImageRef.current.style.opacity = '1';
+		textRef.current.style.opacity = '1';
+		aboutemeButtontRef.current.style.opacity = '1'
+		} else {
+		// Step 1: Fade out
+		ladningImageRef.current.style.opacity = '0';
+		textRef.current.style.opacity = '0';
+		aboutemeButtontRef.current.style.opacity = '0'
 
-    // Step 2: After transition ends, change positioclean up
-  }
-}
+		// Step 2: After transition ends, change positioclean up
+		}
+	}
 
-  if (overlayTextRef.current && overlayRef.current) {
-    if (translateY === 0) {
+	if (overlayTextRef.current && overlayRef.current) {
+		if (translateY === 0) {
 
-      setTimeout(() => {
-        if (overlayRef.current) {
-          overlayRef.current.style.opacity = '0';
-        }
-      }, 200);
+			setTimeout(() => {
+				if (overlayRef.current) {
+					overlayRef.current.style.opacity = '0';
+				}
+			}, 200);
 
-      textTimer = setTimeout(() => {
-        if (overlayTextRef.current && ladningImageRef.current && overlayRef.current) {
-          overlayTextRef.current.style.opacity = '1';
-          overlayRef.current.style.opacity = '0';
+			textTimer = setTimeout(() => {
+				if (overlayTextRef.current && ladningImageRef.current && overlayRef.current) {
+					overlayTextRef.current.style.opacity = '1';
+					overlayRef.current.style.opacity = '0';
+					ladningImageRef.current.style.opacity = '0';
+				}
+			}, 300);
+		} else {
+			overlayTextRef.current.style.opacity = '0';
+		}
+	}
 
-          ladningImageRef.current.style.opacity = '0';
-        }
-      }, 300);
-    } else {
-      overlayTextRef.current.style.opacity = '0';
-    }
-  }
 
-//   if (overlayRef.current && overlayTextRef.current) {
-//   // Fade overlayRef out from scrollY 200 to 500 (example range)
-//   const fadeStart = 200;
-//   const fadeEnd = 500;
-//   const fadeProgress = Math.min(Math.max((clampedScroll - fadeStart) / (fadeEnd - fadeStart), 0), 1);
-//   const overlayOpacity = 1 - fadeProgress;
-
-//   overlayRef.current.style.opacity = `${overlayOpacity}`;
-
-//   // Fade in overlayText when zoom ends
-//   overlayTextRef.current.style.opacity = clampedScroll >= unlockThreshold ? '1' : '0';
-// }
-
-  // Clean up both timers
-  return () => {
-    if (fixedTimer) clearTimeout(fixedTimer);
-    if (textTimer) clearTimeout(textTimer);
-  };
+	// Clean up both timers
+	return () => {
+		if (fixedTimer) clearTimeout(fixedTimer);
+		if (textTimer) clearTimeout(textTimer);
+	};
 }, [scrollY]);
 
   return (
@@ -199,7 +186,7 @@ export function LandingPage({ range, locale }: ProjectsProps) {
         src={config.style.theme === 'dark' ? "/images/backdroptext.webp" : "/images/backdrop-text-dark.webp"}
         alt="OverlayText"
         className={styles.overlayText}
-         width={1500}
+        width={1500}
         height={550}
       />
     </Flex>
