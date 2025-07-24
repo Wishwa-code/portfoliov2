@@ -1,0 +1,79 @@
+
+.position {
+    // position: sticky;
+    position: fixed;
+    top: 100%; // Position it right below the header
+    right: 0%;
+    top: 0;
+    width:200px;
+    height:100vh;
+}
+
+.overlayCard {
+    // position: absolute;
+    // top: 100%; // Position it right below the header
+    // left: 50%;
+    // transform: translateX(-50%);
+    z-index: 1000;
+    min-width: 200px; // Adjust as needed
+}
+
+.absoluteOverlay {
+    // position: fixed; // This ensures it stays in view even when scrolling
+    // top: 60px; // Adjust this value based on your header height
+    // left: 90%;
+    // transform: translateX(-50%);
+}
+
+.menuButton {
+    position: absolute;
+    top: 65px; // Adjust this value based on your header height
+    right:65px;
+    
+    // transform: translateX(-50%);
+    z-index: 1000;
+
+    @media (max-width: 480px) {
+        top: 90px; // Adjust this value based on your header height
+        right:16px;
+    }
+
+}
+
+.menuContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 225px;
+  height: 100vh;
+  background-color: var(--your-bg-color); // Use your background token
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); // Fast start, slow end
+  transform: translateY(-100%); // Start hidden above
+  z-index: 999;
+}
+
+.menuContainer.show {
+  transform: translateY(0); // Slide in
+}
+
+
+@media (--s) {
+    .position {
+        top: auto;
+        position: fixed;
+        bottom: var(--static-space-24);
+    }
+}
+
+// Add media query for mobile
+@media (max-width: 768px) { // Adjust breakpoint as needed
+    .overlayCard {
+        position: fixed;
+        top: auto;
+        bottom: 60px; // Adjust based on your header height
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%; // Make it wider on mobile
+        max-width: 300px; // But not too wide
+    }
+}
