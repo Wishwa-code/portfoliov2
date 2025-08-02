@@ -53,7 +53,7 @@ const createI18nContent = (t) => {
         {
             name: 'Youtube',
             icon: 'youtube',
-            link: 'https://youtube.com/@boto8777?si=yXnnintTjRC6ScbW',
+            link: 'http://youtube.com/@wishwa4208',
         },
         {
             name: 'LinkedIn',
